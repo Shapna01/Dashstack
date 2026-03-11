@@ -11,6 +11,32 @@ export default function Products() {
     return {};
   });
 
+  const createOrder = async (product) => {
+    try {
+      const res = await fetch("/api/orders", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+        name: product.title,
+        address: product.brand,
+        type: product.category,
+        price: product.price,
+        quantity: 1,
+        status: "Processing",
+        
+        })
+      });
+
+      const data = await res.json();
+      console.log("Order created:", data);
+      alert("Order Created!");
+    } catch (error) {
+      console.error("Failed to create order", error);
+    }
+  };
+
   useEffect(() => {
     fetch("https://dummyjson.com/products")
       .then((res) => res.json())
@@ -29,7 +55,7 @@ export default function Products() {
   function StarRating({ rating: initialRating }) {
     const [hoverRating, setHoverRating] = useState(0);
     const [selectedRating, setSelectedRating] = useState(initialRating);
-
+  
     return (
       <div className="flex">
         {[1, 2, 3, 4, 5].map((star) => {
@@ -166,11 +192,11 @@ export default function Products() {
               </div>
 
               <button
-                style={{ backgroundColor: "#E2EAF8" }}
-                className="text-black-900 font-bold rounded px-3 py-1 text-sm w-max hover:bg-blue-300 mt-2"
-              >
-                Edit Product
-              </button>
+  onClick={() => createOrder(product)}
+  className="text-black font-bold rounded px-3 py-1 text-sm w-max bg-blue-200 hover:bg-blue-300 mt-2"
+>
+  Create Order
+</button>
             </div>
 
             <div

@@ -16,14 +16,14 @@ export default function Sidebar() {
   ];
 
   const pages = [
-    { name: "Pricing" },
-    { name: "Calendar" },
-    { name: "To-Do" },
-    { name: "Contact" },
-    { name: "Invoice" },
-    { name: "UI Elements" },
-    { name: "Team" },
-    { name: "Table" }
+    { name: "Pricing" ,path: "/pricing"},
+    { name: "Calendar" ,path:"/calendar"},
+    { name: "To-Do" ,path:"/to-do"},
+    { name: "Contact" ,path:"/contact"},
+    { name: "Invoice" ,path:"/invoice"},
+    { name: "UI Elements" ,path:"/ui-elements"},
+    { name: "Team" ,path:"/team"},
+    { name: "Table" ,path:"/table"}
   ];
 
   return (
@@ -55,17 +55,21 @@ export default function Sidebar() {
       <p className="text-xs text-gray-400 mb-3">PAGES</p>
 
       <ul className="space-y-2">
-        {pages.map((item) => (
-          <li key={item.name}>
-            <Link
-              href="#"
-              className="flex items-center h-[44px] px-4 text-gray-600 hover:bg-gray-100 rounded-lg"
-            >
-              {item.name}
-            </Link>
-          </li>
-        ))}
-      </ul>
+  {pages.map((item) => (
+    <li key={item.name}>
+      <Link
+        href={item.path}
+        className={`flex items-center h-[44px] px-4 text-[14px] font-semibold rounded-lg ${
+          pathname === item.path
+            ? "bg-blue-500 text-white"
+            : "text-[#202224] hover:bg-gray-100"
+        }`}
+      >
+        {item.name}
+      </Link>
+    </li>
+  ))}
+</ul>
 
       <div className="mt-auto">
 

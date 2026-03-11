@@ -22,42 +22,30 @@ export default function OrdersPage() {
     "In Transit",
   ];
 
-  const randomStatus = () => {
-    return statuses[Math.floor(Math.random() * statuses.length)];
-  };
-
-  const randomDate = () => {
-    const start = new Date(2024, 0, 1);
-    const end = new Date();
-    return new Date(
-      start.getTime() + Math.random() * (end.getTime() - start.getTime())
-    );
-  };
-
   const fetchOrders = async () => {
-  try {
-    const res = await fetch("/api/orders");
-    const data = await res.json();
+    try {
+      const res = await fetch("/api/orders");
+      const data = await res.json();
 
-    const formattedOrders = data.map((order) => ({
-      id: order.id,
-      name: order.name,
-      address: order.address,
-      date: order.order_date,
-      type: order.type,
-      status: order.status,
-    }));
+      const formattedOrders = data.map((order) => ({
+        id: order.id,
+        name: order.name,
+        address: order.address,
+        date: order.order_date,
+        type: order.type,
+        status: order.status,
+      }));
 
-    setOrders(formattedOrders);
-    setFilteredOrders(formattedOrders);
-  } catch (error) {
-    console.error("Failed to fetch orders:", error);
-  }
-};
+      setOrders(formattedOrders);
+      setFilteredOrders(formattedOrders);
+    } catch (error) {
+      console.error("Failed to fetch orders:", error);
+    }
+  };
 
   useEffect(() => {
-  fetchOrders();
-}, []);
+    fetchOrders();
+  }, []);
 
   useEffect(() => {
     let filtered = [...orders];
@@ -79,7 +67,6 @@ export default function OrdersPage() {
     }
 
     setFilteredOrders(filtered);
-
   }, [typeFilter, statusFilter, selectedDate, orders]);
 
   const resetFilters = () => {
@@ -94,18 +81,13 @@ export default function OrdersPage() {
 
       <h2 className="text-2xl font-bold mb-6">Order Lists</h2>
 
-      {/* FILTER BAR */}
 
       <div className="bg-white border rounded-xl shadow-sm flex items-center overflow-hidden w-fit">
-
-        {/* Filter Label */}
 
         <div className="flex items-center gap-2 px-4 py-3 border-r text-gray-600">
           <FiFilter />
           <span className="font-medium">Filter By</span>
         </div>
-
-        {/* Date */}
 
         <div className="flex items-center gap-2 px-4 py-3 border-r text-gray-600">
           <DatePicker
@@ -116,8 +98,6 @@ export default function OrdersPage() {
           />
           <FiChevronDown size={16} />
         </div>
-
-        {/* Order Type */}
 
         <div className="flex items-center gap-2 px-4 py-3 border-r text-gray-600">
           <select
@@ -133,8 +113,6 @@ export default function OrdersPage() {
           </select>
           <FiChevronDown size={16} />
         </div>
-
-        {/* Order Status */}
 
         <div className="flex items-center gap-2 px-4 py-3 border-r text-gray-600">
           <select
@@ -152,8 +130,6 @@ export default function OrdersPage() {
           <FiChevronDown size={16} />
         </div>
 
-        {/* Reset */}
-
         <button
           onClick={resetFilters}
           className="px-4 py-3 text-red-500 font-medium flex items-center gap-2"
@@ -163,37 +139,47 @@ export default function OrdersPage() {
 
       </div>
 
-      {/* TABLE */}
 
       <div className="bg-white shadow rounded-lg overflow-hidden mt-6">
 
         <table className="w-full text-sm">
 
-          <thead className="bg-gray-100">
+          <thead className="bg-gray-100 text-gray-600">
             <tr className="text-left">
-              <th className="p-3">ID</th>
-              <th className="p-3">NAME</th>
-              <th className="p-3">ADDRESS</th>
-              <th className="p-3">DATE</th>
-              <th className="p-3">TYPE</th>
-              <th className="p-3">STATUS</th>
+              <th className="py-5 px-4">ID</th>
+              <th className="py-5 px-4">NAME</th>
+              <th className="py-5 px-4">ADDRESS</th>
+              <th className="py-5 px-4">DATE</th>
+              <th className="py-5 px-4">TYPE</th>
+              <th className="py-5 px-4">STATUS</th>
             </tr>
           </thead>
 
           <tbody>
 
             {filteredOrders.map((order) => (
-              <tr key={order.id} className="border-t">
+              <tr
+                key={order.id}
+                className="border-b border-gray-100 hover:bg-gray-50"
+              >
 
-                <td className="p-3">000{order.id}</td>
-                <td className="p-3">{order.name}</td>
-                <td className="p-3">{order.address}</td>
-                <td className="p-3">
+                <td className="py-5 px-4">000{order.id}</td>
+
+                <td className="py-5 px-4 font-medium">
+                  {order.name}
+                </td>
+
+                <td className="py-5 px-4 text-gray-500">
+                  {order.address}
+                </td>
+
+                <td className="py-5 px-4">
                   {new Date(order.date).toLocaleDateString()}
                 </td>
-                <td className="p-3">{order.type}</td>
 
-                <td className="p-3">
+                <td className="py-5 px-4">{order.type}</td>
+
+                <td className="py-5 px-4">
                   <span className="px-3 py-1 text-xs rounded bg-blue-100 text-blue-600">
                     {order.status}
                   </span>
