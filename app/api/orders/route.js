@@ -12,7 +12,7 @@ export async function GET() {
 }
 export async function POST(req) {
   try {
-    const { name, address, type, status } = await req.json();
+    const { name, address, type, status ,price,quantity } = await req.json();
 
     const result = await pool.query(
       "INSERT INTO orders (name,address,order_date,type,status,price,quantity) VALUES ($1,$2,NOW(),$3,$4,$5,$6) RETURNING *",

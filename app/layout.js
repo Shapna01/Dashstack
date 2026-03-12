@@ -7,6 +7,7 @@ const nunito = Nunito_Sans({
   subsets: ["latin"],
   weight: ["400","600","700","800"]
 });
+
 export const metadata = {
   title: "DashStack",
   description: "Admin Dashboard",
@@ -15,9 +16,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body className={nunito.className}>
 
-        <div className="flex min-h-screen">
+        <div className="flex min-h-screen bg-[#F5F6FA]">
 
           <SideBar />
 
@@ -25,9 +26,9 @@ export default function RootLayout({ children }) {
 
             <TopBar />
 
-            <div className="p-6 flex-1">
+            <main className="flex-1 p-6">
               {children}
-            </div>
+            </main>
 
           </div>
 

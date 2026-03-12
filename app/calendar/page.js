@@ -70,11 +70,11 @@ setShowModal(false);
 }
 
 return(
+    
 
 <div className="bg-[#f6f8fb] min-h-screen flex justify-center pt-[100px]">
 
 <div className="flex gap-[24px]">
-
 
 <div className="w-[286px] h-[900px] bg-white rounded-xl shadow-sm p-6">
 

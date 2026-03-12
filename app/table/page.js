@@ -65,7 +65,7 @@ export default function TablesPage() {
       <div className="bg-white shadow rounded-lg p-6">
 
         <div className="flex justify-between mb-4">
-          <h2 className="text-xl font-bold">Order List</h2>
+          <h2 className="text-xl font-bold">Table</h2>
 
           <div className="relative">
             <FiSearch className="absolute left-3 top-2.5 text-gray-400" />
