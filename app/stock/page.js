@@ -13,6 +13,7 @@ export default function ProductStock() {
     title: "",
     price: "",
     stock: "",
+
   });
 
   const itemsPerPage = 9;
@@ -71,14 +72,7 @@ export default function ProductStock() {
   };
 
   return (
-    <div
-      className="mx-auto p-6"
-      style={{
-        width: "1201px",
-        height: "1070px",
-        backgroundColor: "#F5F6FA",
-      }}
-    >
+    <div >
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-bold">Product Stock</h2>
 
@@ -149,7 +143,6 @@ export default function ProductStock() {
                   <div className="flex gap-2">
                     <span className="w-4 h-4 rounded-full bg-red-400"></span>
                     <span className="w-4 h-4 rounded-full bg-blue-400"></span>
-                    <span className="w-4 h-4 rounded-full bg-green-400"></span>
                     <span className="w-4 h-4 rounded-full bg-purple-400"></span>
                     <span className="w-4 h-4 rounded-full bg-yellow-400"></span>
                   </div>

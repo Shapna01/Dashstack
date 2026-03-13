@@ -2,9 +2,9 @@
 
 export default function AddContact() {
   return (
-    <div className="flex justify-center bg-gray-100 min-h-screen p-10">
+    <div >
 
-      <div className="w-[1140px]">
+      <div className="max-w-[1140px] mx-auto">
 
         <h1 className="text-2xl font-bold mb-6">
           Add New Contact
@@ -25,7 +25,7 @@ export default function AddContact() {
           </div>
 
 
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
             <div>
               <label className="text-sm text-gray-500">First Name</label>

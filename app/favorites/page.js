@@ -59,14 +59,14 @@ export default function Favourites() {
   }
 
   return (
-    <div className="p-8 bg-gray-50 min-h-screen">
+    <div >
       <h1 className="text-3xl font-bold mb-6">Favourites</h1>
       <Link href="/" className="mb-6 inline-block text-blue-600 font-semibold">
         Back to Products
       </Link>
 
       <div
-        className="grid gap-x-6 gap-y-8 justify-center"
+        className="grid grid-cols-3 gap-x-6 gap-y-8 justify-center"
         style={{ gridTemplateColumns: "repeat(3, 361px)" }}
       >
         {favouriteProducts.length === 0 && <p>No favourites yet.</p>}

@@ -24,9 +24,9 @@ export default function AddMember() {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen flex justify-center">
+    <div >
 
-      <div className="w-[1140px] mt-10">
+      <div className="max-w-[1140px] mx-auto">
 
         <h1 className="text-2xl font-semibold mb-6">
           Add Team Member

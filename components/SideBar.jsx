@@ -27,7 +27,7 @@ export default function Sidebar() {
   ];
 
   return (
-    <div className="w-[240px] h-screen bg-white border-r border-[#F1F1F1] px-6 py-6 flex flex-col">
+    <div className="w-[240px] min-h-screen bg-white border-r border-[#F1F1F1] px-6 py-6 flex flex-col">
 
       <h1 className="text-[20px] font-extrabold leading-none text-[#202224] mb-10">
         DashStack
@@ -71,9 +71,9 @@ export default function Sidebar() {
   ))}
 </ul>
 
-      <div className="mt-auto">
+      <div className="mt-6">
 
-        <div className="border-t border-[#F1F1F1] my-6"></div>
+  <div className="border-t border-gray-200 my-4"></div>
 
         <Link
           href="/settings"

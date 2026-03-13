@@ -30,16 +30,10 @@ export default function StatCard({ title, value }) {
   return (
     <div className="relative bg-white rounded-[14px] shadow w-[262px] h-[161px] p-4">
       <div className="absolute top-4 left-4 flex flex-col">
-        <span
-          className="text-gray-700 font-semibold text-[16px] leading-[22px] opacity-70"
-          style={{ fontFamily: "'Nunito Sans', sans-serif" }}
-        >
+        <span className="text-gray-700 font-semibold text-[16px] leading-[22px] opacity-70">
           {title}
         </span>
-        <span
-          className="text-gray-900 font-bold text-[22px] leading-[26px] mt-2"
-          style={{ fontFamily: "'Nunito Sans', sans-serif" }}
-        >
+        <span className="text-gray-900 font-bold text-[22px] leading-[26px] mt-2">
           {value}
         </span>
       </div>
@@ -50,4 +44,3 @@ export default function StatCard({ title, value }) {
     </div>
   );
 }
-

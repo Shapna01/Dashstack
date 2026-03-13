@@ -92,9 +92,9 @@ export default function Team() {
   ]);
 
   return (
-    <div className="bg-gray-100 min-h-screen flex justify-center">
+    <div >
 
-        <div className="w-[1138px] mt-6">
+        <div className="max-w-[1138px] mx-auto">
 
 
         <div className="flex justify-between items-center mb-8">
@@ -110,33 +110,20 @@ export default function Team() {
 </div>
 
         <div
-          className="grid gap-6"
-          style={{
-            gridTemplateColumns: "repeat(4, 262px)"
-          }}
-        >
+         className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        
 
           {members.map((member) => (
 
             <div
               key={member.id}
-              className="bg-white rounded-xl shadow flex flex-col items-center justify-center text-center"
-              style={{
-                width: "262px",
-                height: "289px"
-              }}
+              className="bg-white rounded-xl shadow flex flex-col items-center justify-center text-center p-6"
             >
 
               <img
                 src={member.image}
                 alt={member.name}
-                style={{
-                  width: "110px",
-                  height: "110px",
-                  borderRadius: "50%",
-                  objectFit: "cover",
-                  marginBottom: "12px"
-                }}
+                className="w-[110px] h-[110px] rounded-full object-cover mb-3"
               />
 
               <h2 className="font-semibold">{member.name}</h2>

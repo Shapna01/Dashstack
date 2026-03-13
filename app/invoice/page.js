@@ -48,7 +48,7 @@ export default function InvoicePage() {
 
   return(
 
-    <div className="p-6">
+    <div >
 
       <div className="flex justify-between items-center mb-6">
 
@@ -135,6 +135,13 @@ export default function InvoicePage() {
               })}
 
             </tbody>
+            {orders.length === 0 && (
+            <tr>
+               <td colSpan="5" className="text-center py-10 text-gray-400">
+               No orders found
+               </td>
+            </tr>
+            )}
 
           </table>
 

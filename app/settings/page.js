@@ -2,9 +2,9 @@
 
 export default function Settings() {
   return (
-    <div className="bg-gray-100 min-h-screen flex justify-center">
+    <div>
 
-      <div className="w-[1140px] mt-10">
+      <div className="max-w-[1140px] mx-auto space-y-6">
 
         <h1 className="text-2xl font-bold mb-6">
           General Settings
@@ -25,7 +25,7 @@ export default function Settings() {
           </div>
 
 
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
             <div>
               <label className="text-sm text-gray-500">
@@ -93,7 +93,7 @@ export default function Settings() {
           </div>
 
 
-          <div className="flex justify-center mt-10">
+          <div className="flex justify-center ">
 
             <button className="bg-blue-500 text-white px-12 py-3 rounded-lg hover:bg-blue-600 transition">
               Save

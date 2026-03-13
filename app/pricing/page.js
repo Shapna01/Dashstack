@@ -45,8 +45,8 @@ export default function PricingPage() {
   ];
 
   return (
-    <div className="p-10 bg-[#f8f9fd] min-h-screen">
-      <h1 className="text-2xl font-bold mb-10">Pricing</h1>
+    <div >
+      <h1 className="text-2xl font-bold ">Pricing</h1>
 
       <div className="flex gap-8 items-stretch">
         {plans.map((plan) => (

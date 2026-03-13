@@ -53,15 +53,7 @@ export default function TablesPage() {
   };
 
   return (
-    <div
-      className="p-6 space-y-10"
-      style={{
-        backgroundColor: "#F5F6FA",
-        minHeight: "100vh",
-      }}
-    >
-
-
+    <div>
       <div className="bg-white shadow rounded-lg p-6">
 
         <div className="flex justify-between mb-4">
@@ -100,7 +92,7 @@ export default function TablesPage() {
                 className="border-b border-gray-200 hover:bg-gray-50"
               >
 
-                <td className="py-5 px-4">{order.id}</td>
+                <td className="py-4 px-4">{order.id}</td>
 
                 <td className="py-4 px-4 font-medium">
                   {order.name}
@@ -110,13 +102,13 @@ export default function TablesPage() {
                   {order.address}
                 </td>
 
-                <td className="py-5 px-4">
+                <td className="py-4 px-4">
                   {new Date(order.order_date).toLocaleDateString()}
                 </td>
 
-                <td className="py-5 px-4">{order.type}</td>
+                <td className="py-4 px-4">{order.type}</td>
 
-                <td className="py-5 px-4">
+                <td className="py-4 px-4">
                   <span
                     className={`px-3 py-1 rounded-full text-xs
                     ${

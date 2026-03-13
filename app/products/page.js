@@ -118,7 +118,7 @@ export default function Products() {
   }
 
   return (
-    <div className="p-8 bg-gray-50 min-h-screen">
+    <div  >
       <h1 className="text-3xl font-bold mb-6">Products</h1>
 
       <div
@@ -129,6 +129,7 @@ export default function Products() {
           backgroundColor: "#3B82F6",
           color: "white",
         }}
+        
       >
         <div
           style={{

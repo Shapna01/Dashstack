@@ -21,7 +21,7 @@ const [open, setOpen] = React.useState(false);
   const bars = [40, 70, 55, 80, 65, 50, 90];
 
   return (
-    <div className="p-6 space-y-8 bg-[#F5F6FA] min-h-screen">
+    <div >
 
       <div className="flex justify-between items-center mb-6">
 
@@ -91,7 +91,7 @@ const [open, setOpen] = React.useState(false);
 </div></div>
      
      
-  <div className="bg-white rounded-xl shadow-sm p-6 w-[1140px] h-[318px] ">
+  <div className="bg-white rounded-xl shadow-sm p-6 w-full h-[318px] ">
   <h2 className="font-semibold text-[22px] mb-16">Bar Chart</h2>
 
 {(chartType === "bar" || chartType === "all") && (
@@ -157,10 +157,11 @@ const [open, setOpen] = React.useState(false);
 
   </div>)}
 </div>
+<br />
 
       {(chartType === "pie" || chartType === "all") && (
 
-      <div className="bg-white rounded-xl shadow-sm p-6 w-[1140px] h-[318px]">
+      <div className="bg-white rounded-xl shadow-sm p-6 w-full h-[318px]">
         <h2 className="font-semibold text-[22px] mb-16">Pie Chart</h2>
 
         <div className="flex justify-between">
@@ -180,10 +181,10 @@ const [open, setOpen] = React.useState(false);
       </div>
     )}
        
-
+<br />
       {(chartType === "donut" || chartType === "all") && (
  
-      <div className="bg-white rounded-xl shadow-sm p-6 w-[1140px] h-[318px]">
+      <div className="bg-white rounded-xl shadow-sm p-6 w-full h-[318px]">
 
         <h2 className="font-semibold text-[22px] mb-16">Donut Chart</h2>
 

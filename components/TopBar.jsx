@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Topbar() {
   return (
-    <div className="h-[70px] bg-white border-b border-gray-100 flex items-center px-6">
+    <div className="w-full h-[70px] bg-white border-b border-gray-100 flex items-center justify-between px-6">
 
       <div className="flex items-center">
         <div className="relative w-[388px] h-[38px]">
@@ -19,7 +19,7 @@ export default function Topbar() {
         </div>
       </div>
 
-      <div className="ml-auto flex items-center gap-4">
+      <div className="flex items-center gap-4">
 
         <button className="relative w-[18px] h-[18px] p-0 rounded-lg hover:bg-gray-100 flex items-center justify-center">
           <span className="text-gray-400 text-[18px] opacity-[0.1732]">🔔</span>

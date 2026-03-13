@@ -72,11 +72,11 @@ setShowModal(false);
 return(
     
 
-<div className="bg-[#f6f8fb] min-h-screen flex justify-center pt-[100px]">
+<div >
 
-<div className="flex gap-[24px]">
+<div className="flex gap-6">
 
-<div className="w-[286px] h-[900px] bg-white rounded-xl shadow-sm p-6">
+<div className="w-[286px] bg-white rounded-xl shadow-sm p-6">
 
 <button
 onClick={()=>setShowModal(true)}
@@ -144,7 +144,7 @@ className="w-10 h-10 rounded-full"
 </div>
 
 
-<div className="w-[834px] h-[900px] bg-white rounded-xl shadow-sm p-6">
+<div className="w-[834px] bg-white rounded-xl shadow-sm p-6">
 
 <div className="flex justify-between items-center mb-6">
 
@@ -214,7 +214,7 @@ return(
 <div
 key={index}
 onClick={()=>item.current && openModal(item.day)}
-className={`h-[110px] border relative p-2 text-sm cursor-pointer
+className={`min-h-[110px] border relative p-2 text-sm cursor-pointer
 ${item.next ? "bg-gray-50 text-gray-300" : "hover:bg-[#f8fafc]"}`}
 >
 
