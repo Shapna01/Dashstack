@@ -4,7 +4,7 @@ export default function AddContact() {
   return (
     <div >
 
-      <div className="max-w-[1140px] mx-auto">
+      <div className="w-[1190px] ">
 
         <h1 className="text-2xl font-bold mb-6">
           Add New Contact

@@ -4,7 +4,7 @@ export default function Settings() {
   return (
     <div>
 
-      <div className="max-w-[1140px] mx-auto space-y-6">
+      <div className="w-[1190px] space-y-6">
 
         <h1 className="text-2xl font-bold mb-6">
           General Settings

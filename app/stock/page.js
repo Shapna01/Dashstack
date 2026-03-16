@@ -91,13 +91,9 @@ export default function ProductStock() {
         </div>
       </div>
 
-      <div
-        className="bg-white shadow rounded-lg overflow-hidden mx-auto"
-        style={{
-          width: "1141px",
-          height: "811px",
-        }}
-      >
+    
+        <div className="bg-white shadow rounded-lg overflow-hidden  w-[1192px] h-[811px]  mt-[5px]">
+      
         <table className="w-full text-sm">
           <thead className="bg-gray-100 text-gray-600">
             <tr className="text-left">

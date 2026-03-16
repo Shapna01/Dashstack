@@ -53,9 +53,10 @@ export default function TodoPage() {
   };
 
   return (
-    <div className="p-6 bg-[#F5F6FA] min-h-screen">
+    <div className=" bg-[#F5F6FA] ">
+            <h1 className="text-3xl font-bold mb-6">Products</h1>
 
-      <div className="w-[1140px] h-[795px] bg-white rounded-xl shadow-sm p-8">
+      <div className="w-[1190px] h-[795px] bg-white rounded-xl shadow-sm p-8">
 
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-2xl font-semibold text-gray-800">
@@ -69,7 +70,7 @@ export default function TodoPage() {
             Add New Task
           </button>
         </div>
-
+ 
         <div className="space-y-4 overflow-y-auto h-[700px] pr-2">
 
           {tasks.map((task) => (

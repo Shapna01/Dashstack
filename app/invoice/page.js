@@ -99,49 +99,55 @@ export default function InvoicePage() {
 
             <tbody>
 
-              {orders.map((order,index)=>{
+{orders.length === 0 ? (
 
-                const rowTotal = order.price * order.quantity;
+  <tr>
+    <td colSpan="5" className="text-center py-10 text-gray-400">
+      No orders found
+    </td>
+  </tr>
 
-                return(
+) : (
 
-                  <tr
-                    key={order.id}
-                    className="border-b border-gray-100 hover:bg-gray-50"
-                  >
+  orders.map((order,index)=>{
 
-                    <td className="py-5 px-4">000{index+1}</td>
+    const rowTotal = order.price * order.quantity;
 
-                    <td className="py-5 px-4 font-medium">
-                      {order.name}
-                    </td>
+    return(
 
-                    <td className="py-5 px-4">
-                      {order.quantity}
-                    </td>
+      <tr
+        key={order.id}
+        className="border-b border-gray-100 hover:bg-gray-50"
+      >
 
-                    <td className="py-5 px-4">
-                      ${order.price}
-                    </td>
+        <td className="py-5 px-4">000{index+1}</td>
 
-                    <td className="py-5 px-4 font-semibold">
-                      ${rowTotal}
-                    </td>
+        <td className="py-5 px-4 font-medium">
+          {order.name}
+        </td>
 
-                  </tr>
+        <td className="py-5 px-4">
+          {order.quantity}
+        </td>
 
-                )
+        <td className="py-5 px-4">
+          ${order.price}
+        </td>
 
-              })}
+        <td className="py-5 px-4 font-semibold">
+          ${rowTotal}
+        </td>
 
-            </tbody>
-            {orders.length === 0 && (
-            <tr>
-               <td colSpan="5" className="text-center py-10 text-gray-400">
-               No orders found
-               </td>
-            </tr>
-            )}
+      </tr>
+
+    )
+
+  })
+
+)}
+
+</tbody>
+            
 
           </table>
 

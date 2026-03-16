@@ -26,7 +26,7 @@ export default function AddMember() {
   return (
     <div >
 
-      <div className="max-w-[1140px] mx-auto">
+      <div className="w-[1190px] ">
 
         <h1 className="text-2xl font-semibold mb-6">
           Add Team Member

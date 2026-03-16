@@ -37,7 +37,7 @@ return (
 <div
 className="bg-white rounded-[14px] p-6"
 style={{
-width: "1138px",
+width: "1190px",
 height: "420px",
 boxShadow: "6px 6px 54px rgba(0,0,0,0.05)"
 }}

@@ -94,7 +94,7 @@ export default function Team() {
   return (
     <div >
 
-        <div className="max-w-[1138px] mx-auto">
+        <div className="w-[1190px]  ">
 
 
         <div className="flex justify-between items-center mb-8">
