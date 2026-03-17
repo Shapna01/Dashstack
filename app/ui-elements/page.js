@@ -17,7 +17,13 @@ const [open, setOpen] = React.useState(false);
     { value: 60, color: "#F59E0B" },
     { value: 75, color: "#10B981" },
   ];
-
+  
+  const colors = [
+  "bg-blue-500",
+  "bg-green-500",
+  "bg-orange-500",
+  "bg-pink-500"
+];
   const bars = [40, 70, 55, 80, 65, 50, 90];
 
   return (
@@ -31,7 +37,7 @@ const [open, setOpen] = React.useState(false);
 
     <div
       onClick={() => setOpen(!open)}
-      className="flex items-center bg-white border rounded-lg w-[350px] h-[45px] cursor-pointer overflow-hidden text-sm"
+      className="flex items-center bg-white border rounded-lg w-full sm:w-[350px] h-[45px] cursor-pointer overflow-hidden text-sm"
     >
 
       <div className="w-[70px] flex justify-center items-center border-r">
@@ -91,85 +97,52 @@ const [open, setOpen] = React.useState(false);
 </div></div>
      
      
-  <div className="bg-white rounded-xl shadow-sm p-6 w-full min-h-[318px] ">
-  <h2 className="font-semibold text-[22px] mb-16">Bar Chart</h2>
+  <div className="bg-white rounded-xl shadow-sm p-4 sm:p-6 w-full h-auto min-h-[250px] sm:min-h-[318px] ">
+  <h2 className="font-semibold text-[22px] mb-6 sm:mb-10">Bar Chart</h2>
 
 {(chartType === "bar" || chartType === "all") && (
 
-  <div className="flex items-end gap-6 md:gap-10 w-full overflow-x-auto h-[140px]">
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 place-items-center">
 
-    <div className="flex items-end gap-3">
-      {[80,40,30,70,55,35,45].map((h,i)=>(
-        <div key={i} className="w-2 h-32 bg-blue-200 rounded-full flex items-end">
-          <div
-            className="w-full bg-blue-500 rounded-full"
-            style={{height:`${h}%`}}
-          />
-        </div>
-      ))}
-    </div>
+    {[
+      [80,40,30,70,55,35,45],
+      [20,30,25,35,28,22,27],
+      [40,60,50,70,45,55,65],
+      [25,30,28,35,40,32,38]
+    ].map((group, index) => (
 
+      <div key={index} className="flex items-end gap-2 h-[140px]">
 
-    <div className="flex items-end gap-3">
-      {[20,30,25,35,28,22,27].map((h,i)=>(
-        <div key={i} className="w-2 h-32 bg-gray-200 rounded-full flex items-end gap-4">
-          <div
-            className="w-full bg-teal-500 rounded-full"
-            style={{height:`${h}%`}}
-          />
-        </div>
-      ))}
-    </div>
-
-
-    <div className="flex items-end gap-3">
-      {[40,60,50,70,45,55,65].map((h,i)=>(
-        <div key={i} className="flex gap-4 items-end">
-          
-          <div className="w-2 h-32 bg-blue-200 rounded-full flex items-end">
+        {group.map((h, i) => (
+          <div key={i} className="w-2 h-full bg-gray-200 rounded-full flex items-end">
             <div
-              className="w-full bg-blue-600 rounded-full"
-              style={{height:`${h}%`}}
+              className={`w-full ${colors[index]} rounded-full`}
+              style={{ height: `${h}%` }}
             />
           </div>
+        ))}
 
-          <div className="w-2 h-32 bg-orange-200 rounded-full flex items-end">
-            <div
-              className="w-full bg-orange-500 rounded-full"
-              style={{height:`${h+10}%`}}
-            />
-          </div>
+      </div>
 
-        </div>
-      ))}
-    </div>
-     
-     <div className="flex items-end gap-3">
-      {[25,30,28,35,40,32,38].map((h,i)=>(
-        <div key={i} className="w-2 h-32 bg-pink-200 rounded-full flex gap-4 items-end">
-          <div
-            className="w-full bg-pink-500 rounded-full"
-            style={{height:`${h}%`}}
-          />
-        </div>
-      ))}
-    </div>
+    ))}
 
-  </div>)}
+  </div>
+
+)}
 </div>
 <br />
 
       {(chartType === "pie" || chartType === "all") && (
 
-      <div className="bg-white rounded-xl shadow-sm p-6 w-full h-[318px]">
-        <h2 className="font-semibold text-[22px] mb-16">Pie Chart</h2>
+      <div className="bg-white rounded-xl shadow-sm p-4 sm:p-6 w-full sm:min-h-[318px]">
+        <h2 className="font-semibold text-[22px] mb-6 sm:mb-10">Pie Chart</h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 place-items-center ">
 
           {pieCharts.map((chart, i) => (
             <div
               key={i}
-              className="rounded-full w-[120px] h-[120px] md:w-[155px] md:h-[155px]"
+              className="rounded-full w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] md:w-[155px] md:h-[155px]"
               style={{
                 background: `conic-gradient(${chart.color} ${chart.value}%, #e5e7eb ${chart.value}% 100%)`,
               }}
@@ -184,11 +157,11 @@ const [open, setOpen] = React.useState(false);
 <br />
       {(chartType === "donut" || chartType === "all") && (
  
-      <div className="bg-white rounded-xl shadow-sm p-6 w-full h-[318px]">
+      <div className="bg-white rounded-xl shadow-sm p-4 sm:p-6 w-full sm:min-h-[318px]">
 
-        <h2 className="font-semibold text-[22px] mb-16">Donut Chart</h2>
+        <h2 className="font-semibold text-[22px] mb-6 sm:mb-10">Donut Chart</h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-center">
+        <div className="grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 justify-items-center">
 
           {donutCharts.map((chart, i) => (
             <div

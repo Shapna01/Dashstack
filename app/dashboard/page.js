@@ -31,7 +31,7 @@ export default function Dashboard() {
     <div className="w-full">
       <h1 className="text-2xl font-bold mb-6">Dashboard</h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6 place-items-center">
         <StatCard title="Total Users" value={stats.totalUsers} />
         <StatCard title="Total Orders" value={stats.totalOrders} />
         <StatCard title="Total Sales" value={`$${stats.totalSales}`} />
