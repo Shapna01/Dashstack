@@ -61,26 +61,25 @@ export default function Favourites() {
   return (
     <div >
       <h1 className="text-3xl font-bold mb-6">Favourites</h1>
-      <Link href="/" className="mb-6 inline-block text-blue-600 font-semibold">
+      <Link href="/products" className="mb-6 inline-block text-blue-600 font-semibold">
         Back to Products
       </Link>
 
-      <div className="grid grid-cols-3 gap-6 justify-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {favouriteProducts.length === 0 && <p>No favourites yet.</p>}
 
         {favouriteProducts.map((product) => (
-          <div
-            className="bg-white rounded-lg shadow relative w-[361px] h-[497px]"
-          >
+  <div
+    key={product.id}
+    className="bg-white rounded-lg shadow relative p-4 flex flex-col"
+  >
             <img
   src={product.thumbnail}
   alt={product.title}
-  className="w-[361px] h-[317px] object-contain rounded-t-lg"
+  className="w-full h-64 object-contain"
 />
 
-            <div
-              className="absolute top-[341px] left-[24px] w-[321px] h-[133px] flex flex-col justify-between"
-            >
+            <div className="flex flex-col gap-2 mt-4">
               <div>
                 <h2 className="text-lg font-semibold mb-1">{product.title}</h2>
                 <p className="text-blue-600 font-bold mb-1">${product.price}</p>
@@ -100,9 +99,7 @@ export default function Favourites() {
               </button>
             </div>
 
-            <div
-             className="absolute top-[167px] left-[270px]"
-            >
+            <div className="absolute top-4 right-4">
               <button
                 onClick={() => toggleWishlist(product.id)}
                 aria-label="Toggle wishlist"

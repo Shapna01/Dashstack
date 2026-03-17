@@ -45,14 +45,14 @@ export default function PricingPage() {
   ];
 
   return (
-    <div >
+   <div className="w-full max-w-[1300px] mx-auto px-4">
       <h1 className="text-2xl font-bold ">Pricing</h1>
 
-      <div className="flex gap-8 items-stretch">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mt-8">
         {plans.map((plan) => (
           <div
             key={plan.name}
-            className="w-[350px] h-[848px] bg-white rounded-2xl border border-gray-100 shadow-sm flex flex-col"
+            className="w-full bg-white rounded-2xl border border-gray-100 shadow-sm flex flex-col"
           >
             <div className="px-10 pt-10 pb-6 text-center">
               <h2 className="text-lg font-semibold">{plan.name}</h2>
@@ -64,7 +64,7 @@ export default function PricingPage() {
 
             <hr className="border-gray-200" />
 
-            <ul className="flex-1 px-10 py-8 flex flex-col justify-between text-center">
+            <ul className="flex-1 px-8 py-8 space-y-4 text-center">
               {plan.features.map((feature, index) => (
                 <li
                   key={index}

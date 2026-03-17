@@ -26,17 +26,17 @@ export default function AddMember() {
   return (
     <div >
 
-      <div className="w-[1190px] ">
+      <div className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
 
         <h1 className="text-2xl font-semibold mb-6">
           Add Team Member
         </h1>
 
-        <div className="bg-white rounded-xl shadow p-12">
+        <div className="bg-white rounded-xl shadow p-6 sm:p-8 md:p-10">
 
           <div className="flex flex-col items-center mb-10">
 
-            <div className="w-[80px] h-[80px] bg-gray-200 rounded-full flex items-center justify-center text-gray-500">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gray-200 rounded-full flex items-center justify-center text-gray-500">
               📷
             </div>
 
@@ -48,7 +48,7 @@ export default function AddMember() {
 
           <form onSubmit={handleSubmit}>
 
-            <div className="grid grid-cols-2 gap-6 mb-6">
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
 
               <div>
                 <label className="text-sm text-gray-600">
@@ -80,7 +80,7 @@ export default function AddMember() {
 
             </div>
 
-            <div className="grid grid-cols-2 gap-6 mb-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
 
               <div>
                 <label className="text-sm text-gray-600">
@@ -112,7 +112,7 @@ export default function AddMember() {
 
             </div>
 
-            <div className="grid grid-cols-2 gap-6 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
 
               <div>
                 <label className="text-sm text-gray-600">
@@ -145,11 +145,11 @@ export default function AddMember() {
 
             </div>
 
-            <div className="flex justify-center">
+            <div className="flex justify-center sm:justify-end">
 
               <button
                 type="submit"
-                className="bg-blue-500 text-white px-10 py-3 rounded-lg hover:bg-blue-600"
+                className="bg-blue-500 text-white px-10 py-3 rounded-lg hover:bg-blue-600 w-full sm:w-auto"
               >
                 Add Now
               </button>

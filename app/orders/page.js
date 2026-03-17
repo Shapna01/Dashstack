@@ -82,14 +82,14 @@ export default function OrdersPage() {
       <h2 className="text-2xl font-bold mb-6">Order Lists</h2>
 
 
-      <div className="bg-white border rounded-xl shadow-sm flex items-center overflow-hidden w-fit">
+      <div className="bg-white border rounded-xl shadow-sm flex flex-wrap items-center gap-2 p-2 w-full">
 
-        <div className="flex items-center gap-2 px-4 py-3 border-r text-gray-600">
+        <div className="flex items-center gap-2 px-3 py-2 border rounded-lg text-gray-600">
           <FiFilter />
           <span className="font-medium">Filter By</span>
         </div>
 
-        <div className="flex items-center gap-2 px-4 py-3 border-r text-gray-600">
+        <div className="flex items-center gap-2 px-3 py-2 border rounded-lg text-gray-600">
           <DatePicker
             selected={selectedDate}
             onChange={(date) => setSelectedDate(date)}
@@ -99,7 +99,7 @@ export default function OrdersPage() {
           <FiChevronDown size={16} />
         </div>
 
-        <div className="flex items-center gap-2 px-4 py-3 border-r text-gray-600">
+        <div className="flex items-center gap-2 px-3 py-2 border rounded-lg text-gray-600">
           <select
             value={typeFilter}
             onChange={(e) => setTypeFilter(e.target.value)}
@@ -114,7 +114,7 @@ export default function OrdersPage() {
           <FiChevronDown size={16} />
         </div>
 
-        <div className="flex items-center gap-2 px-4 py-3 border-r text-gray-600">
+        <div className="flex items-center gap-2 px-3 py-2 border rounded-lg text-gray-600">
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
@@ -140,9 +140,9 @@ export default function OrdersPage() {
       </div>
 
 
-      <div className="bg-white shadow rounded-lg overflow-hidden mt-6">
+      <div className="bg-white shadow rounded-lg overflow-x-auto mt-6">
 
-        <table className="w-full text-sm">
+        <table className="w-full min-w-[700px] text-sm">
 
           <thead className="bg-gray-100 text-gray-600">
             <tr className="text-left">

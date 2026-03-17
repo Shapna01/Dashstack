@@ -34,16 +34,8 @@ fetchData();
 }, []);
 
 return (
-<div
-className="bg-white rounded-[14px] p-6"
-style={{
-width: "1190px",
-height: "420px",
-boxShadow: "6px 6px 54px rgba(0,0,0,0.05)"
-}}
->
 
-
+<div className="bg-white rounded-[14px] w-full p-4 md:p-6 shadow-[6px_6px_54px_rgba(0,0,0,0.05)]">
   <div className="flex justify-between items-center mb-6">
     <h3 className="text-[22px] font-bold text-gray-700">
       Deals Details
@@ -56,16 +48,16 @@ boxShadow: "6px 6px 54px rgba(0,0,0,0.05)"
     </select>
   </div>
 
+<div className="overflow-x-auto">
   <table className="w-full text-sm">
-
     <thead>
       <tr className="text-gray-500 border-b">
-        <th className="text-left py-3">Product Name</th>
-        <th className="text-left py-3">Location</th>
-        <th className="text-left py-3">Date - Time</th>
-        <th className="text-left py-3">Piece</th>
-        <th className="text-left py-3">Amount</th>
-        <th className="text-left py-3">Status</th>
+        <th className="text-left py-3 px-2">Product Name</th>
+        <th className="text-left py-3 px-2">Location</th>
+        <th className="text-left py-3 px-2">Date - Time</th>
+        <th className="text-left py-3 px-2">Piece</th>
+        <th className="text-left py-3 px-2">Amount</th>
+        <th className="text-left py-3 px-2">Status</th>
       </tr>
     </thead>
 
@@ -81,7 +73,7 @@ boxShadow: "6px 6px 54px rgba(0,0,0,0.05)"
 
           <tr key={order.id} className="border-b">
 
-            <td className="py-4 flex items-center gap-3">
+            <td className="py-4 px-2 flex items-center gap-3">
 
               <img
                 src={product?.thumbnail}
@@ -118,7 +110,7 @@ boxShadow: "6px 6px 54px rgba(0,0,0,0.05)"
     </tbody>
 
   </table>
-
+</div>
 </div>
 
 

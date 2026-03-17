@@ -5,6 +5,7 @@ import SideBar from "../components/SideBar";
 import TopBar from "../components/TopBar";
 import { Nunito_Sans } from "next/font/google";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 const nunito = Nunito_Sans({
   subsets: ["latin"],
@@ -14,6 +15,7 @@ const nunito = Nunito_Sans({
 export default function RootLayout({ children }) {
 
   const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
 
   const isAuthPage =
     pathname === "/login" || pathname === "/register";
@@ -32,20 +34,25 @@ export default function RootLayout({ children }) {
 
           <div className="flex w-full min-h-screen bg-[#F5F6FA]">
 
+            {isOpen && (
+  <div
+    className="fixed inset-0 bg-black/30 z-40 lg:hidden"
+    onClick={() => setIsOpen(false)}
+  />
+)}
 
-              <SideBar />
+<SideBar isOpen={isOpen} setIsOpen={setIsOpen} />
 
-              <div className="flex flex-col flex-1">
+            <div className="flex flex-col flex-1 min-w-0">
 
-                <TopBar />
+              <TopBar setIsOpen={setIsOpen} />
 
-                <main className="flex-1 p-6 overflow-y-auto">
-                  {children}
-                </main>
+              <main className="flex-1 p-4 md:p-6 overflow-y-auto min-w-0">
+                {children}
+              </main>
 
-              </div>
+            </div>
 
-            
           </div>
 
         )}

@@ -53,8 +53,8 @@ export default function TablesPage() {
   };
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold mb-6">Table</h1>
+    <div className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-6">Table</h1>
       <div className="bg-white shadow rounded-lg p-6">
 
         <div className="flex justify-between mb-4">
@@ -62,17 +62,18 @@ export default function TablesPage() {
           
         </div>
 
-        <table className="w-full text-sm">
+        <div className="overflow-x-auto">
+  <table className="min-w-[700px] w-full text-sm">
 
           <thead className="bg-gray-100 text-gray-600">
             <tr>
-              <th className="py-5 px-4 text-left">ID</th>
-              <th className="py-5 px-4 text-left">Name</th>
-              <th className="py-5 px-4 text-left">Address</th>
-              <th className="py-5 px-4 text-left">Date</th>
-              <th className="py-5 px-4 text-left">Type</th>
-              <th className="py-5 px-4 text-left">Status</th>
-              <th className="py-5 px-4 text-left">Action</th>
+              <th className="py-3 px-3 sm:py-4 sm:px-4 text-left">ID</th>
+              <th className="py-3 px-3 sm:py-4 sm:px-4 text-left">Name</th>
+              <th className="py-3 px-3 sm:py-4 sm:px-4 text-left">Address</th>
+              <th className="py-3 px-3 sm:py-4 sm:px-4 text-left">Date</th>
+              <th className="py-3 px-3 sm:py-4 sm:px-4 text-left">Type</th>
+              <th className="py-3 px-3 sm:py-4 sm:px-4 text-left">Status</th>
+              <th className="py-3 px-3 sm:py-4 sm:px-4 text-left">Action</th>
             </tr>
           </thead>
 
@@ -114,25 +115,27 @@ export default function TablesPage() {
                   </span>
                 </td>
 
-                <td className="py-4 px-4 flex gap-3">
-
-                  <button className="text-blue-500">
-                    <FiEdit />
-                  </button>
-
-                  <button
-                    onClick={() => deleteOrder(order.id)}
-                    className="text-red-500"
-                  >
-                    <FiTrash2 />
-                  </button>
-
-                </td>
+                <td className="py-4 px-4">
+  <div className="flex items-center gap-2 sm:gap-3">
+    <button className="text-blue-500">
+      <FiEdit />
+    </button>
+    <button
+      onClick={() => deleteOrder(order.id)}
+      className="text-red-500"
+    >
+      <FiTrash2 />
+    </button>
+  </div>
+</td>
+                
               </tr>
             ))}
           </tbody>
 
         </table>
+        
+        </div>
       </div>
 
 
@@ -148,7 +151,8 @@ export default function TablesPage() {
           
         </div>
 
-        <table className="w-full text-sm">
+        <div className="overflow-x-auto">
+  <table className="min-w-[700px] w-full text-sm">
 
           <thead className="bg-gray-100 text-gray-600">
             <tr>
@@ -215,9 +219,9 @@ export default function TablesPage() {
           </tbody>
 
         </table>
+      </div>
 
-
-        <div className="flex justify-end gap-3 mt-6">
+        <div className="flex justify-between sm:justify-end items-center gap-3 mt-6">
 
           <button
             onClick={() =>

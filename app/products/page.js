@@ -121,16 +121,9 @@ export default function Products() {
     <div  >
       <h1 className="text-3xl font-bold mb-6">Products</h1>
 
-      <div
-        className="rounded-xl shadow-lg mb-8 relative"
-        style={{
-          width: "1190px",
-          height: "346px",
-          backgroundColor: "#3B82F6",
-          color: "white",
-        }}
+      
+        <div className="w-full min-h-[220px] md:min-h-[300px] bg-blue-500 text-white rounded-xl shadow-lg mb-8 relative">
         
-      >
         <div
           style={{
             paddingTop: "30px",
@@ -151,46 +144,44 @@ export default function Products() {
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-6 justify-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
         {products.map((product) => (
           <div
   key={product.id}
-  className="bg-white rounded-lg shadow relative w-[361px] h-[497px]"
+  className="bg-white rounded-lg shadow relative p-4 flex flex-col"
 >
-            <img
-  src={product.thumbnail}
-  alt={product.title}
-  className="w-[361px] h-[317px] object-contain"
-/>
 
-            <div
-              className="absolute top-[341px] left-[24px] w-[321px] h-[133px] flex flex-col justify-between"
-            >
-              <div>
-                <h2 className="text-lg font-semibold mb-1">{product.title}</h2>
-                <p className="text-blue-600 font-bold mb-1">${product.price}</p>
-                <div className="flex items-center gap-2">
-                  <StarRating rating={product.rating} />
-                  <span className="text-gray-400 text-sm">
-                    ({Math.round(product.rating * 30)})
-                  </span>
-                </div>
-              </div>
+  <img
+    src={product.thumbnail}
+    alt={product.title}
+    className="w-full h-64 object-contain"
+  />
 
-              <button
-  onClick={() => createOrder(product)}
-  className="text-black font-bold rounded px-3 py-1 text-sm w-max bg-blue-200 hover:bg-blue-300 mt-2"
->
-  Create Order
-</button>
-            </div>
+  <div className="flex flex-col gap-2 mt-4">
+    <h2 className="text-lg font-semibold">{product.title}</h2>
 
-            <div
-              className="absolute top-[167px] left-[270px]"
-            >
-              <WishlistHeart productId={product.id} />
-            </div>
-          </div>
+    <p className="text-blue-600 font-bold">${product.price}</p>
+
+    <div className="flex items-center gap-2">
+      <StarRating rating={product.rating} />
+      <span className="text-gray-400 text-sm">
+        ({Math.round(product.rating * 30)})
+      </span>
+    </div>
+
+    <button
+      onClick={() => createOrder(product)}
+      className="text-black font-bold rounded px-3 py-2 text-sm w-max bg-blue-200 hover:bg-blue-300 mt-2"
+    >
+      Create Order
+    </button>
+  </div>
+
+  <div className="absolute top-4 right-4">
+    <WishlistHeart productId={product.id} />
+  </div>
+
+</div>
         ))}
       </div>
     </div>

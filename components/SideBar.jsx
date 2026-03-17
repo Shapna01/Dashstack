@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export default function Sidebar() {
+export default function Sidebar({ isOpen, setIsOpen }) {
   const pathname = usePathname();
 
   const menu = [
@@ -16,28 +16,32 @@ export default function Sidebar() {
   ];
 
   const pages = [
-    { name: "Pricing" ,path: "/pricing"},
-    { name: "Calendar" ,path:"/calendar"},
-    { name: "To-Do" ,path:"/to-do"},
-    { name: "Contact" ,path:"/contact"},
-    { name: "Invoice" ,path:"/invoice"},
-    { name: "UI Elements" ,path:"/ui-elements"},
-    { name: "Team" ,path:"/team"},
-    { name: "Table" ,path:"/table"}
+    { name: "Pricing", path: "/pricing" },
+    { name: "Calendar", path: "/calendar" },
+    { name: "To-Do", path: "/to-do" },
+    { name: "Contact", path: "/contact" },
+    { name: "Invoice", path: "/invoice" },
+    { name: "UI Elements", path: "/ui-elements" },
+    { name: "Team", path: "/team" },
+    { name: "Table", path: "/table" }
   ];
 
   return (
-    <div className="w-[240px] min-h-screen bg-white border-r border-[#F1F1F1] px-6 py-6 flex flex-col">
-
-      <h1 className="text-[20px] font-extrabold leading-none text-[#202224] mb-10">
+    <div
+  className={`fixed lg:static top-0 left-0 z-50 w-[240px] h-screen bg-white border-r border-[#F1F1F1] px-6 py-6 flex flex-col overflow-y-auto transition-transform duration-300
+  ${isOpen ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0`}
+>
+      <h1 className="text-[20px] font-extrabold text-[#202224] mb-10">
         DashStack
       </h1>
 
+      {/* MAIN MENU */}
       <ul className="space-y-2">
         {menu.map((item) => (
           <li key={item.name}>
             <Link
               href={item.path}
+              onClick={() => setIsOpen(false)}
               className={`flex items-center h-[44px] px-4 text-[14px] font-semibold rounded-lg ${
                 pathname === item.path
                   ? "bg-blue-500 text-white"
@@ -54,26 +58,28 @@ export default function Sidebar() {
 
       <p className="text-xs text-gray-400 mb-3">PAGES</p>
 
+      {/* PAGES */}
       <ul className="space-y-2">
-  {pages.map((item) => (
-    <li key={item.name}>
-      <Link
-        href={item.path}
-        className={`flex items-center h-[44px] px-4 text-[14px] font-semibold rounded-lg ${
-          pathname === item.path
-            ? "bg-blue-500 text-white"
-            : "text-[#202224] hover:bg-gray-100"
-        }`}
-      >
-        {item.name}
-      </Link>
-    </li>
-  ))}
-</ul>
+        {pages.map((item) => (
+          <li key={item.name}>
+            <Link
+              href={item.path}
+              onClick={() => setIsOpen(false)}
+              className={`flex items-center h-[44px] px-4 text-[14px] font-semibold rounded-lg ${
+                pathname === item.path
+                  ? "bg-blue-500 text-white"
+                  : "text-[#202224] hover:bg-gray-100"
+              }`}
+            >
+              {item.name}
+            </Link>
+          </li>
+        ))}
+      </ul>
 
       <div className="mt-6">
 
-  <div className="border-t border-gray-200 my-4"></div>
+        <div className="border-t border-gray-200 my-4"></div>
 
         <Link
           href="/settings"

@@ -45,9 +45,9 @@ const contacts = [
 
 return (
 
-     <div >
+    <div className="w-full max-w-[1300px] mx-auto px-4">
 
-       <div className="flex justify-between items-center mb-6">
+       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-6">
 
          <h2 className="text-2xl font-bold">
           Contact
@@ -62,7 +62,7 @@ return (
         </div>
 
 
-       <div className="grid grid-cols-3 gap-6">
+       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
           {contacts.map((contact)=>(
 
@@ -73,7 +73,7 @@ return (
 
         <img
            src={contact.image}
-           className="w-full h-48 object-cover"
+           className="w-full h-40 md:h-48 object-cover"
         />
 
 <div className="p-4">
@@ -86,7 +86,7 @@ return (
 {contact.email}
 </p>
 
-<button className="border rounded-lg px-4 py-2 text-sm flex items-center gap-2 mx-auto hover:bg-gray-100">
+<button className="border rounded-lg px-4 py-2 text-sm flex items-center gap-2 mx-auto hover:bg-gray-100 transition">
 <FiMail/>
 Message
 </button>
