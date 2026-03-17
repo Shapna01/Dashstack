@@ -54,21 +54,12 @@ export default function TablesPage() {
 
   return (
     <div>
+      <h1 className="text-3xl font-bold mb-6">Table</h1>
       <div className="bg-white shadow rounded-lg p-6">
 
         <div className="flex justify-between mb-4">
-          <h2 className="text-xl font-bold">Table</h2>
 
-          <div className="relative">
-            <FiSearch className="absolute left-3 top-2.5 text-gray-400" />
-
-            <input
-              placeholder="Search order"
-              value={orderSearch}
-              onChange={(e) => setOrderSearch(e.target.value)}
-              className="border rounded-lg pl-9 py-2 text-sm"
-            />
-          </div>
+          
         </div>
 
         <table className="w-full text-sm">
@@ -147,23 +138,14 @@ export default function TablesPage() {
 
 
 
-
+<br />
 
       <div className="bg-white shadow rounded-lg p-6">
 
         <div className="flex justify-between mb-4">
           <h2 className="text-xl font-bold">Product Stock</h2>
 
-          <div className="relative">
-            <FiSearch className="absolute left-3 top-2.5 text-gray-400" />
-
-            <input
-              placeholder="Search product"
-              value={productSearch}
-              onChange={(e) => setProductSearch(e.target.value)}
-              className="border rounded-lg pl-9 py-2 text-sm"
-            />
-          </div>
+          
         </div>
 
         <table className="w-full text-sm">
@@ -214,20 +196,20 @@ export default function TablesPage() {
                   <span className="w-4 h-4 bg-blue-400 rounded-full"></span>
                 </td>
 
-                <td className="py-4 px-4 flex gap-3">
-
+                <td className="py-4 px-4">
+                <div className="flex items-center gap-3">
                   <button className="text-blue-500">
-                    <FiEdit />
+                   <FiEdit />
                   </button>
 
                   <button
                     onClick={() => deleteProduct(product.id)}
                     className="text-red-500"
                   >
-                    <FiTrash2 />
+                  <FiTrash2 />
                   </button>
-
-                </td>
+                </div>
+                  </td>
               </tr>
             ))}
           </tbody>

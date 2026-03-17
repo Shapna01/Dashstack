@@ -80,7 +80,7 @@ export default function UnitsGraph() {
       className="
 bg-white
 rounded-[14px]
-w-[1138px]
+w-[1190px]
 h-[444px]
 p-6
 shadow-[6px_6px_54px_rgba(0,0,0,0.05)]
@@ -112,7 +112,7 @@ shadow-[6px_6px_54px_rgba(0,0,0,0.05)]
         data={data}
         options={options}
         width={1090}
-        height={300}
+        height={280}
       />
     </div>
   );

@@ -71,12 +71,11 @@ setShowModal(false);
 
 return(
     
-
 <div >
-
+<div className="text-3xl font-bold mb-6">Calendar</div>
 <div className="flex gap-6">
 
-<div className="w-[286px] bg-white rounded-xl shadow-sm p-6">
+<div className="w-[350px] bg-white rounded-xl shadow-sm p-6">
 
 <button
 onClick={()=>setShowModal(true)}

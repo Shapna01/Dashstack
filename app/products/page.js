@@ -124,7 +124,7 @@ export default function Products() {
       <div
         className="rounded-xl shadow-lg mb-8 relative"
         style={{
-          width: "1141px",
+          width: "1190px",
           height: "346px",
           backgroundColor: "#3B82F6",
           color: "white",
@@ -151,35 +151,20 @@ export default function Products() {
         </div>
       </div>
 
-      <div
-        className="grid gap-x-6 gap-y-8 justify-center"
-        style={{ gridTemplateColumns: "repeat(3, 361px)" }}
-      >
+      <div className="grid grid-cols-3 gap-6 justify-center">
         {products.map((product) => (
           <div
-            key={product.id}
-            className="bg-white rounded-lg shadow relative"
-            style={{ width: "361px", height: "497px" }}
-          >
+  key={product.id}
+  className="bg-white rounded-lg shadow relative w-[361px] h-[497px]"
+>
             <img
-              src={product.thumbnail}
-              alt={product.title}
-              style={{
-                width: "361px",
-                height: "317px",
-                objectFit: "contain",
-              }}
-            />
+  src={product.thumbnail}
+  alt={product.title}
+  className="w-[361px] h-[317px] object-contain"
+/>
 
             <div
-              style={{
-                width: "321px",
-                height: "133px",
-                position: "absolute",
-                top: "341px",
-                left: "24px",
-              }}
-              className="flex flex-col justify-between"
+              className="absolute top-[341px] left-[24px] w-[321px] h-[133px] flex flex-col justify-between"
             >
               <div>
                 <h2 className="text-lg font-semibold mb-1">{product.title}</h2>
@@ -201,11 +186,7 @@ export default function Products() {
             </div>
 
             <div
-              style={{
-                position: "absolute",
-                top: "167px",
-                left: "270px",
-              }}
+              className="absolute top-[167px] left-[270px]"
             >
               <WishlistHeart productId={product.id} />
             </div>
