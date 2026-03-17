@@ -46,7 +46,8 @@ export default function UnitsGraph() {
   };
 
   const options = {
-    responsive: false,
+    responsive: true,
+maintainAspectRatio: false,
     plugins: {
       legend: { display: false }
     },
@@ -75,45 +76,34 @@ export default function UnitsGraph() {
   };
 
   return (
-    <div
-     
-      className="
-bg-white
-rounded-[14px]
-w-[1190px]
-h-[444px]
-p-6
-shadow-[6px_6px_54px_rgba(0,0,0,0.05)]
-"
+    <div className="bg-white rounded-[14px] w-full p-4 md:p-6 shadow-[6px_6px_54px_rgba(0,0,0,0.05)]">
+
+  <div className="flex items-center justify-between mb-6">
+    <h2 className="text-[22px] font-bold text-gray-700">
+      Sales Details
+    </h2>
+
+    <select
+      value={month}
+      onChange={(e) => setMonth(e.target.value)}
+      className="border border-gray-200 rounded-md px-3 py-1 text-sm"
     >
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-[22px] font-bold text-gray-700">
-          Sales Details
-        </h2>
+      <option>January</option>
+      <option>March</option>
+      <option>April</option>
+      <option>May</option>
+      <option>June</option>
+      <option>July</option>
+      <option>October</option>
+      <option>September</option>
+      <option>August</option>
+    </select>
+  </div>
 
-        <select
-          value={month}
-          onChange={(e) => setMonth(e.target.value)}
-          className="border border-gray-200 rounded-md px-3 py-1 text-sm"
-        >
-          <option>January</option>
-          <option>March</option>
-          <option>April</option>
-          <option>May</option>
-          <option>June</option>
-          <option>July</option>
-          <option>October</option>
-          <option>September</option>
-          <option>August</option>
-        </select>
-      </div>
+  <div className="w-full h-[280px] md:h-[320px] lg:h-[350px]">
+    <Line data={data} options={options} />
+  </div>
 
-      <Line
-        data={data}
-        options={options}
-        width={1090}
-        height={280}
-      />
-    </div>
+</div>
   );
 }

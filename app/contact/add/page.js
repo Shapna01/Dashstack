@@ -2,17 +2,17 @@
 
 export default function AddContact() {
   return (
-    <div >
+    <div className="w-full px-4">
 
-      <div className="w-[1190px] ">
+      <div className="w-full max-w-[1190px] mx-auto">
 
         <h1 className="text-2xl font-bold mb-6">
           Add New Contact
         </h1>
 
-        <div className="bg-white rounded-xl shadow p-10">
+        <div className="bg-white rounded-xl shadow p-5 md:p-10">
 
-          <div className="flex flex-col items-center mb-10">
+         <div className="flex flex-col items-center mb-8 md:mb-10">
 
             <div className="w-20 h-20 rounded-full bg-gray-200 flex items-center justify-center text-xl">
               📷
@@ -82,7 +82,7 @@ export default function AddContact() {
 
           <div className="flex justify-center mt-10">
 
-            <button className="bg-blue-600 text-white px-10 py-3 rounded-lg">
+            <button className="bg-blue-600 text-white px-8 py-3 rounded-lg w-full md:w-auto">
               Add Now
             </button>
 

@@ -73,7 +73,7 @@ export default function ProductStock() {
 
   return (
     <div >
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6">
         <h2 className="text-2xl font-bold">Product Stock</h2>
 
         <div className="relative">
@@ -86,24 +86,24 @@ export default function ProductStock() {
               setSearch(e.target.value);
               setCurrentPage(1);
             }}
-            className="pl-9 pr-3 py-2 border rounded-lg text-sm outline-none focus:border-blue-400"
+            className="pl-9 pr-3 py-2 border rounded-lg text-sm outline-none focus:border-blue-400 w-full md:w-[250px]"
           />
         </div>
       </div>
 
     
-        <div className="bg-white shadow rounded-lg overflow-hidden  w-[1192px] h-[811px]  mt-[5px]">
+        <div className="bg-white shadow rounded-lg overflow-x-auto w-full mt-2">
       
-        <table className="w-full text-sm">
+        <table className="w-full min-w-[900px] text-sm">
           <thead className="bg-gray-100 text-gray-600">
             <tr className="text-left">
-              <th className="p-3">Image</th>
-              <th className="p-3">Product Name</th>
-              <th className="p-3">Category</th>
-              <th className="p-3">Price</th>
-              <th className="p-3">Piece</th>
-              <th className="p-3">Available Colors</th>
-              <th className="p-3">Action</th>
+              <th className="px-3 py-3 md:px-4">Image</th>
+              <th className="px-3 py-3 md:px-4">Product Name</th>
+              <th className="px-3 py-3 md:px-4">Category</th>
+              <th className="px-3 py-3 md:px-4">Price</th>
+              <th className="px-3 py-3 md:px-4">Piece</th>
+              <th className="px-3 py-3 md:px-4">Available Colors</th>
+              <th className="px-3 py-3 md:px-4">Action</th>
             </tr>
           </thead>
 

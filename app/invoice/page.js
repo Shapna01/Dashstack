@@ -48,7 +48,7 @@ export default function InvoicePage() {
 
   return(
 
-    <div >
+    <div className="w-full max-w-[1200px] mx-auto px-4">
 
       <div className="flex justify-between items-center mb-6">
 
@@ -60,7 +60,7 @@ export default function InvoicePage() {
 
 
       <div className="bg-white shadow rounded-lg p-6">
-        <div className="flex justify-between mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
 
           <div>
             <h3 className="font-semibold text-gray-600 mb-2">Invoice From</h3>
@@ -83,9 +83,9 @@ export default function InvoicePage() {
         </div>
 
 
-        <div className="bg-white shadow rounded-lg overflow-hidden">
+        <div className="bg-white shadow rounded-lg overflow-x-auto">
 
-          <table className="w-full text-sm">
+          <table className="w-full min-w-[650px] text-sm">
 
             <thead className="bg-gray-100 text-gray-600">
               <tr className="text-left">
@@ -154,7 +154,7 @@ export default function InvoicePage() {
         </div>
 
 
-        <div className="flex justify-end mt-6">
+        <div className="flex justify-end mt-6 text-right">
 
           <div className="text-right">
 
@@ -168,7 +168,7 @@ export default function InvoicePage() {
 
         </div>
         <br />
-         <div className="flex justify-end gap-3 mb-6">
+         <div className="flex flex-wrap justify-end gap-3 mb-6">
 
 
           <button

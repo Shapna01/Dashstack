@@ -94,36 +94,36 @@ export default function Team() {
   return (
     <div >
 
-        <div className="w-[1190px]  ">
+        <div className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
 
 
-        <div className="flex justify-between items-center mb-8">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-8">
 
   <h1 className="text-2xl font-bold">Team</h1>
 
   <Link href="/team/add-member">
-    <button className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600">
+    <button className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 w-full sm:w-auto">
       Add New Member
     </button>
   </Link>
 
 </div>
 
-        <div
-         className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        
+         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         
 
           {members.map((member) => (
 
             <div
               key={member.id}
-              className="bg-white rounded-xl shadow flex flex-col items-center justify-center text-center p-6"
+            className="bg-white rounded-xl shadow flex flex-col items-center text-center p-6 hover:shadow-md transition"
             >
 
               <img
                 src={member.image}
                 alt={member.name}
-                className="w-[110px] h-[110px] rounded-full object-cover mb-3"
+                className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover mb-3"
               />
 
               <h2 className="font-semibold">{member.name}</h2>

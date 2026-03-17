@@ -21,7 +21,7 @@ const [open, setOpen] = React.useState(false);
   const bars = [40, 70, 55, 80, 65, 50, 90];
 
   return (
-    <div >
+    <div className="w-full max-w-[1200px] mx-auto px-4">
 
       <div className="flex justify-between items-center mb-6">
 
@@ -91,12 +91,12 @@ const [open, setOpen] = React.useState(false);
 </div></div>
      
      
-  <div className="bg-white rounded-xl shadow-sm p-6 w-full h-[318px] ">
+  <div className="bg-white rounded-xl shadow-sm p-6 w-full min-h-[318px] ">
   <h2 className="font-semibold text-[22px] mb-16">Bar Chart</h2>
 
 {(chartType === "bar" || chartType === "all") && (
 
-  <div className="flex items-end gap-35 w-[600px] h-[140px] ">
+  <div className="flex items-end gap-6 md:gap-10 w-full overflow-x-auto h-[140px]">
 
     <div className="flex items-end gap-3">
       {[80,40,30,70,55,35,45].map((h,i)=>(
@@ -164,12 +164,12 @@ const [open, setOpen] = React.useState(false);
       <div className="bg-white rounded-xl shadow-sm p-6 w-full h-[318px]">
         <h2 className="font-semibold text-[22px] mb-16">Pie Chart</h2>
 
-        <div className="flex justify-between">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-center">
 
           {pieCharts.map((chart, i) => (
             <div
               key={i}
-              className="w-[155px] h-[155px] rounded-full"
+              className="rounded-full w-[120px] h-[120px] md:w-[155px] md:h-[155px]"
               style={{
                 background: `conic-gradient(${chart.color} ${chart.value}%, #e5e7eb ${chart.value}% 100%)`,
               }}
@@ -188,12 +188,12 @@ const [open, setOpen] = React.useState(false);
 
         <h2 className="font-semibold text-[22px] mb-16">Donut Chart</h2>
 
-        <div className="flex justify-between">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-center">
 
           {donutCharts.map((chart, i) => (
             <div
               key={i}
-              className="relative w-[156px] h-[156px] rounded-full"
+              className="relative rounded-full w-[120px] h-[120px] md:w-[156px] md:h-[156px]"
               style={{
                 background: `conic-gradient(${chart.color} ${chart.value}%, #e5e7eb ${chart.value}% 100%)`,
               }}

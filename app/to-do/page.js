@@ -53,14 +53,14 @@ export default function TodoPage() {
   };
 
   return (
-    <div className=" bg-[#F5F6FA] ">
-            <h1 className="text-3xl font-bold mb-6">Products</h1>
+    <div className="bg-[#F5F6FA] min-h-screen w-full px-4">
+            <h1 className="text-3xl font-bold mb-6">To Do List</h1>
 
-      <div className="w-[1190px] h-[795px] bg-white rounded-xl shadow-sm p-8">
+      <div className="w-full max-w-[1190px] mx-auto bg-white rounded-xl shadow-sm p-5 md:p-8">
 
-        <div className="flex justify-between items-center mb-8">
+       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-8">
           <h1 className="text-2xl font-semibold text-gray-800">
-            To-Do List
+            List
           </h1>
 
           <button
@@ -71,7 +71,7 @@ export default function TodoPage() {
           </button>
         </div>
  
-        <div className="space-y-4 overflow-y-auto h-[700px] pr-2">
+        <div className="space-y-4 overflow-y-auto max-h-[70vh] pr-2">
 
           {tasks.map((task) => (
             <div
@@ -93,7 +93,7 @@ export default function TodoPage() {
                   className="w-4 h-4"
                 />
 
-                <p className="text-sm">
+                <p className="text-sm break-words">
                   {task.text}
                 </p>
 
@@ -133,7 +133,7 @@ export default function TodoPage() {
       {showModal && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center">
 
-          <div className="bg-white p-6 rounded-lg w-[400px]">
+          <div className="bg-white p-6 rounded-lg w-[90%] max-w-[400px]">
 
             <h2 className="text-lg font-semibold mb-4">
               Add New Task

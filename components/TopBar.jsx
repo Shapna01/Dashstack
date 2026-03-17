@@ -1,58 +1,66 @@
 "use client";
 
 import Image from "next/image";
-
-export default function Topbar() {
+import { FiSearch, FiBell, FiChevronDown, FiMenu } from "react-icons/fi";
+export default function ({ setIsOpen }) {
   return (
-    <div className="w-full h-[70px] bg-white border-b border-gray-100 flex items-center justify-between px-6">
+    <div className="w-full h-[70px] bg-white border-b border-gray-200 flex items-center justify-between px-8">
+      <button
+  onClick={() => setIsOpen(true)}
+  className="lg:hidden text-[22px] text-gray-700 mr-2"
+>
+  <FiMenu />
+</button>
 
-      <div className="flex items-center">
-        <div className="relative w-[388px] h-[38px]">
-          <input
-            type="text"
-            placeholder="Search..."
-            className="w-full h-full pl-10 pr-4 rounded-[19px] border-[0.6px] border-gray-200 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 bg-[#F5F6FA]"
-          />
-          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-[16px] opacity-[0.1732]">
-            🔍
-          </span>
-        </div>
+      <div className="relative w-[160px] sm:w-[250px] md:w-[320px] lg:w-[388px] h-[38px]">
+        <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-[18px]" />
+        <input
+          type="text"
+          placeholder="Search..."
+          className="w-full h-full pl-10 pr-4 rounded-full bg-[#F5F6FA] text-sm outline-none"
+        />
       </div>
 
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-6">
 
-        <button className="relative w-[18px] h-[18px] p-0 rounded-lg hover:bg-gray-100 flex items-center justify-center">
-          <span className="text-gray-400 text-[18px] opacity-[0.1732]">🔔</span>
-          <span className="absolute -top-1 -right-1 min-w-[16px] h-4 bg-red-500 text-white text-xs font-bold rounded-full flex items-center justify-center px-1">
-            3
+        <div className="relative cursor-pointer">
+          <FiBell className="text-gray-600 text-[20px]" />
+
+          <span className="absolute -top-2 -right-2 w-[18px] h-[18px] bg-red-500 text-white text-[10px] rounded-full flex items-center justify-center font-semibold">
+            6
           </span>
-        </button>
+        </div>
 
-        <div className="flex items-center gap-2 cursor-pointer px-3 py-2 rounded-lg hover:bg-gray-100 text-[14px] font-semibold leading-[100%] border border-gray-100">
+        <div className="hidden sm:flex items-center gap-2 cursor-pointer">
           <Image
             src="/flags/us.png"
-            alt=""
-            width={20}
-            height={19}
-            className="rounded-sm"
+            alt="English"
+            width={24}
+            height={16}
           />
-          English
+          <span className="text-sm text-gray-700">English</span>
+          <FiChevronDown className="text-gray-500 text-[16px]" />
         </div>
 
         <div className="flex items-center gap-3 cursor-pointer">
           <Image
             src="/avatar.png"
-            alt=""
-            width={36}
-            height={36}
+            alt="User"
+            width={38}
+            height={38}
             className="rounded-full"
           />
-          <div className="flex flex-col">
-            <span className="text-gray-900 font-bold text-[14px] leading-[100%]">
+
+          <div className="flex flex-col leading-tight">
+            <span className="text-sm font-semibold text-gray-900">
               Moni Ray
             </span>
-            <span className="text-gray-500 text-xs leading-[100%]">Admin</span>
+            <span className="text-xs text-gray-500">
+              Admin
+            </span>
           </div>
+
+          <FiChevronDown className="text-gray-500 text-[16px]" />
         </div>
 
       </div>
