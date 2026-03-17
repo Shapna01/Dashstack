@@ -161,6 +161,7 @@ export default function Products() {
       <StarRating rating={product.rating} />
       <span className="text-gray-400 text-sm">
         ({Math.round(product.rating * 30)})
+       
       </span>
     </div>
 
