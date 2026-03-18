@@ -160,7 +160,7 @@ export default function InboxPage() {
   <input
     type="text"
     placeholder="Search mail"
-    className="w-full border rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+    className="w-full border border-gray-200 rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
   />
 </div>
 
@@ -182,7 +182,7 @@ export default function InboxPage() {
           { text: "Hi", sender: "me" },
         ]);
       }}
-className="grid grid-cols-[auto_auto_160px_120px_1fr_auto] items-center gap-3 px-4 py-3 border-b border-gray-200 hover:bg-gray-50 cursor-pointer text-sm"    >
+      className="grid grid-cols-[auto_auto_160px_120px_1fr_auto] items-center gap-3 px-4 py-3 border-b border-gray-100 hover:bg-gray-50 cursor-pointer text-sm"    >
       <input
         type="checkbox"
         checked={selectedIds.includes(mail.id)}
@@ -220,7 +220,7 @@ className="grid grid-cols-[auto_auto_160px_120px_1fr_auto] items-center gap-3 px
         className={`text-xs px-2 py-1 rounded-full w-fit ${
           mail.tag === "Primary"
             ? "bg-green-100 text-green-600"
-            : mail.tag === "Work"
+             : mail.tag === "Work"
             ? "bg-orange-100 text-orange-600"
             : mail.tag === "Social"
             ? "bg-blue-100 text-blue-600"
@@ -307,6 +307,7 @@ className="grid grid-cols-[auto_auto_160px_120px_1fr_auto] items-center gap-3 px
           msg.sender === "me"
             ? "bg-blue-500 text-white"
             : "bg-gray-100"
+            
         }`}
       >
         {msg.text}
@@ -315,17 +316,17 @@ className="grid grid-cols-[auto_auto_160px_120px_1fr_auto] items-center gap-3 px
   ))}
 </div>
 
-      <div className="border-t border-gray-100 p-3 flex flex-col sm:flex-row items-center gap-2">
+      <div className="border-t border-gray-100 p-3 flex flex-col sm:flex-row items-center gap-2 ">
 
   <input 
     type="text"
     value={input}
     onChange={(e) => setInput(e.target.value)}
     placeholder="Write message"
-    className="w-full sm:flex-1 px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+    className="w-full sm:flex-1 px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white "
   />
 
-  <div className="flex items-center gap-2">
+  <div className="flex items-center gap-2 ">
     <button className="p-2 text-gray-500 hover:text-blue-500">
       <Paperclip size={20} />
     </button>

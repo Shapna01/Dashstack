@@ -1,14 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
-import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";import { usePathname } from "next/navigation";
 import { FiSearch, FiBell, FiChevronDown, FiMenu } from "react-icons/fi";
+
 export default function ({ setIsOpen }) {
+const [highlight, setHighlight] = useState(false);
 
-  const searchRef = useRef(null);
+const searchRef = useRef(null);
 const pathname = usePathname();
-
 useEffect(() => {
   if (pathname === "/dashboard") {
     setTimeout(() => {
@@ -42,11 +42,16 @@ useEffect(() => {
       <div className="relative w-[160px] sm:w-[250px] md:w-[320px] lg:w-[388px] h-[38px]">
         <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-[18px]" />
         <input
-  ref={searchRef}
-  type="text"
-  placeholder="Search..."
-  className="w-full h-full pl-10 pr-4 rounded-full bg-[#F5F6FA] text-sm outline-none"
-/>
+          onFocus={() => {
+          setHighlight(true);
+          setTimeout(() => setHighlight(false), 60000);
+          }}
+          ref={searchRef}
+          type="text"
+          placeholder="Search..."
+          className={`w-full h-full pl-10 pr-4 rounded-full bg-[#F5F6FA] text-sm outline-none
+          ${highlight ? "border-2 border-blue-400" : "border border-transparent"}`}
+        />
       </div>
 
       <div className="flex items-center gap-6">

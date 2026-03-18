@@ -9,37 +9,38 @@ const contacts = [
    id:1,
    name:"Jason Price",
    email:"jasonprice@yahoo.com",
-   image:"https://randomuser.me/api/portraits/men/32.jpg"
+   image:"https://images.unsplash.com/photo-1500648767791-00dcc994a43e"
 },
 {
    id:2,
    name:"Duane Dean",
    email:"duanedean@gmail.com",
-   image:"https://randomuser.me/api/portraits/men/45.jpg"
+   image:"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
 },
 {
    id:3,
    name:"Jonathan Barker",
    email:"jonathan@gmail.com",
-   image:"https://randomuser.me/api/portraits/men/12.jpg"
+   image:"https://images.unsplash.com/photo-1494790108377-be9c29b29330"
 },
 {
    id:4,
    name:"Rosie Glover",
    email:"rosie@gmail.com",
-   image:"https://randomuser.me/api/portraits/women/44.jpg"
+   image:"https://images.unsplash.com/photo-1534528741775-53994a69daeb"
 },
 {
    id:5,
    name:"Patrick Greer",
    email:"patrick@gmail.com",
-   image:"https://randomuser.me/api/portraits/men/36.jpg"
+   
+   image:"https://images.unsplash.com/photo-1520813792240-56fc4a3765a7"
 },
 {
    id:6,
    name:"Darrell Ortega",
    email:"darrell@gmail.com",
-   image:"https://randomuser.me/api/portraits/men/55.jpg"
+   image:"https://images.unsplash.com/photo-1519085360753-af0119f7cbe7"
 }
 ];
 
@@ -73,11 +74,11 @@ return (
 
         <img
            src={contact.image}
-           className="w-full h-40 md:h-48 object-cover"
+           alt={contact.name}
+           className="w-full h-40 md:h-48 object-cover object-[center_30%]"
         />
 
 <div className="p-4">
-
 <h3 className="font-semibold">
 {contact.name}
 </h3>

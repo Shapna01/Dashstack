@@ -68,7 +68,9 @@ Favorites:
 
   - Save and manage favorite products  
   - Stored using localStorage  
-
+inbox:
+  - Users send mail  
+  - Stored using localStorage  
 Order List:
 
   - View order list  
