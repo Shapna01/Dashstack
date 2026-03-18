@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`dashstack`](https://https://github.com/Shapna01/Dashstack).
 
 ## Getting Started
 
@@ -8,29 +8,145 @@ First, run the development server:
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
-
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+#  DashStack Admin Dashboard
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This is a **Next.js Admin Dashboard Project** built using modern UI/UX practices.  
+It includes multiple modules like product management, orders, analytics, calendar, invoice system, and more.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+##  Project Overview
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+DashStack is a fully responsive admin dashboard that helps manage:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Users  
+- Products  
+- Orders  
+- Inventory  
+- Tasks  
+- Events  
+- Contacts  
+- Invoices  
 
-## Deploy on Vercel
+It is designed with a **clean UI, reusable components, and responsive layout**.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Tech Stack
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Next.js (App Router)  
+- React  
+- Tailwind CSS  
+- JavaScript (ES6)  
+- DummyJSON API + Custom APIs(postgres DB) 
+
+APIs Used
+
+Dummy Products API - https://dummyjson.com/products
+
+Custom APIs are
+
+/api/orders  
+/api/dashboard  
+/api/send-invoice
+
+
+## Features
+
+ Dashboard:
+
+  - Overview of users, orders, sales, and pending tasks  
+  - Salescharts and data cards  
+
+ Products:
+
+  - View products from API  
+  - Product cards with image, price, and rating  
+  - Create and manage orders  
+
+Favorites:
+
+  - Save and manage favorite products  
+  - Stored using localStorage  
+
+Order List:
+
+  - View order list  
+  - Connected with backend API  
+  - Status tracking (Completed, Processing, Pending)  
+
+Product Stock:
+
+  - Product stock table  
+  - Search functionality  
+  - Edit and delete products  
+  - Pagination support  
+
+Pricing:
+
+  - Multiple pricing  
+  - Feature comparison UI  
+
+Calendar & Events:
+
+  - Monthly calendar view  
+  - Add and manage events  
+
+To-Do List:
+
+  - Add, delete, and complete tasks  
+  - Mark important tasks  
+
+Contact:
+
+  - Contact cards with user details  
+  - Add new contacts  
+
+Invoice:
+
+  - Generate invoices dynamically  
+  - Calculate totals  
+  - Print and send invoices  
+
+UI Element:
+
+  - Bar charts  
+  - Pie charts  
+  - Donut charts  
+  - Dynamic filtering  
+
+Team:
+
+  - View team members  
+  - Add new members  
+
+Tables:
+
+  - Orders table  
+  - Product stock table  
+  - Search and pagination  
+
+Settings:
+
+  - UI ready for customization  
+  
+Fully Responsive Design:
+
+  - Mobile, tablet, and desktop support  
+
+Modern UI:
+
+  - Clean layout  
+  - Sidebar navigation  
+  - Cards, tables, modals  
+  - Icons and hover effects  
+
+## How It Works
+
+- Fetch data from APIs  
+- Store data using React state  
+- Render UI dynamically  
+- Perform actions (add, edit, delete)  
+- Update UI in real-time  
+
+
