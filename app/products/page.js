@@ -122,23 +122,18 @@ export default function Products() {
       <h1 className="text-3xl font-bold mb-6">Products</h1>
 
       
-        <div className="w-full min-h-[220px] md:min-h-[300px] bg-blue-500 text-white rounded-xl shadow-lg mb-8 relative">
+        <div className="w-full min-h-[220px] md:min-h-[300px] bg-blue-500 text-white rounded-xl shadow-lg mb-8 px-4 sm:px-6 md:px-10 py-6 flex items-center justify-center md:justify-start">
         
-        <div
-          style={{
-            paddingTop: "30px",
-            paddingLeft: "130px",
-          }}
-          className="flex flex-col gap-2"
-        >
-          <span className="text-lg font-semibold">September 12-22</span>
-          <h2 className="text-3xl font-bold leading-snug">
+          <div className="flex flex-col gap-2 max-w-md text-center md:text-left">
+
+          <span className="text-sm sm:text-base font-semibold">September 12-22</span>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-snug">
             Enjoy free home delivery in this summer
           </h2>
-          <p className="text-lg mt-2">
+          <p className="text-sm sm:text-base md:text-lg mt-1">
             Designer Dresses - Pick from trendy Designer Dress.
           </p>
-          <button className="bg-white text-blue-600 font-semibold px-6 py-3 rounded-md mt-6 w-max hover:bg-gray-100">
+          <button className="bg-white text-blue-600 font-semibold px-4 py-2 sm:px-6 sm:py-3 rounded-md mt-4 w-fit mx-auto md:mx-0 hover:bg-gray-100">
             Get Started
           </button>
         </div>
@@ -166,6 +161,7 @@ export default function Products() {
       <StarRating rating={product.rating} />
       <span className="text-gray-400 text-sm">
         ({Math.round(product.rating * 30)})
+       
       </span>
     </div>
 

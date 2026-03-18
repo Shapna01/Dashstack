@@ -1,8 +1,35 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import { FiSearch, FiBell, FiChevronDown, FiMenu } from "react-icons/fi";
 export default function ({ setIsOpen }) {
+
+  const searchRef = useRef(null);
+const pathname = usePathname();
+
+useEffect(() => {
+  if (pathname === "/dashboard") {
+    setTimeout(() => {
+      searchRef.current?.focus();
+    }, 100);
+  }
+}, [pathname]);
+
+useEffect(() => {
+  const handleKey = (e) => {
+    if (e.key === "/") {
+      e.preventDefault();
+      searchRef.current?.focus();
+    }
+  };
+
+  window.addEventListener("keydown", handleKey);
+  return () => window.removeEventListener("keydown", handleKey);
+}, []);
+
+
   return (
     <div className="w-full h-[70px] bg-white border-b border-gray-200 flex items-center justify-between px-8">
       <button
@@ -15,10 +42,11 @@ export default function ({ setIsOpen }) {
       <div className="relative w-[160px] sm:w-[250px] md:w-[320px] lg:w-[388px] h-[38px]">
         <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-[18px]" />
         <input
-          type="text"
-          placeholder="Search..."
-          className="w-full h-full pl-10 pr-4 rounded-full bg-[#F5F6FA] text-sm outline-none"
-        />
+  ref={searchRef}
+  type="text"
+  placeholder="Search..."
+  className="w-full h-full pl-10 pr-4 rounded-full bg-[#F5F6FA] text-sm outline-none"
+/>
       </div>
 
       <div className="flex items-center gap-6">
