@@ -53,13 +53,13 @@ export default function TodoPage() {
   };
 
   return (
-    <div className="bg-[#F5F6FA] min-h-screen w-full px-4">
-            <h1 className="text-3xl font-bold mb-6">To Do List</h1>
+    <div className="bg-[#F5F6FA] dark:bg-[#0f172a] min-h-screen w-full px-4">
+            <h1 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">To Do List</h1>
 
-      <div className="w-full max-w-[1190px] mx-auto bg-white rounded-xl shadow-sm p-5 md:p-8">
+      <div className="w-full max-w-[1190px] mx-auto bg-white dark:bg-[#1e293b] rounded-xl shadow-sm p-5 md:p-8 border border-gray-200 dark:border-gray-700">
 
        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-8">
-          <h1 className="text-2xl font-semibold text-gray-800">
+          <h1 className="text-2xl font-semibold text-gray-800 dark:text-white">
             List
           </h1>
 
@@ -80,7 +80,7 @@ export default function TodoPage() {
               ${
                 task.completed
                   ? "bg-blue-500 text-white border-blue-500"
-                  : "bg-gray-50 border-gray-200 hover:bg-gray-100"
+                  : "bg-gray-50 dark:bg-[#334155] border-gray-200 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-[#475569]"
               }`}
             >
 
@@ -93,7 +93,7 @@ export default function TodoPage() {
                   className="w-4 h-4"
                 />
 
-                <p className="text-sm break-words">
+                <p className="text-sm break-words text-gray-800 dark:text-gray-200">
                   {task.text}
                 </p>
 
@@ -109,7 +109,7 @@ export default function TodoPage() {
                       ? "text-yellow-400 fill-yellow-400"
                       : task.completed
                       ? "text-white"
-                      : "text-gray-400"
+                      : "text-gray-400 dark:text-gray-500"
                   }`}
                   size={18}
                 />
@@ -117,7 +117,7 @@ export default function TodoPage() {
                 <Trash2
                   onClick={() => deleteTask(task.id)}
                   className={`cursor-pointer ${
-                    task.completed ? "text-white" : "text-gray-400"
+                    task.completed ? "text-white" : "text-gray-400 dark:text-gray-500"
                   }`}
                   size={18}
                 />
@@ -133,7 +133,9 @@ export default function TodoPage() {
       {showModal && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center">
 
-          <div className="bg-white p-6 rounded-lg w-[90%] max-w-[400px]">
+          <div className="bg-white dark:bg-[#1e293b] 
+p-6 rounded-lg w-[90%] max-w-[400px] 
+text-gray-800 dark:text-white">
 
             <h2 className="text-lg font-semibold mb-4">
               Add New Task
@@ -144,14 +146,19 @@ export default function TodoPage() {
               placeholder="Enter task..."
               value={newTask}
               onChange={(e) => setNewTask(e.target.value)}
-              className="w-full border px-4 py-2 rounded mb-4"
+              className="w-full border px-4 py-2 rounded mb-4
+bg-white dark:bg-[#334155]
+text-gray-800 dark:text-white
+border-gray-200 dark:border-gray-600"
             />
 
             <div className="flex justify-end gap-3">
 
               <button
                 onClick={() => setShowModal(false)}
-                className="px-4 py-2 border rounded"
+                className="px-4 py-2 border rounded border-gray-300 dark:border-gray-600
+text-gray-700 dark:text-gray-200
+hover:bg-gray-100 dark:hover:bg-[#2a3a4f]"
               >
                 Cancel
               </button>

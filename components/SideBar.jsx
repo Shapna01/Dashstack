@@ -28,24 +28,23 @@ export default function Sidebar({ isOpen, setIsOpen }) {
 
   return (
     <div
-  className={`fixed lg:static top-0 left-0 z-50 w-[240px] h-screen bg-white border-r border-[#F1F1F1] px-6 py-6 flex flex-col overflow-y-auto transition-transform duration-300
+  className={`fixed lg:static top-0 left-0 z-50 w-[240px] h-screen bg-white border-r dark:bg-[#1e293b] border-[#F1F1F1] dark:border-gray-700 px-6 py-6 flex flex-col overflow-y-auto transition-transform duration-300
   ${isOpen ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0`}
 >
-      <h1 className="text-[20px] font-extrabold text-[#202224] mb-10">
+      <h1 className="text-[20px] font-extrabold text-[#202224] dark:text-gray-200  mb-10">
         DashStack
       </h1>
 
-      {/* MAIN MENU */}
       <ul className="space-y-2">
         {menu.map((item) => (
           <li key={item.name}>
             <Link
               href={item.path}
               onClick={() => setIsOpen(false)}
-              className={`flex items-center h-[44px] px-4 text-[14px] font-semibold rounded-lg ${
+              className={`flex items-center h-[44px] px-4 text-[14px] font-semibold  rounded-lg ${
                 pathname === item.path
                   ? "bg-blue-500 text-white"
-                  : "text-[#202224] hover:bg-gray-100"
+                  : "text-[#202224] dark:text-white hover:bg-gray-100 dark:hover:bg-[#334155]"
               }`}
             >
               {item.name}
@@ -54,11 +53,10 @@ export default function Sidebar({ isOpen, setIsOpen }) {
         ))}
       </ul>
 
-      <div className="border-t border-[#F1F1F1] my-6"></div>
+      <div className="border-t border-[#F1F1F1] dark:border-gray-700 my-6"></div>
 
       <p className="text-xs text-gray-400 mb-3">PAGES</p>
 
-      {/* PAGES */}
       <ul className="space-y-2">
         {pages.map((item) => (
           <li key={item.name}>
@@ -68,7 +66,7 @@ export default function Sidebar({ isOpen, setIsOpen }) {
               className={`flex items-center h-[44px] px-4 text-[14px] font-semibold rounded-lg ${
                 pathname === item.path
                   ? "bg-blue-500 text-white"
-                  : "text-[#202224] hover:bg-gray-100"
+                  : "text-[#202224] dark:text-white hover:bg-gray-100 dark:hover:bg-[#334155]"
               }`}
             >
               {item.name}
@@ -79,18 +77,18 @@ export default function Sidebar({ isOpen, setIsOpen }) {
 
       <div className="mt-6">
 
-        <div className="border-t border-gray-200 my-4"></div>
+        <div className="border-t border-gray- dark:border-gray-700 my-4"></div>
 
         <Link
           href="/settings"
-          className="flex items-center h-[44px] px-4 text-[14px] text-gray-700 hover:bg-gray-100 rounded-lg"
+          className="flex items-center h-[44px] px-4 text-[14px] text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#334155] dark:hover:bg-[#334155] rounded-lg"
         >
           Settings
         </Link>
 
         <Link
           href="/logout"
-          className="flex items-center h-[44px] px-4 text-[14px] text-red-500 hover:bg-red-50 rounded-lg"
+          className="flex items-center h-[44px] px-4 text-[14px] text-red-500 hover:bg-red-50 dark:hover:bg-red-900/30 rounded-lg"
         >
           Logout
         </Link>

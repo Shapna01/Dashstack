@@ -58,15 +58,21 @@ maintainAspectRatio: false,
         ticks: {
           stepSize: 20,
           callback: (v) => v + "%",
-          color: "#6B7280"
+          color: typeof window !== "undefined" && document.documentElement.classList.contains("dark")
+  ? "#CBD5F5"
+  : "#6B7280"
         },
         grid: {
-          color: "#F1F5F9"
+          color: typeof window !== "undefined" && document.documentElement.classList.contains("dark")
+  ? "#334155"
+  : "#F1F5F9"
         }
       },
       x: {
         ticks: {
-          color: "#6B7280"
+          color: typeof window !== "undefined" && document.documentElement.classList.contains("dark")
+  ? "#CBD5F5"
+  : "#6B7280"
         },
         grid: {
           display: false
@@ -76,17 +82,17 @@ maintainAspectRatio: false,
   };
 
   return (
-    <div className="bg-white rounded-[14px] w-full p-4 md:p-6 shadow-[6px_6px_54px_rgba(0,0,0,0.05)]">
+    <div className="bg-white dark:bg-[#1e293b] rounded-[14px] w-full p-4 md:p-6 shadow-[6px_6px_54px_rgba(0,0,0,0.05)]">
 
   <div className="flex items-center justify-between mb-6">
-    <h2 className="text-[22px] font-bold text-gray-700">
+    <h2 className="text-[22px] font-bold text-gray-700 dark:text-gray-300">
       Sales Details
     </h2>
 
     <select
       value={month}
       onChange={(e) => setMonth(e.target.value)}
-      className="border border-gray-200 rounded-md px-3 py-1 text-sm"
+      className="border border-transparent  dark:border-gray-600 bg-white dark:bg-[#334155] text-gray-700 dark:text-white rounded-md px-3 py-1 text-sm"
     >
       <option>January</option>
       <option>March</option>

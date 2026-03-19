@@ -79,27 +79,30 @@ export default function OrdersPage() {
   return (
     <div >
 
-      <h2 className="text-2xl font-bold mb-6">Order Lists</h2>
+      <h2 className="text-2xl font-bold mb-6 text-gray-800 dark:text-gray-200">Order Lists</h2>
 
 
-      <div className="bg-white border rounded-xl shadow-sm flex flex-wrap items-center gap-2 p-2 w-full">
+      <div className="bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm flex flex-wrap items-center gap-2 p-2 w-full">
 
         <div className="flex items-center gap-2 px-3 py-2 border rounded-lg text-gray-600">
           <FiFilter />
           <span className="font-medium">Filter By</span>
         </div>
 
-        <div className="flex items-center gap-2 px-3 py-2 border rounded-lg text-gray-600">
+        <div className="flex items-center gap-2 px-3 py-2 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-600 dark:text-gray-300 bg-white dark:bg-[#334155]">
           <DatePicker
-            selected={selectedDate}
-            onChange={(date) => setSelectedDate(date)}
-            placeholderText="Date"
-            className="outline-none w-24"
+           selected={selectedDate}
+           onChange={(date) => setSelectedDate(date)}
+           placeholderText="Date"
+           className="outline-none w-24 
+           bg-transparent 
+           text-gray-700 dark:text-gray-200 
+           placeholder-gray-400 dark:placeholder-gray-400"
           />
           <FiChevronDown size={16} />
         </div>
 
-        <div className="flex items-center gap-2 px-3 py-2 border rounded-lg text-gray-600">
+        <div className="flex items-center gap-2 px-3 py-2 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-600 dark:text-gray-300 bg-white dark:bg-[#334155]">
           <select
             value={typeFilter}
             onChange={(e) => setTypeFilter(e.target.value)}
@@ -114,7 +117,7 @@ export default function OrdersPage() {
           <FiChevronDown size={16} />
         </div>
 
-        <div className="flex items-center gap-2 px-3 py-2 border rounded-lg text-gray-600">
+        <div className="flex items-center gap-2 px-3 py-2 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-600 dark:text-gray-300 bg-white dark:bg-[#334155]">
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
@@ -131,21 +134,20 @@ export default function OrdersPage() {
         </div>
 
         <button
-          onClick={resetFilters}
-          className="px-4 py-3 text-red-500 font-medium flex items-center gap-2"
-        >
-          Reset Filter
-        </button>
+  onClick={resetFilters}
+  className="px-4 py-3 text-red-500 dark:text-red-400 font-medium hover:underline flex items-center gap-2"
+>
+  Reset Filter
+</button>
 
       </div>
 
 
-      <div className="bg-white shadow rounded-lg overflow-x-auto mt-6">
+      <div className="bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-gray-700 shadow rounded-lg overflow-x-auto mt-6">
 
-        <table className="w-full min-w-[700px] text-sm">
+        <table className="w-full min-w-[700px] text-sm ">
 
-          <thead className="bg-gray-100 text-gray-600">
-            <tr className="text-left">
+          <thead className="border-b border-gray-100 dark:border-gray-700 bg-gray-100 dark:bg-[#1e293b] hover:bg-gray-200 dark:hover:bg-[#2a3a4f] text-gray-800 dark:text-gray-200 transition-all duration-200 cursor-pointer"><tr>
               <th className="py-5 px-4">ID</th>
               <th className="py-5 px-4">NAME</th>
               <th className="py-5 px-4">ADDRESS</th>
@@ -155,34 +157,47 @@ export default function OrdersPage() {
             </tr>
           </thead>
 
-          <tbody>
+          <tbody  >
 
             {filteredOrders.map((order) => (
               <tr
                 key={order.id}
-                className="border-b border-gray-100 hover:bg-gray-50"
+                className="border-b border-gray-100 dark:border-gray-700 bg-gray-100 dark:bg-[#1e293b] hover:bg-gray-200 dark:hover:bg-[#2a3a4f] text-gray-800 dark:text-gray-200transition-all duration-200 cursor-pointer"
               >
 
-                <td className="py-5 px-4">000{order.id}</td>
+                <td className="py-5 px-4 font-medium text-gray-800 dark:text-gray-200">000{order.id}</td>
 
-                <td className="py-5 px-4 font-medium">
+                <td className="py-5 px-4 text-gray-500 dark:text-gray-400">
                   {order.name}
                 </td>
 
-                <td className="py-5 px-4 text-gray-500">
+                <td className="py-5 px-4 text-gray-700 dark:text-gray-300">
                   {order.address}
                 </td>
 
-                <td className="py-5 px-4">
+                <td className="py-5 px-4 text-gray-700 dark:text-gray-300">
                   {new Date(order.date).toLocaleDateString()}
                 </td>
 
-                <td className="py-5 px-4">{order.type}</td>
+                <td className="py-5 px-4 text-gray-800 dark:text-gray-200">{order.type}</td>
 
-                <td className="py-5 px-4">
-                  <span className="px-3 py-1 text-xs rounded bg-blue-100 text-blue-600">
-                    {order.status}
-                  </span>
+                <td className="py-5 px-4 text-gray-700dark:text-gray-300">
+                  <span
+  className={`px-3 py-1 text-xs rounded bg-blue-100 text-blue-600 dark:bg-blue-900 dark:text-blue-300
+  ${
+    order.status === "Completed"
+      ? "bg-green-100 text-green-600 dark:bg-green-900/40 dark:text-green-400"
+      : order.status === "Processing"
+      ? "bg-blue-100 text-blue-600 dark:bg-blue-900/40 dark:text-blue-400"
+      : order.status === "Rejected"
+      ? "bg-red-100 text-red-600 dark:bg-red-900/40 dark:text-red-400"
+      : order.status === "On Hold"
+      ? "bg-yellow-100 text-yellow-600 dark:bg-yellow-900/40 dark:text-yellow-400"
+      : "bg-purple-100 text-purple-600 dark:bg-purple-900/40 dark:text-purple-400"
+  }`}
+>
+  {order.status}
+</span>
                 </td>
 
               </tr>

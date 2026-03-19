@@ -28,8 +28,8 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <div className="w-full">
-      <h1 className="text-2xl font-bold mb-6">Dashboard</h1>
+    <div className="w-full text-gray-800 dark:text-gray-200">
+      <h1 className="text-2xl font-bold mb-6 text-gray-800 dark:text-gray-200">Dashboard</h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6 place-items-center">
         <StatCard title="Total Users" value={stats.totalUsers} />

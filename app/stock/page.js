@@ -73,8 +73,11 @@ export default function ProductStock() {
 
   return (
     <div >
-      <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6">
-        <h2 className="text-2xl font-bold">Product Stock</h2>
+      <div className="bg-white dark:bg-[#1e293b] 
+shadow rounded-lg w-full mt-2 
+border border-gray-200 dark:border-gray-700 
+p-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Product Stock</h2>
 
         <div className="relative">
           <FiSearch className="absolute left-3 top-2.5 text-gray-400" />
@@ -86,24 +89,35 @@ export default function ProductStock() {
               setSearch(e.target.value);
               setCurrentPage(1);
             }}
-            className="pl-9 pr-3 py-2 border rounded-lg text-sm outline-none focus:border-blue-400 w-full md:w-[250px]"
+            className="pl-9 pr-3 py-2 border rounded-lg text-sm outline-none 
+  bg-white dark:bg-[#334155]
+  text-gray-800 dark:text-white
+  placeholder-gray-400 dark:placeholder-gray-300
+  border-gray-200 dark:border-gray-600
+  focus:ring-2 focus:ring-blue-500
+  w-full md:w-[250px]"
           />
         </div>
       </div>
 
     
-        <div className="bg-white shadow rounded-lg overflow-x-auto w-full mt-2">
+        <div className="bg-white dark:bg-[#1e293b] 
+shadow rounded-lg overflow-x-auto w-full mt-2 
+border border-gray-200 dark:border-gray-700">
       
         <table className="w-full min-w-[900px] text-sm">
-          <thead className="bg-gray-100 text-gray-600">
-            <tr className="text-left">
-              <th className="px-3 py-3 md:px-4">Image</th>
-              <th className="px-3 py-3 md:px-4">Product Name</th>
-              <th className="px-3 py-3 md:px-4">Category</th>
-              <th className="px-3 py-3 md:px-4">Price</th>
-              <th className="px-3 py-3 md:px-4">Piece</th>
-              <th className="px-3 py-3 md:px-4">Available Colors</th>
-              <th className="px-3 py-3 md:px-4">Action</th>
+          <thead className="bg-gray-100 dark:bg-[#334155] text-gray-600 dark:text-gray-300">
+            <tr className="border-b border-gray-200 dark:border-gray-700 
+bg-white dark:bg-[#1e293b] 
+hover:bg-gray-100 dark:hover:bg-[#2a3a4f] 
+transition-all duration-200 ease-in-out cursor-pointer">
+              <th className="px-3 md:px-4 py-3 text-left">Image</th>
+              <th className="px-3 md:px-4 py-3 text-left">Product Name</th>
+              <th className="px-3 md:px-4 py-3 text-left">Category</th>
+              <th className="px-3 md:px-4 py-3 text-left">Price</th>
+              <th className="px-3 md:px-4 py-3 text-left">Piece</th>
+              <th className="px-3 md:px-4 py-3 text-left">Available Colors</th>
+              <th className="px-3 md:px-4 py-3 text-left">Action</th>
             </tr>
           </thead>
 
@@ -111,9 +125,9 @@ export default function ProductStock() {
             {currentProducts.map((product) => (
               <tr
                 key={product.id}
-                className="border-b border-gray-200 hover:bg-gray-50"
+                className="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-[#1e293b] hover:bg-gray-100 dark:hover:bg-[#2a3a4f] transition-colors duration-200"
               >
-                <td className="p-3">
+                <td className="px-3 md:px-4 py-3">
                   <img
                     src={product.thumbnail}
                     alt={product.title}
@@ -121,21 +135,21 @@ export default function ProductStock() {
                   />
                 </td>
 
-                <td className="p-3 font-medium text-gray-700">
+                <td className="px-3 md:px-4 py-3 capitalize text-gray-500 dark:text-gray-300">
                   {product.title}
                 </td>
 
-                <td className="p-3 capitalize text-gray-500">
+                <td className="px-3 md:px-4 py-3 text-gray-500 dark:text-gray-300">
                   {product.category}
                 </td>
 
-                <td className="p-3 text-blue-600 font-semibold">
+                <td className="px-3 md:px-4 py-3 text-blue-600 dark:text-blue-400 font-semibold">
                   ${product.price}
                 </td>
 
-                <td className="p-3 text-gray-600">{product.stock}</td>
+                <td className="px-3 md:px-4 py-3 text-gray-500 dark:text-gray-300">{product.stock}</td>
 
-                <td className="p-3">
+                <td className="px-3 md:px-4 py-3">
                   <div className="flex gap-2">
                     <span className="w-4 h-4 rounded-full bg-red-400"></span>
                     <span className="w-4 h-4 rounded-full bg-blue-400"></span>
@@ -144,7 +158,7 @@ export default function ProductStock() {
                   </div>
                 </td>
 
-                <td className="p-3 flex gap-4">
+                <td className="px-3 md:px-4 py-3 flex gap-4">
                   <button
                     onClick={() => openEdit(product)}
                     className="text-blue-500 hover:text-blue-700 text-lg"
@@ -164,7 +178,8 @@ export default function ProductStock() {
           </tbody>
         </table>
 
-        <div className="flex justify-between items-center p-4 text-sm text-gray-600">
+        <div className="flex justify-between items-center p-4 text-sm 
+text-gray-600 dark:text-gray-300">
           <div>
             Showing {indexOfFirstItem + 1}–
             {Math.min(indexOfLastItem, totalItems)} of {totalItems}
@@ -175,7 +190,10 @@ export default function ProductStock() {
               onClick={() =>
                 setCurrentPage((prev) => Math.max(prev - 1, 1))
               }
-              className="px-3 py-1 border rounded hover:bg-gray-100"
+              className="px-3 py-1 border rounded 
+hover:bg-gray-100 dark:hover:bg-[#2a3a4f]
+border-gray-300 dark:border-gray-600 
+text-gray-700 dark:text-gray-200"
             >
               {"<"}
             </button>
@@ -186,7 +204,10 @@ export default function ProductStock() {
                   Math.min(prev + 1, totalPages)
                 )
               }
-              className="px-3 py-1 border rounded hover:bg-gray-100"
+              className="px-3 py-1 border rounded 
+hover:bg-gray-100 dark:hover:bg-[#2a3a4f]
+border-gray-300 dark:border-gray-600 
+text-gray-700 dark:text-gray-200"
             >
               {">"}
             </button>
@@ -195,12 +216,12 @@ export default function ProductStock() {
       </div>
 
       {editingProduct && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center">
-          <div className="bg-white p-6 rounded-lg w-96">
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center">
+          <div className="bg-white dark:bg-[#1e293b] p-6 rounded-lg w-96 text-gray-800 dark:text-white">
             <h3 className="text-lg font-semibold mb-4">Edit Product</h3>
 
             <input
-              className="border p-2 w-full mb-3 rounded"
+              className="border p-2 w-full mb-4 rounded bg-white dark:bg-[#334155] text-gray-800 dark:text-white border-gray-200 dark:border-gray-600"
               value={editForm.title}
               onChange={(e) =>
                 setEditForm({ ...editForm, title: e.target.value })
@@ -208,7 +229,7 @@ export default function ProductStock() {
             />
 
             <input
-              className="border p-2 w-full mb-3 rounded"
+              className="border p-2 w-full mb-4 rounded bg-white dark:bg-[#334155] text-gray-800 dark:text-white border-gray-200 dark:border-gray-600"
               value={editForm.price}
               onChange={(e) =>
                 setEditForm({ ...editForm, price: e.target.value })
@@ -216,7 +237,7 @@ export default function ProductStock() {
             />
 
             <input
-              className="border p-2 w-full mb-4 rounded"
+              className="border p-2 w-full mb-4 rounded bg-white dark:bg-[#334155] text-gray-800 dark:text-white border-gray-200 dark:border-gray-600"
               value={editForm.stock}
               onChange={(e) =>
                 setEditForm({ ...editForm, stock: e.target.value })
@@ -226,7 +247,7 @@ export default function ProductStock() {
             <div className="flex justify-end gap-3">
               <button
                 onClick={() => setEditingProduct(null)}
-                className="px-3 py-1 border rounded"
+                className="\px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded"
               >
                 Cancel
               </button>

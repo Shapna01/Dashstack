@@ -52,30 +52,30 @@ export default function InvoicePage() {
 
       <div className="flex justify-between items-center mb-6">
 
-        <h2 className="text-2xl font-bold">Invoice</h2>
+        <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Invoice</h2>
 
         
 
       </div>
 
 
-      <div className="bg-white shadow rounded-lg p-6">
+      <div className="bg-white dark:bg-[#1e293b] shadow rounded-lg p-6 border border-gray-200 dark:border-gray-700">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
 
           <div>
-            <h3 className="font-semibold text-gray-600 mb-2">Invoice From</h3>
+            <h3 className="font-semibold text-gray-600 dark:text-gray-300 dark:text-gray-400 mb-2 ">Invoice From</h3>
             <p className="text-sm text-gray-500">9694 Krajcik Locks Suite 635</p>
             <p className="text-sm text-gray-500">Brookview</p>
           </div>
 
           <div>
-            <h3 className="font-semibold text-gray-600 mb-2">Invoice To</h3>
+            <h3 className="font-semibold text-gray-600 dark:text-gray-300 dark:text-gray-400 mb-2">Invoice To</h3>
             <p className="text-sm text-gray-500">Virginia Walker</p>
             <p className="text-sm text-gray-500">Austin Miller</p>
           </div>
 
           <div>
-            <h3 className="font-semibold text-gray-600 mb-2">Invoice Details</h3>
+            <h3 className="font-semibold text-gray-600 dark:text-gray-300  dark:text-gray-400 mb-2">Invoice Details</h3>
             <p className="text-sm text-gray-500">Invoice Date : 12 Nov 2026</p>
             <p className="text-sm text-gray-500">Due Date : 25 Dec 2026</p>
           </div>
@@ -83,11 +83,13 @@ export default function InvoicePage() {
         </div>
 
 
-        <div className="bg-white shadow rounded-lg overflow-x-auto">
+        <div className="bg-white dark:bg-[#1e293b] 
+shadow rounded-lg overflow-x-auto
+border border-gray-200 dark:border-gray-700">
 
           <table className="w-full min-w-[650px] text-sm">
 
-            <thead className="bg-gray-100 text-gray-600">
+            <thead className="bg-gray-100 dark:bg-[#334155] text-gray-600 dark:text-gray-300">
               <tr className="text-left">
                 <th className="py-5 px-4">SERIAL</th>
                 <th className="py-5 px-4">PRODUCT</th>
@@ -102,7 +104,7 @@ export default function InvoicePage() {
 {orders.length === 0 ? (
 
   <tr>
-    <td colSpan="5" className="text-center py-10 text-gray-400">
+    <td colSpan="5" className="text-center py-10 text-gray-400 dark:text-gray-500">
       No orders found
     </td>
   </tr>
@@ -117,24 +119,27 @@ export default function InvoicePage() {
 
       <tr
         key={order.id}
-        className="border-b border-gray-100 hover:bg-gray-50"
+        className="border-b border-gray-200 dark:border-gray-700 
+bg-white dark:bg-[#1e293b]
+hover:bg-gray-50 dark:hover:bg-[#2a3a4f]
+transition"
       >
 
-        <td className="py-5 px-4">000{index+1}</td>
+        <td className="py-5 px-4 font-medium text-gray-800 dark:text-white">000{index+1}</td>
 
-        <td className="py-5 px-4 font-medium">
+        <td className="py-5 px-4 font-medium text-gray-800 dark:text-white">
           {order.name}
         </td>
 
-        <td className="py-5 px-4">
+        <td className="py-5 px-4 font-medium text-gray-800 dark:text-white">
           {order.quantity}
         </td>
 
-        <td className="py-5 px-4">
+        <td className="py-5 px-4 font-medium text-gray-800 dark:text-white">
           ${order.price}
         </td>
 
-        <td className="py-5 px-4 font-semibold">
+        <td className="py-5 px-4 font-medium text-gray-800 dark:text-white">
           ${rowTotal}
         </td>
 
@@ -160,7 +165,7 @@ export default function InvoicePage() {
 
             
 
-            <p className="text-xl font-bold mt-2">
+            <p className="text-xl font-bold mt-2 text-gray-800 dark:text-white">
               Total : ${total}
             </p>
 
@@ -173,14 +178,19 @@ export default function InvoicePage() {
 
           <button
             onClick={() => window.print()}
-            className="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm font-medium"
+            className="px-4 py-2 rounded-lg text-sm font-medium
+bg-gray-100 dark:bg-[#334155]
+text-gray-700 dark:text-gray-200
+hover:bg-gray-200 dark:hover:bg-[#2a3a4f]
+transition"
           >
             🖨 
           </button>
 
           <button
             onClick={sendInvoice}
-            className="px-4 py-2 bg-blue-500 text-white hover:bg-blue-600 rounded-lg text-sm font-medium"
+            className="px-4 py-2 bg-blue-500 hover:bg-blue-600 rounded-lg text-sm font-medium
+transition"
           >
             📤 Send 
           </button>

@@ -67,8 +67,8 @@ export default function Products() {
               onMouseLeave={() => setHoverRating(0)}
               onClick={() => setSelectedRating(star)}
               xmlns="http://www.w3.org/2000/svg"
-              fill={isFilled ? "gold" : "none"}
-              stroke="gold"
+              fill={isFilled ? "#facc15" : "none"}
+              stroke="#facc15"
               strokeWidth="1.5"
               viewBox="0 0 24 24"
               strokeLinecap="round"
@@ -105,10 +105,10 @@ export default function Products() {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
-            stroke="gray"
+            stroke="currentColor"
             strokeWidth="1.5"
             viewBox="0 0 24 24"
-            className="w-6 h-6"
+            className="w-6 h-6 text-gray-400 dark:text-gray-300"
           >
             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
           </svg>
@@ -143,7 +143,7 @@ export default function Products() {
         {products.map((product) => (
           <div
   key={product.id}
-  className="bg-white rounded-lg shadow relative p-4 flex flex-col"
+  className="bg-white dark:bg-[#1e293b] rounded-lg shadow relative p-4 flex flex-col transition "
 >
 
   <img
@@ -153,13 +153,13 @@ export default function Products() {
   />
 
   <div className="flex flex-col gap-2 mt-4">
-    <h2 className="text-lg font-semibold">{product.title}</h2>
+    <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200">{product.title}</h2>
 
-    <p className="text-blue-600 font-bold">${product.price}</p>
+    <p className="text-blue-600 dark:text-blue-400 font-bold ">${product.price}</p>
 
     <div className="flex items-center gap-2">
       <StarRating rating={product.rating} />
-      <span className="text-gray-400 text-sm">
+      <span className="text-gray-500 dark:text-gray-400 text-sm">
         ({Math.round(product.rating * 30)})
        
       </span>
@@ -182,4 +182,4 @@ export default function Products() {
       </div>
     </div>
   );
-}
+}  

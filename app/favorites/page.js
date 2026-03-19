@@ -42,8 +42,8 @@ export default function Favourites() {
               onMouseLeave={() => setHoverRating(0)}
               onClick={() => setSelectedRating(star)}
               xmlns="http://www.w3.org/2000/svg"
-              fill={isFilled ? "gold" : "none"}
-              stroke="gold"
+              fill={isFilled ? "#facc15" : "none"}
+              stroke="#facc15"
               strokeWidth="1.5"
               viewBox="0 0 24 24"
               strokeLinecap="round"
@@ -60,18 +60,18 @@ export default function Favourites() {
 
   return (
     <div >
-      <h1 className="text-3xl font-bold mb-6">Favourites</h1>
+      <h1 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Favorites</h1>
       <Link href="/products" className="mb-6 inline-block text-blue-600 font-semibold">
         Back to Products
       </Link>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {favouriteProducts.length === 0 && <p>No favourites yet.</p>}
+        {favouriteProducts.length === 0 && <p className="text-gray-500 dark:text-gray-400 text-center col-span-full" >No favourites yet.</p>}
 
         {favouriteProducts.map((product) => (
   <div
     key={product.id}
-    className="bg-white rounded-lg shadow relative p-4 flex flex-col"
+    className="bg-white dark:bg-[#1e293b] rounded-lg shadow relative p-4 flex flex-col transition hover:shadow-xl hover:-translate-y-1"
   >
             <img
   src={product.thumbnail}
@@ -81,19 +81,18 @@ export default function Favourites() {
 
             <div className="flex flex-col gap-2 mt-4">
               <div>
-                <h2 className="text-lg font-semibold mb-1">{product.title}</h2>
-                <p className="text-blue-600 font-bold mb-1">${product.price}</p>
+                <h2 className="text-lg text-gray-800 dark:text-gray-200">{product.title}</h2>
+                <p className="text-blue-600 dark:text-blue-400 font-bold mb-1">${product.price}</p>
                 <div className="flex items-center gap-2">
                   <StarRating rating={product.rating} />
-                  <span className="text-gray-400 text-sm">
+                  <span className="text-gray-500 dark:text-gray-400 text-sm">
                     ({Math.round(product.rating * 30)})
                   </span>
                 </div>
               </div>
-
+              
               <button
-                style={{ backgroundColor: "#E2EAF8" }}
-                className="text-black-900 font-bold rounded px-3 py-1 text-sm w-max hover:bg-blue-300 mt-2"
+               className="text-black dark:text-white font-bold rounded px-3 py-1 text-sm w-max bg-blue-200 dark:bg-blue-600 hover:bg-blue-300 dark:hover:bg-blue-500 mt-2 transition"
               >
                 Edit Product
               </button>
@@ -118,10 +117,10 @@ export default function Favourites() {
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
-                    stroke="gray"
+                    stroke="currentColor"
                     strokeWidth="1.5"
                     viewBox="0 0 24 24"
-                    className="w-6 h-6"
+                    className="w-6 h-6 text-gray-400 dark:text-gray-300"
                   >
                     <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                   </svg>

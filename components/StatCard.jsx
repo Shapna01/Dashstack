@@ -28,12 +28,12 @@ export default function StatCard({ title, value }) {
   }
 
   return (
-    <div className="relative bg-white rounded-[14px] shadow w-full max-w-sm sm:max-w-full h-auto sm:h-[161px] p-6">
+    <div className="relative bg-white dark:bg-[#1e293b] border border-transparent dark:border-gray-700 rounded-[14px] shadow w-full max-w-sm sm:max-w-full h-auto sm:h-[161px] p-6">
       <div className=" flex flex-col">
-        <span className="text-gray-700 font-semibold text-[16px] leading-[22px] opacity-70">
+        <span className="text-gray-700 dark:text-gray-100 font-semibold text-[16px] leading-[22px] opacity-70">
           {title}
         </span>
-        <span className="text-gray-900 font-bold text-[22px] mt-2">
+        <span className="text-gray-900 dark:text-white font-bold text-[22px] mt-2">
           {value}
         </span>
       </div>

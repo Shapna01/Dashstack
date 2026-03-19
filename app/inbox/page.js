@@ -45,17 +45,25 @@ export default function InboxPage() {
   return (
     <div className="flex flex-col lg:flex-row gap-4 p-4">
 
-      <div className="w-full lg:w-[286px] bg-white border border-gray-200 rounded-[14px] p-4 flex flex-col">
+      <div className="w-full lg:w-[286px] bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-gray-700 rounded-[14px] p-4 flex flex-col">
 
-        <button className="w-full bg-blue-500 text-white py-2 rounded-lg mb-6 font-medium">
+        <button className="w-full py-2 rounded-lg mb-6 font-medium 
+bg-blue-500 text-white 
+hover:bg-blue-600 
+dark:bg-blue-600 dark:hover:bg-blue-700 
+transition">
           + Compose
         </button>
 
         <div>
-          <p className="text-gray-800 text-bold text-sm mb-3">My Email</p>
+          <p className="text-gray-800 dark:text-gray-200 font-semibold text-sm mb-3">My Email</p>
 
           <ul className="space-y-2 text-sm">
-            <li className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 bg-blue-50 text-blue-600 px-3 py-2 rounded-lg font-medium">
+            <li className="flex justify-between items-center 
+px-3 py-2 rounded-lg 
+text-gray-700 dark:text-gray-200
+hover:bg-gray-50 dark:hover:bg-gray-700 
+cursor-pointer transition">
               <div className="flex items-center gap-2">
                 <Inbox size={16} />
                 Inbox
@@ -63,7 +71,11 @@ export default function InboxPage() {
               <span>1253</span>
             </li>
 
-            <li className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 px-3 py-2 rounded-lg hover:bg-gray-50 cursor-pointer">
+            <li className="flex justify-between items-center 
+px-3 py-2 rounded-lg 
+text-gray-700 dark:text-gray-200
+hover:bg-gray-50 dark:hover:bg-gray-700 
+cursor-pointer transition">
               <div className="flex items-center gap-2">
                 <Star size={16} />
                 Starred
@@ -71,7 +83,11 @@ export default function InboxPage() {
               <span>245</span>
             </li>
 
-            <li className="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-gray-50 cursor-pointer">
+            <li className="flex justify-between items-center 
+px-3 py-2 rounded-lg 
+text-gray-700 dark:text-gray-200
+hover:bg-gray-50 dark:hover:bg-gray-700 
+cursor-pointer transition">
               <div className="flex items-center gap-2">
                 <Send size={16} />
                 Sent
@@ -79,7 +95,11 @@ export default function InboxPage() {
               <span>24,532</span>
             </li>
 
-            <li className="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-gray-50 cursor-pointer">
+            <li className="flex justify-between items-center 
+px-3 py-2 rounded-lg 
+text-gray-700 dark:text-gray-200
+hover:bg-gray-50 dark:hover:bg-gray-700 
+cursor-pointer transition">
               <div className="flex items-center gap-2">
                 <FileText size={16} />
                 Draft
@@ -87,7 +107,11 @@ export default function InboxPage() {
               <span>09</span>
             </li>
 
-            <li className="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-gray-50 cursor-pointer">
+            <li className="flex justify-between items-center 
+px-3 py-2 rounded-lg 
+text-gray-700 dark:text-gray-200
+hover:bg-gray-50 dark:hover:bg-gray-700 
+cursor-pointer transition">
               <div className="flex items-center gap-2">
                 <AlertCircle size={16} />
                 Spam
@@ -95,7 +119,11 @@ export default function InboxPage() {
               <span>14</span>
             </li>
 
-            <li className="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-gray-50 cursor-pointer">
+            <li className="flex justify-between items-center 
+px-3 py-2 rounded-lg 
+text-gray-700 dark:text-gray-200
+hover:bg-gray-50 dark:hover:bg-gray-700 
+cursor-pointer transition">
               <div className="flex items-center gap-2">
                 <Trash2 size={16} />
                 Bin
@@ -106,39 +134,38 @@ export default function InboxPage() {
         </div>
 
         <div className="mt-6">
-  <p className="text-gray-400 text-sm mb-3">Label</p>
+  <p className="text-gray-500 dark:text-gray-300  text-sm mb-3">Label</p>
 
   <div className="space-y-3 text-sm">
 
-    <label className="flex items-center gap-2 cursor-pointer">
+    <label className="flex items-center gap-2 cursor-pointer text-gray-700 dark:text-gray-200">
       <input type="checkbox" className="accent-green-600 w-4 h-4" />
-      <span className="flex items-center gap-2">
         Primary
-      </span>
+      
     </label>
 
-    <label className="flex items-center gap-2 cursor-pointer">
+    <label className="flex items-center gap-2 cursor-pointer text-gray-700 dark:text-gray-200">
       <input type="checkbox" className="accent-blue-500 w-4 h-4" />
-      <span className="flex items-center gap-2">
+      
         Social
-      </span>
+      
     </label>
 
-    <label className="flex items-center gap-2 cursor-pointer">
+    <label className="flex items-center gap-2 cursor-pointer text-gray-700 dark:text-gray-200">
       <input type="checkbox" className="accent-orange-500 w-4 h-4" />
-      <span className="flex items-center gap-2">
+      
         Work
-      </span>
+      
     </label>
 
-    <label className="flex items-center gap-2 cursor-pointer">
+    <label className="flex items-center gap-2 cursor-pointer text-gray-700 dark:text-gray-200">
       <input type="checkbox" className="accent-purple-600 w-4 h-4" />
-      <span className="flex items-center gap-2">
+      
         Friends
-      </span>
+      
     </label>
     <br />
-    <button className="flex items-center gap-2 text-gray-500 hover:text-blue-600 mt-2">
+    <button className="text-gray-500 hover:text-blue-600 mt-2">
       + Create New Label
     </button>
   </div>
@@ -148,26 +175,31 @@ export default function InboxPage() {
       <div className="flex-1">
   {!selectedMail ? (
 
-    <div className="bg-white rounded-[14px] border border-gray-200 shadow-sm h-full flex flex-col">
+   <div className="flex-1 bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-gray-700 rounded-[14px] shadow-sm flex flex-col">
 
-      <div className="flex items-center justify-between p-4 border-b border-gray-100">
+      <div className="flex items-center justify-between p-4 border-b border-gray-100 dark:border-gray-700">
         <div className="relative w-1/3">
   <Search
     size={18}
-    className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+    className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500"
   />
 
   <input
     type="text"
     placeholder="Search mail"
-    className="w-full border border-gray-200 rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+    className="w-full border border-gray-200 dark:border-gray-600 
+  rounded-lg pl-10 pr-4 py-2 
+  bg-white dark:bg-[#334155] 
+  text-gray-800 dark:text-white 
+  placeholder-gray-400 dark:placeholder-gray-300
+  focus:outline-none focus:ring-2 focus:ring-blue-500"
   />
 </div>
 
         <div className="flex items-center border border-gray-200 rounded-xl overflow-hidden">
-          <button className="p-3 border-r hover:bg-gray-100">⬇️</button>
-          <button className="p-3 border-r hover:bg-gray-100">ℹ️</button>
-          <button className="p-3 hover:bg-gray-100">🗑️</button>
+          <button className="p-3 border-r hover:bg-gray-100 dark:hover:bg-gray-700">⬇️</button>
+          <button className="p-3 border-r hover:bg-gray-100 dark:hover:bg-gray-700">ℹ️</button>
+          <button className="p-3 hover:bg-gray-100 dark:hover:bg-gray-700">🗑️</button>
         </div>
       </div>
 
@@ -182,7 +214,7 @@ export default function InboxPage() {
           { text: "Hi", sender: "me" },
         ]);
       }}
-      className="grid grid-cols-[auto_auto_160px_120px_1fr_auto] items-center gap-3 px-4 py-3 border-b border-gray-100 hover:bg-gray-50 cursor-pointer text-sm"    >
+      className="grid grid-cols-[auto_auto_160px_120px_1fr_auto] items-center gap-3 px-4 py-3 border-b border-gray-100 dark:border-gray-700 hover:bg-gray-50  dark:hover:bg-gray-700 cursor-pointer text-sm"    >
       <input
         type="checkbox"
         checked={selectedIds.includes(mail.id)}
@@ -208,13 +240,13 @@ export default function InboxPage() {
           );
         }}
         className={`cursor-pointer text-lg ${
-          mail.starred ? "text-yellow-400" : "text-gray-300"
+          mail.starred ? "text-yellow-400" : "text-gray-300 dark:text-gray-500"
         }`}
       >
         ★
       </span>
 
-      <p className="font-medium truncate">{mail.name}</p>
+      <p className="font-medium truncate text-gray-800 dark:text-gray-200">{mail.name}</p>
 
       <span
         className={`text-xs px-2 py-1 rounded-full w-fit ${
@@ -232,13 +264,13 @@ export default function InboxPage() {
 
       <p className="text-gray-500 truncate">{mail.subject}</p>
 
-      <span className="text-gray-400 text-xs">{mail.time}</span>
+      <span className="text-gray-400 dark:text-gray-500 text-xs">{mail.time}</span>
     </div>
   ))}
 </div>
 
 
-       <div className="flex items-center justify-between p-3 border-t text-sm text-gray-500">
+       <div className="flex items-center justify-between p-3 border-t text-sm text-gray-500 ">
 
   <p>Showing {start + 1}–{Math.min(start + itemsPerPage, emails.length)} of {emails.length}</p>
 
@@ -246,7 +278,7 @@ export default function InboxPage() {
 
     <button
   onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
-  className="px-3 py-1 hover:bg-gray-100 border-r"
+  className="px-3 py-1 hover:bg-gray-100 dark:hover:bg-gray-700 border-r"
 >
   ‹
 </button>
@@ -257,7 +289,7 @@ export default function InboxPage() {
       prev < Math.ceil(emails.length / itemsPerPage) ? prev + 1 : prev
     )
   }
-  className="px-3 py-1 hover:bg-gray-100"
+  className="px-3 py-1 hover:bg-gray-100 dark:hover:bg-gray-700"
 >
   ›
 </button>
@@ -268,7 +300,7 @@ export default function InboxPage() {
 
   ) : (
 
-    <div className="bg-white rounded-[14px] border border-gray-100 shadow-sm h-full flex flex-col">
+    <div className="bg-white dark:bg-[#334155] text-gray-800 dark:text-white rounded-[14px] border border-gray-100 dark:border-gray-700 shadow-sm h-full flex flex-col">
 
       <div className="flex items-center justify-between p-4 border-b border-gray-100">
         <div className="flex items-center gap-3">
@@ -283,10 +315,12 @@ export default function InboxPage() {
           </span>
         </div>
 
-        <div className="flex items-center border border-gray-200 rounded-xl overflow-hidden">
-          <button className="p-3 border-r hover:bg-gray-100  text-black">⬇️</button>
-          <button className="p-3 border-r hover:bg-gray-100  text-black">ℹ️</button>
-          <button className="p-3 hover:bg-gray-100">🗑️</button>
+        <div className="w-full border border-gray-200 dark:border-gray-600 rounded-lg pl-10 pr-4 py-2 
+bg-white dark:bg-[#334155] text-gray-800 dark:text-white 
+focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <button className="p-3 border-r hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200">⬇️</button>
+          <button className="p-3 border-r hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200">ℹ️</button>
+          <button className="p-3 hover:bg-gray-100 dark:hover:bg-gray-700">🗑️</button>
         </div>
       </div>
 
@@ -299,14 +333,14 @@ export default function InboxPage() {
       }`}
     >
       {msg.sender === "other" && (
-        <div className="w-8 h-8 bg-gray-200 rounded-full"></div>
+        <div className="w-8 h-8 bg-gray-200 dark:bg-gray-600 rounded-full"></div>
       )}
 
       <div
         className={`p-4 rounded-xl max-w-[60%] text-sm ${
           msg.sender === "me"
             ? "bg-blue-500 text-white"
-            : "bg-gray-100"
+            : "bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
             
         }`}
       >
@@ -316,22 +350,22 @@ export default function InboxPage() {
   ))}
 </div>
 
-      <div className="border-t border-gray-100 p-3 flex flex-col sm:flex-row items-center gap-2 ">
+      <div className="border-t border-gray-100 dark:border-gray-700 p-3 flex flex-col sm:flex-row items-center gap-2 ">
 
   <input 
     type="text"
     value={input}
     onChange={(e) => setInput(e.target.value)}
     placeholder="Write message"
-    className="w-full sm:flex-1 px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white "
+    className="w-full sm:flex-1 px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-[#334155] text-gray-800 dark:text-white "
   />
 
   <div className="flex items-center gap-2 ">
-    <button className="p-2 text-gray-500 hover:text-blue-500">
+    <button className="p-2 text-gray-500 dark:text-gray-300 hover:text-blue-500">
       <Paperclip size={20} />
     </button>
 
-    <button className="p-2 text-gray-500 hover:text-blue-500">
+    <button className="p-2 text-gray-500 dark:text-gray-300 hover:text-blue-500">
       <ImageIcon size={20} />
     </button>
 
