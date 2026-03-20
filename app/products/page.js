@@ -1,15 +1,32 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
+import { useMemo } from "react";
 export default function Products() {
   const [products, setProducts] = useState([]);
+  const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("all");
+
   const [wishlist, setWishlist] = useState(() => {
     if (typeof window !== "undefined") {
       return JSON.parse(localStorage.getItem("wishlist") || "{}");
     }
     return {};
   });
+
+const filteredProducts = useMemo(() => {
+  return products.filter((p) => {
+    const matchesSearch = p.title
+      .toLowerCase()
+      .includes(search.toLowerCase());
+
+    const matchesCategory =
+      category === "all" || p.category === category;
+
+    return matchesSearch && matchesCategory;
+  });
+}, [products, search, category]);  
+
 
   const createOrder = async (product) => {
     try {
@@ -119,10 +136,13 @@ export default function Products() {
 
   return (
     <div  >
-      <h1 className="text-3xl font-bold mb-6">Products</h1>
+      <h1 className="text-3xl font-bold text-gray-800 dark:text-white">
+    Products
+  </h1><br />
 
       
         <div className="w-full min-h-[220px] md:min-h-[300px] bg-blue-500 text-white rounded-xl shadow-lg mb-8 px-4 sm:px-6 md:px-10 py-6 flex items-center justify-center md:justify-start">
+          
         
           <div className="flex flex-col gap-2 max-w-md text-center md:text-left">
 
@@ -138,9 +158,48 @@ export default function Products() {
           </button>
         </div>
       </div>
+      <div className="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
+
+  <h1 ></h1>
+
+  <div className="flex items-center gap-3 w-full sm:w-auto">
+
+    <input
+      type="text"
+      placeholder="Search product..."
+      value={search}
+      onChange={(e) => setSearch(e.target.value)}
+      className="border rounded-lg px-4 py-2 
+      bg-white dark:bg-[#0f172a] 
+      border-gray-300 dark:border-gray-600 
+      text-gray-800 dark:text-gray-200 
+      placeholder-gray-400 dark:placeholder-gray-500
+      focus:outline-none focus:ring-2 focus:ring-blue-500
+      w-full sm:w-[200px]"
+    />
+
+    <select
+      value={category}
+      onChange={(e) => setCategory(e.target.value)}
+      className="border rounded-lg px-3 py-2 
+      bg-white dark:bg-[#0f172a] 
+      border-gray-300 dark:border-gray-600 
+      text-gray-800 dark:text-gray-200 
+      focus:outline-none focus:ring-2 focus:ring-blue-500"
+    >
+      <option value="all">All</option>
+      <option value="beauty">Beauty</option>
+      <option value="fragrances">Fragrances</option>
+      <option value="groceries">Groceries</option>
+      <option value="furniture">Furniture</option>
+    </select>
+
+  </div>
+</div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
-        {products.map((product) => (
+        
+        {filteredProducts.map((product) => (
           <div
   key={product.id}
   className="bg-white dark:bg-[#1e293b] rounded-lg shadow relative p-4 flex flex-col transition "

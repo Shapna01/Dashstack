@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 export default function Sidebar({ isOpen, setIsOpen }) {
   const pathname = usePathname();
-
+  const isCalendar = pathname === "/calendar";
   const menu = [
     { name: "Dashboard", path: "/dashboard" },
     { name: "Products", path: "/products" },
@@ -27,11 +27,13 @@ export default function Sidebar({ isOpen, setIsOpen }) {
   ];
 
   return (
-    <div
-  className={`fixed lg:static top-0 left-0 z-50 w-[240px] h-screen bg-white border-r dark:bg-[#1e293b] border-[#F1F1F1] dark:border-gray-700 px-6 py-6 flex flex-col overflow-y-auto transition-transform duration-300
-  ${isOpen ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0`}
->
-      <h1 className="text-[20px] font-extrabold text-[#202224] dark:text-gray-200  mb-10">
+    <div className={`fixed top-0 left-0 z-50 w-[240px] h-screen
+${isCalendar ? "bg-white border-gray-200" : "bg-white dark:bg-[#1e293b] border-[#F1F1F1] dark:border-gray-700"}
+border-r px-6 py-6 flex flex-col overflow-y-auto transition-transform duration-300
+${isOpen ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0`}>
+      <h1 className={`text-[20px] font-extrabold mb-10
+${isCalendar ? "text-[#202224]" : "text-[#202224] dark:text-gray-200"}
+`}>
         DashStack
       </h1>
 
@@ -41,11 +43,14 @@ export default function Sidebar({ isOpen, setIsOpen }) {
             <Link
               href={item.path}
               onClick={() => setIsOpen(false)}
-              className={`flex items-center h-[44px] px-4 text-[14px] font-semibold  rounded-lg ${
-                pathname === item.path
-                  ? "bg-blue-500 text-white"
-                  : "text-[#202224] dark:text-white hover:bg-gray-100 dark:hover:bg-[#334155]"
-              }`}
+             className={`flex items-center h-[44px] px-4 text-[14px] font-semibold rounded-lg
+${
+  pathname === item.path
+    ? "bg-blue-500 text-white"
+    : isCalendar
+    ? "text-[#202224] hover:bg-gray-100"
+    : "text-[#202224] dark:text-white hover:bg-gray-100 dark:hover:bg-[#334155]"
+}`}
             >
               {item.name}
             </Link>
@@ -53,7 +58,13 @@ export default function Sidebar({ isOpen, setIsOpen }) {
         ))}
       </ul>
 
-      <div className="border-t border-[#F1F1F1] dark:border-gray-700 my-6"></div>
+      <div
+  className={`border-t my-6 ${
+    isCalendar
+      ? "border-gray-200"
+      : "border-[#F1F1F1] dark:border-gray-700"
+  }`}
+></div>
 
       <p className="text-xs text-gray-400 mb-3">PAGES</p>
 
@@ -64,25 +75,34 @@ export default function Sidebar({ isOpen, setIsOpen }) {
               href={item.path}
               onClick={() => setIsOpen(false)}
               className={`flex items-center h-[44px] px-4 text-[14px] font-semibold rounded-lg ${
-                pathname === item.path
-                  ? "bg-blue-500 text-white"
-                  : "text-[#202224] dark:text-white hover:bg-gray-100 dark:hover:bg-[#334155]"
-              }`}
+  isCalendar
+    ? "text-[#202224] hover:bg-gray-100"
+    : "text-[#202224] dark:text-white hover:bg-gray-100 dark:hover:bg-[#334155]"
+}`}
             >
               {item.name}
             </Link>
           </li>
         ))}
       </ul>
-
+      
       <div className="mt-6">
 
-        <div className="border-t border-gray- dark:border-gray-700 my-4"></div>
-
+        <div
+  className={`border-t my-6 ${
+    isCalendar
+      ? "border-gray-200"
+      : "border-[#F1F1F1] dark:border-gray-700"
+  }`}
+></div>
+        
         <Link
           href="/settings"
-          className="flex items-center h-[44px] px-4 text-[14px] text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#334155] dark:hover:bg-[#334155] rounded-lg"
-        >
+className={`flex items-center h-[44px] px-4 text-[14px] rounded-lg ${
+  isCalendar
+    ? "text-gray-700 hover:bg-gray-100"
+    : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#334155]"
+}`}        >
           Settings
         </Link>
 

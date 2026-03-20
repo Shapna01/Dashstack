@@ -99,10 +99,10 @@ export default function Team() {
 
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-8">
 
-  <h1 className="text-2xl font-bold">Team</h1>
+  <h1 className="text-2xl font-bold text-gray-800 dark:text-white">Team</h1>
 
   <Link href="/team/add-member">
-    <button className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 w-full sm:w-auto">
+    <button className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 active:scale-95 transition-all duration-200 shadow-sm hover:shadow-md">
       Add New Member
     </button>
   </Link>
@@ -117,20 +117,25 @@ export default function Team() {
 
             <div
               key={member.id}
-            className="bg-white rounded-xl shadow flex flex-col items-center text-center p-6 hover:shadow-md transition"
+            className="bg-white dark:bg-[#1e293b] 
+rounded-xl shadow 
+flex flex-col items-center text-center p-6 
+border border-gray-200 dark:border-gray-700
+hover:shadow-md hover:-translate-y-1
+transition-all duration-300"
             >
 
               <img
                 src={member.image}
                 alt={member.name}
-                className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover mb-3"
+                className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover mb-3 border-2 border-gray-200 dark:border-gray-600"
               />
 
-              <h2 className="font-semibold">{member.name}</h2>
+              <h2 className="font-semibold text-gray-800 dark:text-white">{member.name}</h2>
 
-              <p className="text-gray-500 text-sm">{member.role}</p>
+              <p className="text-gray-500 dark:text-gray-300 text-sm">{member.role}</p>
 
-              <p className="text-gray-400 text-sm">{member.email}</p>
+              <p className="text-gray-400 dark:text-gray-400 text-sm">{member.email}</p>
 
             </div>
 

@@ -19,12 +19,19 @@ export default function InboxPage() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [page, setPage] = useState(1);
-  const itemsPerPage = 12;
-  const start = (page - 1) * itemsPerPage;
-  const paginatedEmails = emails.slice(start, start + itemsPerPage);
+  
+
+
+
   const [selectedIds, setSelectedIds] = useState([]);
-
-
+  const [search, setSearch] = useState("");
+  const filteredEmails = emails.filter((mail) =>
+  mail.name.toLowerCase().includes(search.toLowerCase()) ||
+  mail.subject.toLowerCase().includes(search.toLowerCase())
+);
+const itemsPerPage = 12;
+  const start = (page - 1) * itemsPerPage;
+  const paginatedEmails = filteredEmails.slice(start, start + itemsPerPage);
   useEffect(() => {
     fetch("https://dummyjson.com/users")
       .then((res) => res.json())
@@ -187,6 +194,12 @@ cursor-pointer transition">
   <input
     type="text"
     placeholder="Search mail"
+    value={search}
+    onChange={(e) => {
+  setSearch(e.target.value);
+  setPage(1);
+}}
+    
     className="w-full border border-gray-200 dark:border-gray-600 
   rounded-lg pl-10 pr-4 py-2 
   bg-white dark:bg-[#334155] 
@@ -205,7 +218,7 @@ cursor-pointer transition">
 
       <div className="overflow-y-auto flex-1">
   {paginatedEmails.map((mail) => (
-    <div
+    <div 
       key={mail.id}
       onClick={() => {
         setSelectedMail(mail);
@@ -272,7 +285,7 @@ cursor-pointer transition">
 
        <div className="flex items-center justify-between p-3 border-t text-sm text-gray-500 ">
 
-  <p>Showing {start + 1}–{Math.min(start + itemsPerPage, emails.length)} of {emails.length}</p>
+  <p>Showing {start + 1}–{Math.min(start + itemsPerPage, emails.length)} of {filteredEmails.length}</p>
 
   <div className="flex items-center border border-gray-300 rounded-md overflow-hidden">
 

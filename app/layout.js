@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
 
   const isAuthPage =
     pathname === "/login" || pathname === "/register";
-
+  const isCalendar = pathname === "/calendar";
   return (
     <html lang="en">
       <body className={`${nunito.className} bg-white dark:bg-[#0f172a]`}>
@@ -33,7 +33,14 @@ export default function RootLayout({ children }) {
 
         ) : (
 
-          <div className="flex w-full min-h-screen bg-[#F5F6FA] dark:bg-[#0f172a] transition-colors duration-300">
+          <div
+  className={`flex w-full min-h-screen transition-colors duration-300
+  ${
+    isCalendar
+      ? "bg-[#F5F6FA]"   
+      : "bg-[#F5F6FA] dark:bg-[#0f172a]"
+  }`}
+>
 
             {isOpen && (
   <div
@@ -44,15 +51,15 @@ export default function RootLayout({ children }) {
 
 <SideBar isOpen={isOpen} setIsOpen={setIsOpen} />
 
-            <div className="flex flex-col flex-1 min-w-0">
+<div className="flex flex-col flex-1 min-w-0 lg:ml-[240px]">
 
-              <TopBar setIsOpen={setIsOpen} />
+  <TopBar setIsOpen={setIsOpen} />
 
-              <main className="flex-1 p-4 md:p-6 overflow-y-auto min-w-0">
-                {children}
-              </main>
+  <main className="flex-1 p-4 md:p-6 overflow-y-auto min-w-0">
+    {children}
+  </main>
 
-            </div>
+</div>
 
           </div>
 

@@ -53,9 +53,13 @@ export default function TablesPage() {
   };
 
   return (
-    <div className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-6">Table</h1>
-      <div className="bg-white shadow rounded-lg p-6">
+    <div className="bg-gray-50 dark:bg-[#0f172a] min-h-screen py-6">
+  <div className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-6 text-gray-800 dark:text-white">Table</h1>
+      <div className="bg-white dark:bg-[#1e293b] 
+shadow rounded-lg p-6 
+border border-gray-200 dark:border-gray-700
+transition-colors duration-200">
 
         <div className="flex justify-between mb-4">
 
@@ -65,7 +69,7 @@ export default function TablesPage() {
         <div className="overflow-x-auto">
   <table className="min-w-[700px] w-full text-sm">
 
-          <thead className="bg-gray-100 text-gray-600">
+          <thead className="bg-gray-100 dark:bg-[#0f172a] text-gray-600 dark:text-gray-300">
             <tr>
               <th className="py-3 px-3 sm:py-4 sm:px-4 text-left">ID</th>
               <th className="py-3 px-3 sm:py-4 sm:px-4 text-left">Name</th>
@@ -81,34 +85,36 @@ export default function TablesPage() {
             {filteredOrders.map((order) => (
               <tr
                 key={order.id}
-                className="border-b border-gray-200 hover:bg-gray-50"
+                className="border-b border-gray-200 dark:border-gray-700 
+hover:bg-gray-50 dark:hover:bg-[#2a3a4f] 
+transition-colors text-gray-500 dark:text-gray-400"
               >
 
                 <td className="py-4 px-4">{order.id}</td>
 
-                <td className="py-4 px-4 font-medium">
+                <td className="py-4 px-4 font-medium text-gray-800 dark:text-gray-200">
                   {order.name}
                 </td>
 
-                <td className="py-4 px-4 text-gray-500">
+                <td className="py-4 px-4 text-gray-500 dark:text-gray-400">
                   {order.address}
                 </td>
 
-                <td className="py-4 px-4">
+                <td className="py-4 px-4 text-gray-500 dark:text-gray-400">
                   {new Date(order.order_date).toLocaleDateString()}
                 </td>
 
-                <td className="py-4 px-4">{order.type}</td>
+                <td className="py-4 px-4 text-gray-500 dark:text-gray-400">{order.type}</td>
 
-                <td className="py-4 px-4">
+                <td className="py-4 px-4 text-gray-500 dark:text-gray-400">
                   <span
                     className={`px-3 py-1 rounded-full text-xs
                     ${
                       order.status === "Completed"
-                        ? "bg-green-100 text-green-600"
+                        ? "bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400"
                         : order.status === "Processing"
-                        ? "bg-purple-100 text-purple-600"
-                        : "bg-red-100 text-red-600"
+                        ? "bg-purple-100 text-purple-600 dark:bg-green-900/30 dark:text-green-400"
+                        : "bg-red-100 text-red-600 dark:bg-green-900/30 dark:text-green-400"
                     }`}
                   >
                     {order.status}
@@ -122,7 +128,7 @@ export default function TablesPage() {
     </button>
     <button
       onClick={() => deleteOrder(order.id)}
-      className="text-red-500"
+      className="text-red-500 hover:text-red-700 dark:hover:text-red-400 transition"
     >
       <FiTrash2 />
     </button>
@@ -143,10 +149,16 @@ export default function TablesPage() {
 
 <br />
 
-      <div className="bg-white shadow rounded-lg p-6">
+      
+      
+      
+      <div className="bg-white dark:bg-[#1e293b] 
+shadow rounded-lg p-6 
+border border-gray-200 dark:border-gray-700
+transition-colors duration-200">
 
         <div className="flex justify-between mb-4">
-          <h2 className="text-xl font-bold">Product Stock</h2>
+          <h2 className="text-xl font-bold text-gray-800 dark:text-white">Product Stock</h2>
 
           
         </div>
@@ -154,7 +166,8 @@ export default function TablesPage() {
         <div className="overflow-x-auto">
   <table className="min-w-[700px] w-full text-sm">
 
-          <thead className="bg-gray-100 text-gray-600">
+          <thead className="bg-gray-100 dark:bg-[#0f172a] 
+text-gray-600 dark:text-gray-300">
             <tr>
               <th className="py-4 px-4 text-left">Image</th>
               <th className="py-4 px-4 text-left">Product</th>
@@ -170,29 +183,31 @@ export default function TablesPage() {
             {currentProducts.map((product) => (
               <tr
                 key={product.id}
-                className="border-b border-gray-200 hover:bg-gray-50"
+                className="border-b border-gray-200 dark:border-gray-700 
+hover:bg-gray-50 dark:hover:bg-[#2a3a4f] 
+transition-colors"
               >
 
                 <td className="py-5 px-4">
                   <img
                     src={product.thumbnail}
-                    className="w-12 h-12"
+                    className="w-12 h-12 rounded-md object-cover"
                   />
                 </td>
 
-                <td className="py-4 px-4 font-medium">
+                <td className="py-4 px-4 font-medium text-gray-800 dark:text-gray-200">
                   {product.title}
                 </td>
 
-                <td className="py-4 px-4 text-gray-500">
+                <td className="py-4 px-4 text-gray-500 dark:text-gray-400">
                   {product.category}
                 </td>
 
-                <td className="py-4 px-4 text-blue-600">
+                <td className="py-4 px-4 text-blue-600 dark:text-blue-400">
                   ${product.price}
                 </td>
 
-                <td className="py-5 px-4">{product.stock}</td>
+                <td className="py-5 px-4 text-gray-700 dark:text-gray-300">{product.stock}</td>
 
                 <td className="py-4 px-4 flex gap-2">
                   <span className="w-4 h-4 bg-black rounded-full"></span>
@@ -202,13 +217,13 @@ export default function TablesPage() {
 
                 <td className="py-4 px-4">
                 <div className="flex items-center gap-3">
-                  <button className="text-blue-500">
+                  <button className="text-blue-500 hover:text-blue-700 dark:hover:text-blue-400 transition">
                    <FiEdit />
                   </button>
 
                   <button
                     onClick={() => deleteProduct(product.id)}
-                    className="text-red-500"
+                    className="text-red-500 hover:text-red-700 dark:hover:text-red-400 transition"
                   >
                   <FiTrash2 />
                   </button>
@@ -227,8 +242,11 @@ export default function TablesPage() {
             onClick={() =>
               setCurrentPage((p) => Math.max(p - 1, 1))
             }
-            className="px-3 py-1 border rounded"
-          >
+            className="px-3 py-1 border rounded border-gray-300 dark:border-gray-600 
+text-gray-700 dark:text-gray-200 
+hover:bg-gray-100 dark:hover:bg-[#2a3a4f]
+transition"
+>
             {"<"}
           </button>
 
@@ -238,14 +256,17 @@ export default function TablesPage() {
                 Math.min(p + 1, totalPages)
               )
             }
-            className="px-3 py-1 border rounded"
+            className="px-3 py-1 border rounded border-gray-300 dark:border-gray-600 
+text-gray-700 dark:text-gray-200 
+hover:bg-gray-100 dark:hover:bg-[#2a3a4f]
+transition"
           >
             {">"}
           </button>
 
         </div>
       </div>
-
+    </div>
     </div>
   );
 }

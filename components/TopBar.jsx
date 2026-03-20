@@ -6,13 +6,14 @@ import { usePathname } from "next/navigation";
 import { FiSearch, FiBell, FiChevronDown, FiMenu } from "react-icons/fi";
 import { Sun, Moon } from "lucide-react";
 import { useTheme } from "../app/context/ThemeContext";
-
 export default function ({ setIsOpen }) {
 const [highlight, setHighlight] = useState(false);
 const { theme, toggleTheme } = useTheme();
-
-const searchRef = useRef(null);
 const pathname = usePathname();
+const isCalendar = pathname === "/calendar";
+const searchRef = useRef(null);
+
+
 useEffect(() => {
   if (pathname === "/dashboard") {
     setTimeout(() => {
@@ -35,8 +36,14 @@ useEffect(() => {
 
 
   return (
-    <div className="w-full h-[70px] bg-white border-b dark:bg-[#1e293b] border-gray-200 dark:border-gray-700 flex items-center justify-between px-8">
-      <button
+<div
+  className={`w-full h-[70px] border-b flex items-center justify-between px-8
+  ${
+    isCalendar
+      ? "bg-white border-gray-200"
+      : "bg-white dark:bg-[#1e293b] border-gray-200 dark:border-gray-700"
+  }`}
+>      <button
   onClick={() => setIsOpen(true)}
   className="lg:hidden text-[22px] text-gray-700 dark:text-gray-300 mr-2"
 >
@@ -45,7 +52,11 @@ useEffect(() => {
 </button>
 
       <div className="relative w-[160px] sm:w-[250px] md:w-[320px] lg:w-[388px] h-[38px]">
-        <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-[18px]" />
+        <FiSearch
+  className={`absolute left-3 top-1/2 -translate-y-1/2 text-[18px] ${
+    isCalendar ? "text-gray-500" : "text-gray-400"
+  }`}
+/>
         <input
           onFocus={() => {
           setHighlight(true);
@@ -54,7 +65,12 @@ useEffect(() => {
           ref={searchRef}
           type="text"
           placeholder="Search..."
-          className={`w-full h-full pl-10 pr-4 rounded-full bg-[#F5F6FA] dark:bg-[#334155] dark:text-white text-sm outline-none
+          className={`w-full h-full pl-10 pr-4 rounded-full text-sm outline-none
+${
+  isCalendar
+    ? "bg-[#F5F6FA] text-black"
+    : "bg-[#F5F6FA] dark:bg-[#334155] dark:text-white"
+}
 ${highlight ? "border-2 border-blue-400" : "border border-transparent"}`}
         />
       </div>
@@ -62,17 +78,19 @@ ${highlight ? "border-2 border-blue-400" : "border border-transparent"}`}
 
       <div className="flex items-center gap-6">
       <div
-          onClick={toggleTheme}
-          className={`w-14 h-7 flex items-center rounded-full p-1 cursor-pointer transition-all
-          ${theme === "dark" ? "bg-gray-700" : "bg-gray-300"}`}
-        >
-          <div
-            className={`w-5 h-5 flex items-center justify-center rounded-full bg-white shadow-md transform transition-all
-            ${theme === "dark" ? "translate-x-7" : "translate-x-0"}`}
-          >
-            {theme === "dark" ? <Moon size={12} /> : <Sun size={12} />}
-          </div>
-        </div>
+  onClick={!isCalendar ? toggleTheme : undefined}
+  className={`w-14 h-7 flex items-center rounded-full p-1 transition-all
+  ${theme === "dark" ? "bg-gray-700" : "bg-gray-300"}
+  ${isCalendar ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}
+  `}
+>
+  <div
+    className={`w-5 h-5 flex items-center justify-center rounded-full bg-white shadow-md transform transition-all
+    ${theme === "dark" ? "translate-x-7" : "translate-x-0"}`}
+  >
+    {theme === "dark" ? <Moon size={12} /> : <Sun size={12} />}
+  </div>
+</div>
         <div className="relative cursor-pointer">
           <FiBell className="text-gray-600 dark:text-gray-300 text-[20px]" />
 

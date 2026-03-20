@@ -71,8 +71,9 @@ setShowModal(false);
 
 return(
     
-<div className="w-full max-w-[1400px] mx-auto px-4">
-<div className="text-3xl font-bold mb-6">Calendar</div>
+<div className="w-full max-w-[1400px] mx-auto px-4 bg-white text-gray-800">
+<div className="text-3xl font-bold text-gray-800  ">Calendar</div>
+<br />
 <div className="flex flex-col xl:flex-row gap-6">
 
 <div className="w-full xl:w-[350px] bg-white rounded-xl shadow-sm p-6">

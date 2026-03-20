@@ -145,15 +145,15 @@ export default function OrdersPage() {
 
       <div className="bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-gray-700 shadow rounded-lg overflow-x-auto mt-6">
 
-        <table className="w-full min-w-[700px] text-sm ">
+        <table className="w-full min-w-[700px] text-sm table-fixed">
 
           <thead className="border-b border-gray-100 dark:border-gray-700 bg-gray-100 dark:bg-[#1e293b] hover:bg-gray-200 dark:hover:bg-[#2a3a4f] text-gray-800 dark:text-gray-200 transition-all duration-200 cursor-pointer"><tr>
-              <th className="py-5 px-4">ID</th>
-              <th className="py-5 px-4">NAME</th>
-              <th className="py-5 px-4">ADDRESS</th>
-              <th className="py-5 px-4">DATE</th>
-              <th className="py-5 px-4">TYPE</th>
-              <th className="py-5 px-4">STATUS</th>
+              <th className="py-5 px-4 text-left  whitespace-nowrap ">ID</th>
+              <th className="py-5 px-4 text-left  whitespace-nowrap">NAME</th>
+              <th className="py-5 px-4 text-left  whitespace-nowrap">ADDRESS</th>
+              <th className="py-5 px-4 text-left  whitespace-nowrap">DATE</th>
+              <th className="py-5 px-4 text-left  whitespace-nowrap">TYPE</th>
+              <th className="py-5 px-4 left-left  whitespace-nowrap">STATUS</th>
             </tr>
           </thead>
 
@@ -162,11 +162,10 @@ export default function OrdersPage() {
             {filteredOrders.map((order) => (
               <tr
                 key={order.id}
-                className="border-b border-gray-100 dark:border-gray-700 bg-gray-100 dark:bg-[#1e293b] hover:bg-gray-200 dark:hover:bg-[#2a3a4f] text-gray-800 dark:text-gray-200transition-all duration-200 cursor-pointer"
+                className="border-b border-gray-100 dark:border-gray-700 bg-gray-100 dark:bg-[#1e293b] hover:bg-gray-200 dark:hover:bg-[#2a3a4f] text-gray-800 dark:text-gray-200 transition-all duration-200 cursor-pointer"
               >
 
-                <td className="py-5 px-4 font-medium text-gray-800 dark:text-gray-200">000{order.id}</td>
-
+                <td className="py-5 px-4 text-left font-medium text-gray-800 dark:text-gray-200">000{order.id}</td>
                 <td className="py-5 px-4 text-gray-500 dark:text-gray-400">
                   {order.name}
                 </td>

@@ -31,24 +31,24 @@ const [open, setOpen] = React.useState(false);
 
       <div className="flex justify-between items-center mb-6">
 
-  <h1 className="text-2xl font-bold">UI Elements</h1>
+  <h1 className="text-2xl font-bold text-gray-800 dark:text-white ">UI Elements</h1>
 
   <div className="relative">
 
     <div
       onClick={() => setOpen(!open)}
-      className="flex items-center bg-white border rounded-lg w-full sm:w-[350px] h-[45px] cursor-pointer overflow-hidden text-sm"
+      className="flex items-center bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-gray-700 rounded-lg w-full sm:w-[350px] h-[45px] cursor-pointer overflow-hidden text-sm"
     >
 
-      <div className="w-[70px] flex justify-center items-center border-r">
+      <div className="w-[70px] flex justify-center items-center border-r border-gray-200 dark:border-gray-700">
         🔎
       </div>
 
-      <div className="px-5 text-gray-600 border-r">
+      <div className="px-4 text-gray-600 dark:text-gray-300 border-r border-gray-200 dark:border-gray-700">
         Filter By
       </div>
 
-      <div className="flex items-center px-6 gap-2 font-medium">
+      <div className="flex items-center px-6 gap-2 font-medium text-gray-600 dark:text-gray-300 border-r border-gray-200 dark:border-gray-700">
         {chartType === "all"
           ? "Charts"
           : chartType === "bar"
@@ -61,31 +61,31 @@ const [open, setOpen] = React.useState(false);
 
     </div>
   {open && (
-    <div className="absolute right-0 mt-2 w-[150px] bg-white border rounded-lg shadow-md">
+    <div className="absolute right-0 mt-2 w-[150px] bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-gray-700 rounded-lg shadow-md overflow-hidden transition-all duration-200">
 
       <div
-        className="p-3 hover:bg-gray-100 cursor-pointer"
+        className="p-3 cursor-pointer text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-[#2a3a4f]"
         onClick={() => { setChartType("bar"); setOpen(false); }}
       >
         Bar Chart
       </div>
 
       <div
-        className="p-3 hover:bg-gray-100 cursor-pointer"
+        className="p-3 cursor-pointer text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-[#2a3a4f]"
         onClick={() => { setChartType("pie"); setOpen(false); }}
       >
         Pie Chart
       </div>
 
       <div
-        className="p-3 hover:bg-gray-100 cursor-pointer"
+        className="p-3 cursor-pointer text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-[#2a3a4f]"
         onClick={() => { setChartType("donut"); setOpen(false); }}
       >
         Donut Chart
       </div>
 
       <div
-        className="p-3 hover:bg-gray-100 cursor-pointer"
+        className="p-3 cursor-pointer text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-[#2a3a4f]"
         onClick={() => { setChartType("all"); setOpen(false); }}
       >
         All Charts
@@ -97,8 +97,10 @@ const [open, setOpen] = React.useState(false);
 </div></div>
      
      
-  <div className="bg-white rounded-xl shadow-sm p-4 sm:p-6 w-full h-auto min-h-[250px] sm:min-h-[318px] ">
-  <h2 className="font-semibold text-[22px] mb-6 sm:mb-10">Bar Chart</h2>
+  <div className="bg-white dark:bg-[#1e293b] 
+rounded-xl shadow-sm p-4 sm:p-6 
+border border-gray-200 dark:border-gray-700 ">
+  <h2 className="font-semibold text-[22px] mb-6 sm:mb-10 text-gray-800 dark:text-white">Bar Chart</h2>
 
 {(chartType === "bar" || chartType === "all") && (
 
@@ -131,18 +133,20 @@ const [open, setOpen] = React.useState(false);
 )}
 </div>
 <br />
-
+    
       {(chartType === "pie" || chartType === "all") && (
 
-      <div className="bg-white rounded-xl shadow-sm p-4 sm:p-6 w-full sm:min-h-[318px]">
-        <h2 className="font-semibold text-[22px] mb-6 sm:mb-10">Pie Chart</h2>
+      <div className="bg-white rounded-xl dark:bg-[#1e293b] 
+rounded-xl shadow-sm p-4 sm:p-6 
+border border-gray-200 dark:border-gray-700">
+        <h2 className="font-semibold text-[22px] mb-6 sm:mb-10 text-gray-800 dark:text-white">Pie Chart</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 place-items-center ">
 
           {pieCharts.map((chart, i) => (
             <div
               key={i}
-              className="rounded-full w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] md:w-[155px] md:h-[155px]"
+              className="rounded-full w-[100px] h-[150px] sm:w-[120px] sm:h-[120px] md:w-[155px] md:h-[155px]"
               style={{
                 background: `conic-gradient(${chart.color} ${chart.value}%, #e5e7eb ${chart.value}% 100%)`,
               }}
@@ -157,9 +161,11 @@ const [open, setOpen] = React.useState(false);
 <br />
       {(chartType === "donut" || chartType === "all") && (
  
-      <div className="bg-white rounded-xl shadow-sm p-4 sm:p-6 w-full sm:min-h-[318px]">
+      <div className="bg-white rounded-xl dark:bg-[#1e293b] 
+rounded-xl shadow-sm p-4 sm:p-6 
+border border-gray-200 dark:border-gray-700">
 
-        <h2 className="font-semibold text-[22px] mb-6 sm:mb-10">Donut Chart</h2>
+        <h2 className="font-semibold text-[22px] mb-6 sm:mb-10 text-gray-800 dark:text-white">Donut Chart</h2>
 
         <div className="grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 justify-items-center">
 
@@ -171,7 +177,7 @@ const [open, setOpen] = React.useState(false);
                 background: `conic-gradient(${chart.color} ${chart.value}%, #e5e7eb ${chart.value}% 100%)`,
               }}
             >
-              <div className="absolute inset-6 bg-white rounded-full"></div>
+              <div className="absolute inset-6 bg-white dark:bg-[#1e293b] rounded-full"></div>
             </div>
           ))}
 
