@@ -1,11 +1,21 @@
 "use client";
 
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
 export default function CalendarPage() {
 
 const [date,setDate] = useState(new Date());
-const [events,setEvents] = useState({});
+const [events, setEvents] = useState({});
+
+useEffect(() => {
+  const saved = localStorage.getItem("events");
+  if (saved) {
+    setEvents(JSON.parse(saved));
+  }
+}, []);
+useEffect(() => {
+  localStorage.setItem("events", JSON.stringify(events));
+}, [events]);
+
 const [showModal,setShowModal] = useState(false);
 const [selectedDay,setSelectedDay] = useState(null);
 const [eventTitle,setEventTitle] = useState("");
@@ -23,8 +33,13 @@ const days = ["MON","TUE","WED","THU","FRI","SAT","SUN"];
 
 const calendarDays = [];
 
-for(let i=0;i<startOffset;i++){
-  calendarDays.push({day:null});
+const prevMonthDays = new Date(year, date.getMonth(), 0).getDate();
+
+for (let i = startOffset; i > 0; i--) {
+  calendarDays.push({
+    day: prevMonthDays - i + 1,
+    prev: true
+  });
 }
 
 for(let i=1;i<=daysInMonth;i++){
@@ -71,12 +86,12 @@ setShowModal(false);
 
 return(
     
-<div className="w-full max-w-[1400px] mx-auto px-4 bg-white text-gray-800 "><br />
+<div><br />
 <div className="text-3xl font-bold text-gray-800  ">Calendar</div>
 <br />
 <div className="flex flex-col xl:flex-row gap-6">
 
-<div className="w-full xl:w-[350px] bg-white rounded-xl shadow-sm p-6">
+<div className="w-full xl:w-[350px] bg-white rounded-2xl  border border-gray-300 shadow-sm p-6">
 
 <button
   onClick={()=>setShowModal(true)}
@@ -101,7 +116,7 @@ return(
 <div key={i} className="flex gap-3">
 
 <img
-src={`https://i.pravatar.cc/40?img=${i+10}`}
+src={`https://i.pravatar.cc/40?img=5`}
 className="w-10 h-10 rounded-full"
 />
 
@@ -121,9 +136,9 @@ className="w-10 h-10 rounded-full"
 
 <div className="flex mt-2">
 
-<img src="https://i.pravatar.cc/24?img=1" className="w-6 h-6 rounded-full border-2 border-white"/>
-<img src="https://i.pravatar.cc/24?img=2" className="w-6 h-6 rounded-full border-2 border-white -ml-2"/>
-<img src="https://i.pravatar.cc/24?img=3" className="w-6 h-6 rounded-full border-2 border-white -ml-2"/>
+<img src="https://i.pravatar.cc/40?img=5" className="w-6 h-6 rounded-full border-2 border-white"/>
+<img src="https://i.pravatar.cc/40?img=5" className="w-6 h-6 rounded-full border-2 border-white -ml-2"/>
+<img src="https://i.pravatar.cc/40?img=5" className="w-6 h-6 rounded-full border-2 border-white -ml-2"/>
 
 <div className="w-6 h-6 bg-blue-500 text-white text-[10px] flex items-center justify-center rounded-full -ml-2">
 15+
@@ -144,7 +159,7 @@ className="w-10 h-10 rounded-full"
 </div>
 
 
-<div className="w-full bg-white rounded-xl shadow-sm p-4 md:p-6">
+<div className="w-full bg-white rounded-2xl border border-gray-200 shadow-sm p-4 md:p-6">
 <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6">
 
 <div className="flex items-center gap-4">
@@ -156,7 +171,7 @@ className="w-10 h-10 rounded-full"
 ‹
 </button>
 
-<h2 className="font-semibold text-lg">
+<h2 className="font-semibold text-xl text-gray-700">
  {month} {year}
 </h2>
 
@@ -188,7 +203,7 @@ Month
 </div>
 
 
-<div className="grid grid-cols-7 text-center text-xs text-gray-400 mb-2">
+<div className="grid grid-cols-7 text-center text-sm text-gray-500 mb-3 font-medium">
 
 {days.map((day)=>(
 
@@ -201,7 +216,7 @@ Month
 </div>
 
 
-<div className="grid grid-cols-7 border rounded-lg overflow-hidden">
+<div className="grid grid-cols-7 border border-gray-300 rounded-lg overflow-hidden">
 
 {calendarDays.map((item,index)=>{
 
@@ -213,8 +228,10 @@ return(
 <div
 key={index}
 onClick={()=>item.current && openModal(item.day)}
-className={`min-h-[80px] md:min-h-[110px] border relative p-2 text-sm cursor-pointer
-${item.next ? "bg-gray-50 text-gray-300" : "hover:bg-[#f8fafc]"}`}
+className={`min-h-[90px] md:min-h-[130px] border  border-gray-200 relative p-2 text-sm cursor-pointer
+${item.prev || item.next 
+  ? "bg-[#f8fafc] text-gray-400" 
+  : "bg-white hover:bg-[#f1f5f9]"}`}
 >
 
 {item.day && (
@@ -225,18 +242,16 @@ ${item.next ? "bg-gray-50 text-gray-300" : "hover:bg-[#f8fafc]"}`}
 
 {event && (
 
-<div className="bg-purple-400 text-white text-xs px-2 py-1 rounded mt-6 w-fit">
+<div className="bg-purple-500 text-white text-xs px-2 py-1 rounded-md mt-6 w-fit shadow-sm">
 {event.title}
 </div>
 
 )}
 
-{!item.day && (
-
-<div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,#f0f3f7,#f0f3f7_10px,#e5e9f2_10px,#e5e9f2_20px)]">
-</div>
-
+{item.prev && (
+  <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,#f1f5f9,#f1f5f9_8px,#e2e8f0_8px,#e2e8f0_16px)] opacity-60"></div>
 )}
+
 
 </div>
 

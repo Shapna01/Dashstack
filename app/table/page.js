@@ -90,7 +90,7 @@ hover:bg-gray-50 dark:hover:bg-[#2a3a4f]
 transition-colors text-gray-500 dark:text-gray-400"
               >
 
-                <td className="py-4 px-4">{order.id}</td>
+                <td className="py-4 px-4">00{order.id}</td>
 
                 <td className="py-4 px-4 font-medium text-gray-800 dark:text-gray-200">
                   {order.name}

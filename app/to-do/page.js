@@ -53,44 +53,56 @@ export default function TodoPage() {
   };
 
   return (
-    <div className="bg-[#F5F6FA] dark:bg-[#0f172a] min-h-screen w-full px-4">
-            <h1 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">To Do List</h1>
+    <div className="bg-[#F5F6FA] dark:bg-[#0f172a] min-h-screen w-full px-6 py-6 overflow-hidden">
+            <div className="flex items-center justify-between mb-6">
+  <h1 className="text-2xl font-semibold text-gray-800 dark:text-white">
+    To Do List
+  </h1>
 
-      <div className="w-full max-w-[1190px] mx-auto bg-white dark:bg-[#1e293b] rounded-xl shadow-sm p-5 md:p-8 border border-gray-200 dark:border-gray-700">
-
-       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-8">
-          <h1 className="text-2xl font-semibold text-gray-800 dark:text-white">
-          </h1>
-
-          <button
-            onClick={() => setShowModal(true)}
-            className="bg-blue-500 hover:bg-blue-600 text-white px-5 py-2 rounded-lg text-sm font-medium"
-          >
-            Add New Task
-          </button>
-        </div>
+  <button
+    onClick={() => setShowModal(true)}
+    className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium"
+  >
+    Add New Task
+  </button>
+</div>
  
         <div className="space-y-4 overflow-y-auto max-h-[70vh] pr-2">
 
           {tasks.map((task) => (
             <div
               key={task.id}
-              className={`flex items-center justify-between px-5 py-4 rounded-lg border transition
+              className={`flex items-center justify-between px-4 py-5 transition rounded-lg
               ${
                 task.completed
-                  ? "bg-blue-500 text-white border-blue-500"
-                  : "bg-gray-50 dark:bg-[#334155] border-gray-200 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-[#475569]"
+                ? "bg-blue-500 text-white border-blue-500"
+                : "bg-gray-200 dark:bg-[#334155] border-gray-200 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-[#475569]"
               }`}
             >
 
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3">
 
-                <input
-                  type="checkbox"
-                  checked={task.completed}
-                  onChange={() => toggleComplete(task.id)}
-                  className="w-4 h-4"
+                <div
+                  onClick={() => toggleComplete(task.id)}
+                  className={`w-[18px] h-[18px] flex items-center justify-center cursor-pointer rounded-sm border
+                  ${
+                    task.completed
+                    ? "bg-white border-white"
+                    : "border-gray-400 bg-transparent"
+                  }`}
+                >
+                {task.completed && (
+                <svg width="12" height="12" viewBox="0 0 20 20">
+                <path
+                  d="M5 10L8 13L15 6"
+                  stroke="#3B82F6"  
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  fill="none"
                 />
+                </svg>
+                )}
+               </div>
 
                 <p className="text-sm break-words text-gray-800 dark:text-gray-200">
                   {task.text}
@@ -127,7 +139,7 @@ export default function TodoPage() {
           ))}
 
         </div>
-      </div>
+      
 
       {showModal && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center">

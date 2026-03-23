@@ -141,16 +141,17 @@ const filteredProducts = useMemo(() => {
   </h1><br />
 
       
-        <div className="w-full min-h-[220px] md:min-h-[300px] bg-blue-500 text-white rounded-xl shadow-lg mb-8 px-4 sm:px-6 md:px-10 py-6 flex items-center justify-center md:justify-start">
-          
-        
-          <div className="flex flex-col gap-2 max-w-md text-center md:text-left">
-
-          <span className="text-sm sm:text-base font-semibold">September 12-22</span>
+<div className="relative w-full min-h-[220px] md:min-h-[300px] bg-blue-600 dark:bg-blue-500 text-white rounded-xl shadow-lg dark:shadow-[0_10px_40px_rgba(59,130,246,0.35)] mb-8 px-4 sm:px-6 md:px-10 py-6 flex items-center justify-center md:justify-start overflow-hidden">          
+        <div className="absolute -top-10 -right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+<div className="absolute -bottom-10 -left-10 w-32 h-32 bg-black/20 rounded-full blur-2xl"></div>
+<div className="absolute inset-0 bg-white/5 dark:bg-white/10 rounded-xl"></div>
+          <div className=" relative flex flex-col gap-2 max-w-md text-center md:text-left">
+      
+          <span className="text-sm sm:text-base font-semibold text-white/80">September 12-22</span>
           <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-snug">
             Enjoy free home delivery in this summer
           </h2>
-          <p className="text-sm sm:text-base md:text-lg mt-1">
+          <p className="text-sm sm:text-base md:text-lg mt-1 text-white/80">
             Designer Dresses - Pick from trendy Designer Dress.
           </p>
           <button className="bg-white text-blue-600 font-semibold px-4 py-2 sm:px-6 sm:py-3 rounded-md mt-4 w-fit mx-auto md:mx-0 hover:bg-gray-100">

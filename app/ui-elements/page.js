@@ -97,41 +97,44 @@ const [open, setOpen] = React.useState(false);
 </div></div>
      
      
+  {(chartType === "bar" || chartType === "all") && (
+
   <div className="bg-white dark:bg-[#1e293b] 
-rounded-xl shadow-sm p-4 sm:p-6 
-border border-gray-200 dark:border-gray-700 ">
-  <h2 className="font-semibold text-[22px] mb-6 sm:mb-10 text-gray-800 dark:text-white">Bar Chart</h2>
+  rounded-xl shadow-sm p-4 sm:p-6 
+  border border-gray-200 dark:border-gray-700 ">
 
-{(chartType === "bar" || chartType === "all") && (
+    <h2 className="font-semibold text-[22px] mb-6 sm:mb-10 text-gray-800 dark:text-white">
+      Bar Chart
+    </h2>
 
-  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 place-items-center">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 place-items-center">
 
-    {[
-      [80,40,30,70,55,35,45],
-      [20,30,25,35,28,22,27],
-      [40,60,50,70,45,55,65],
-      [25,30,28,35,40,32,38]
-    ].map((group, index) => (
+      {[
+        [80,40,30,70,55,35,45],
+        [20,30,25,35,28,22,27],
+        [40,60,50,70,45,55,65],
+        [25,30,28,35,40,32,38]
+      ].map((group, index) => (
 
-      <div key={index} className="flex items-end gap-2 h-[140px]">
+        <div key={index} className="flex items-end gap-2 h-[140px]">
 
-        {group.map((h, i) => (
-          <div key={i} className="w-2 h-full bg-gray-200 rounded-full flex items-end">
-            <div
-              className={`w-full ${colors[index]} rounded-full`}
-              style={{ height: `${h}%` }}
-            />
-          </div>
-        ))}
+          {group.map((h, i) => (
+            <div key={i} className="w-2 h-full bg-gray-200 rounded-full flex items-end">
+              <div
+                className={`w-full ${colors[index]} rounded-full`}
+                style={{ height: `${h}%` }}
+              />
+            </div>
+          ))}
 
-      </div>
+        </div>
 
-    ))}
+      ))}
 
+    </div>
   </div>
 
 )}
-</div>
 <br />
     
       {(chartType === "pie" || chartType === "all") && (

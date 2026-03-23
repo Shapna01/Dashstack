@@ -51,6 +51,7 @@ const itemsPerPage = 12;
 
   return (
     <div className="flex flex-col lg:flex-row gap-4 p-4">
+      
 
       <div className="w-full lg:w-[286px] bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-gray-700 rounded-[14px] p-4 flex flex-col">
 

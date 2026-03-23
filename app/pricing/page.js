@@ -31,7 +31,6 @@ export default function PricingPage() {
     {
       name: "Premium",
       price: "$89.99",
-      button: "filled",
       features: [
         { text: "Free Setup", active: true },
         { text: "Bandwidth Limit 10 GB", active: true },
@@ -56,7 +55,7 @@ export default function PricingPage() {
 bg-white dark:bg-[#1e293b]
 border-gray-100 dark:border-gray-700
 hover:shadow-lg hover:-translate-y-1
-${plan.name === "Premium" ? "ring-2 ring-blue-500 scale-105" : ""}
+hover:ring-2 hover:ring-blue-500
 `}
           >
             <div className="px-10 pt-10 pb-6 text-center">
@@ -87,7 +86,7 @@ ${plan.name === "Premium" ? "ring-2 ring-blue-500 scale-105" : ""}
             <hr className="border-gray-200 dark:border-gray-700" />
 
             <div className="px-10 py-8 text-center">
-              {plan.button === "filled" ? (
+              {plan.button === "" ? (
                 <button className="bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-full w-full transition">
                   Get Started
                 </button>
