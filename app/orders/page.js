@@ -82,9 +82,9 @@ export default function OrdersPage() {
       <h2 className="text-2xl font-bold mb-6 text-gray-800 dark:text-gray-200">Order Lists</h2>
 
 
-      <div className="bg-white border border-gray-200 rounded-xl flex items-center overflow-hidden">
+      <div className="bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm flex flex-wrap items-center gap-2 p-2 w-full">
 
-        <div className="flex items-center gap-2 px-4 py-3 text-gray-600">
+        <div className="flex items-center gap-2 px-3 py-2 border rounded-lg text-gray-600">
           <FiFilter />
           <span className="font-medium">Filter By</span>
         </div>
@@ -143,12 +143,12 @@ export default function OrdersPage() {
       </div>
 
 
-      <div className="bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden mt-6">
+      <div className="bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-gray-700 shadow  rounded-2xl overflow-hidden mt-6">
 
         <table className="w-full min-w-[700px] text-sm table-fixed">
 
-         <thead className="bg-white text-gray-700 text-xs uppercase border-b border-gray-100 ">
-          <tr className="border-b border-gray-100">
+          <thead className="bg-[#F5F6FA] dark:bg-[#1e293b] text-gray-500 dark:text-gray-400 text-xs uppercase">
+          <tr>
             <th className="py-4 px-6 text-left">ID</th>
             <th className="py-4 px-6 text-left">Name</th>
             <th className="py-4 px-6 text-left">Address</th>
@@ -156,49 +156,47 @@ export default function OrdersPage() {
             <th className="py-4 px-6 text-left">Type</th>
             <th className="py-4 px-6 text-left">Status</th>
           </tr>
-          </thead>
+        </thead>
 
           <tbody  >
 
             {filteredOrders.map((order) => (
               <tr
-                
-  key={order.id}
-  className="border-b border-gray-100 bg-white hover:bg-gray-50 transition"
+                key={order.id}
+                className="border-b border-gray-100 dark:border-gray-700 
+  bg-white dark:bg-[#1e293b] 
+  hover:bg-gray-50 dark:hover:bg-[#2a3a4f] 
+  text-gray-800 dark:text-gray-200 
+  transition-all duration-200 cursor-pointer"
 >
-              
+                <td className="py-5 px-4 text-left font-medium text-gray-800 dark:text-gray-200">000{order.id}</td>
+                <td className="py-5 px-4 text-gray-500 dark:text-gray-400">
+                  {order.name}
+                </td>
 
-                <td className="py-4 px-6 font-medium text-gray-700 dark:text-gray-200">
-  000{order.id}
-</td>
+                <td className="py-5 px-4 text-gray-700 dark:text-gray-300">
+                  {order.address}
+                </td>
 
-<td className="py-4 px-6 text-gray-600 dark:text-gray-400">
-  {order.name}
-</td>
-
-<td className="py-4 px-6 text-gray-500">
-  {order.address}
-</td>
-
-                <td className="py-4 px-6 text-gray-700 dark:text-gray-300">
+                <td className="py-5 px-4 text-gray-700 dark:text-gray-300">
                   {new Date(order.date).toLocaleDateString()}
                 </td>
 
-                <td className="py-4 px-6 text-gray-800 dark:text-gray-200">{order.type}</td>
+                <td className="py-5 px-4 text-gray-800 dark:text-gray-200">{order.type}</td>
 
-                <td className="py-4 px-6 text-gray-700dark:text-gray-300">
+                <td className="py-5 px-4 text-gray-700dark:text-gray-300">
                   <span
-  className={`px-3 py-1 text-xs font-medium rounded-full
+  className={`px-3 py-1 text-xs rounded bg-blue-100 text-blue-600 dark:bg-blue-900 dark:text-blue-300
   ${
     order.status === "Completed"
-      ? "bg-green-100 text-green-600"
+      ? "bg-green-100 text-green-600 dark:bg-green-900/40 dark:text-green-400"
       : order.status === "Processing"
-      ? "bg-purple-100 text-purple-600"
+      ? "bg-blue-100 text-blue-600 dark:bg-blue-900/40 dark:text-blue-400"
       : order.status === "Rejected"
-      ? "bg-red-100 text-red-500"
+      ? "bg-red-100 text-red-600 dark:bg-red-900/40 dark:text-red-400"
       : order.status === "On Hold"
-      ? "bg-yellow-100 text-yellow-600"
-      : "bg-blue-100 text-blue-600"
+      ? "bg-yellow-100 text-yellow-600 dark:bg-yellow-900/40 dark:text-yellow-400"
+      : "bg-purple-100 text-purple-600 dark:bg-purple-900/40 dark:text-purple-400"
   }`}
 >
   {order.status}
