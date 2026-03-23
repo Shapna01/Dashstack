@@ -50,6 +50,7 @@ const itemsPerPage = 12;
   }, []);
 
   return (
+    
     <div className="flex flex-col lg:flex-row gap-4 p-4">
       
 

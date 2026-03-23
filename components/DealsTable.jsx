@@ -35,7 +35,7 @@ fetchData();
 
 return (
 
-<div className="bg-white dark:bg-[#1e293b] border border-transparent dark:border-gray-700 rounded-[14px] w-full p-4 md:p-6 shadow-[6px_6px_54px_rgba(0,0,0,0.05)]">
+<div className="bg-white dark:bg-[#1e293b] dark:border-gray-700 rounded-[14px] w-full p-4 md:p-6 shadow-[6px_6px_54px_rgba(0,0,0,0.05)]">
   <div className="flex justify-between items-center mb-6">
     <h3 className="text-[22px] font-bold text-gray-700 dark:text-white ">
       Deals Details
@@ -50,8 +50,8 @@ return (
 
 <div className="overflow-x-auto" >
   <table className="w-full text-sm text-gray-700 dark:text-gray-200">
-    <thead>
-      <tr className="text-gray-500 dark:text-gray-400 border-gray-200 dark:border-gray-700 bg-white dark:bg-[#334155] text-gray-700 dark:text-white">
+    <thead className="bg-gray-50 dark:bg-transparent">
+  <tr className="text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-gray-700">
         <th className="text-left py-3 px-2 ">Product Name</th>
         <th className="text-left py-3 px-2">Location</th>
         <th className="text-left py-3 px-2">Date - Time</th>
@@ -71,7 +71,11 @@ return (
 
         return (
 
-          <tr key={order.id} className="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-[#334155] text-gray-700 dark:text-white">
+          <tr key={order.id} className="border-b border-gray-200 dark:border-gray-700 
+bg-white dark:bg-transparent 
+even:bg-gray-50 even:dark:bg-[#1e293b] 
+text-gray-700 dark:text-gray-200 
+hover:bg-gray-100 dark:hover:bg-[#2a3a4f] transition">
 
             <td className="py-4 px-2 flex items-center gap-3 ">
 
