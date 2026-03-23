@@ -86,7 +86,7 @@ export default function Settings() {
               <input
                 type="text"
                 defaultValue="CEO"
-                className="w-full border rounded-lg p-3 mt-1 bg-white dark:bg-[#0f172a] border-gray-300 dark:border-gray-600 text-gray-800 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-150"
+                className="w-full border rounded-lg p-3 mt-1 bg-white dark:bg-[#0f172a] border-gray-300 dark:border-gray-600 text-gray-800 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-150 "
               />
             </div>
 

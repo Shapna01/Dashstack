@@ -63,21 +63,21 @@ export default function InvoicePage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
 
           <div>
-            <h3 className="font-semibold text-gray-600 dark:text-gray-300 dark:text-gray-400 mb-2 ">Invoice From</h3>
-            <p className="text-sm text-gray-500">9694 Krajcik Locks Suite 635</p>
-            <p className="text-sm text-gray-500">Brookview</p>
+            <h3 className="font-semibold text-gray-600 dark:text-gray-300 mb-2 ">Invoice From</h3>
+            <p className="text-sm text-gray-400">9694 Krajcik Locks Suite 635</p>
+            <p className="text-sm text-gray-400">Brookview</p>
           </div>
 
           <div>
-            <h3 className="font-semibold text-gray-600 dark:text-gray-300 dark:text-gray-400 mb-2">Invoice To</h3>
-            <p className="text-sm text-gray-500">Virginia Walker</p>
-            <p className="text-sm text-gray-500">Austin Miller</p>
+            <h3 className="font-semibold text-gray-600 dark:text-gray-300  mb-2">Invoice To</h3>
+            <p className="text-sm text-gray-400">Virginia Walker</p>
+            <p className="text-sm text-gray-400">Austin Miller</p>
           </div>
 
           <div>
-            <h3 className="font-semibold text-gray-600 dark:text-gray-300  dark:text-gray-400 mb-2">Invoice Details</h3>
-            <p className="text-sm text-gray-500">Invoice Date : 12 Nov 2026</p>
-            <p className="text-sm text-gray-500">Due Date : 25 Dec 2026</p>
+            <h3 className="font-semibold text-gray-600 dark:text-gray-300   mb-2">Invoice Details</h3>
+            <p className="text-sm text-gray-400">Invoice Date : 12 Nov 2026</p>
+            <p className="text-sm text-gray-400">Due Date : 25 Dec 2026</p>
           </div>
 
         </div>

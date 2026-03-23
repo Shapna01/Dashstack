@@ -174,13 +174,13 @@ export default function OrdersPage() {
                   {order.address}
                 </td>
 
-                <td className="py-5 px-4 text-gray-700 dark:text-gray-300">
+                <td className="py-5 px-4 text-gray-800 dark:text-gray-200">
                   {new Date(order.date).toLocaleDateString()}
                 </td>
 
                 <td className="py-5 px-4 text-gray-800 dark:text-gray-200">{order.type}</td>
 
-                <td className="py-5 px-4 text-gray-700dark:text-gray-300">
+                <td className="py-5 px-4 text-gray-700 dark:text-gray-300">
                   <span
   className={`px-3 py-1 text-xs rounded bg-blue-100 text-blue-600 dark:bg-blue-900 dark:text-blue-300
   ${

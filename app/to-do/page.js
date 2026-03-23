@@ -60,7 +60,6 @@ export default function TodoPage() {
 
        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-8">
           <h1 className="text-2xl font-semibold text-gray-800 dark:text-white">
-            List
           </h1>
 
           <button

@@ -24,25 +24,25 @@ const days = ["MON","TUE","WED","THU","FRI","SAT","SUN"];
 const calendarDays = [];
 
 for(let i=0;i<startOffset;i++){
-calendarDays.push({day:null});
+  calendarDays.push({day:null});
 }
 
 for(let i=1;i<=daysInMonth;i++){
-calendarDays.push({day:i,current:true});
+  calendarDays.push({day:i,current:true});
 }
 
 let nextDay = 1;
 
 while(calendarDays.length % 7 !== 0){
-calendarDays.push({day:nextDay++,next:true});
+  calendarDays.push({day:nextDay++,next:true});
 }
 
 function prevMonth(){
-setDate(new Date(year,date.getMonth()-1,1));
+  setDate(new Date(year,date.getMonth()-1,1));
 }
 
 function nextMonth(){
-setDate(new Date(year,date.getMonth()+1,1));
+  setDate(new Date(year,date.getMonth()+1,1));
 }
 
 function openModal(day){
@@ -71,7 +71,7 @@ setShowModal(false);
 
 return(
     
-<div className="w-full max-w-[1400px] mx-auto px-4 bg-white text-gray-800">
+<div className="w-full max-w-[1400px] mx-auto px-4 bg-white text-gray-800 "><br />
 <div className="text-3xl font-bold text-gray-800  ">Calendar</div>
 <br />
 <div className="flex flex-col xl:flex-row gap-6">
@@ -79,14 +79,14 @@ return(
 <div className="w-full xl:w-[350px] bg-white rounded-xl shadow-sm p-6">
 
 <button
-onClick={()=>setShowModal(true)}
-className="w-full bg-blue-500 text-white py-2 rounded-lg mb-8"
+  onClick={()=>setShowModal(true)}
+  className="w-full bg-blue-500 text-white py-2 rounded-lg mb-8"
 >
-+ Add New Event
+  + Add New Event
 </button>
 
 <p className="text-sm text-gray-400 mb-4">
-You are going to
+  You are going to
 </p>
 
 <div className="space-y-6">
@@ -108,15 +108,15 @@ className="w-10 h-10 rounded-full"
 <div>
 
 <h3 className="text-sm font-semibold">
-{data.title}
+  {data.title}
 </h3>
 
 <p className="text-xs text-gray-500">
-{data.message}
+  {data.message}
 </p>
 
 <p className="text-xs text-gray-400">
-{d} {eventMonth} {y}
+  {d} {eventMonth} {y}
 </p>
 
 <div className="flex mt-2">
@@ -150,14 +150,14 @@ className="w-10 h-10 rounded-full"
 <div className="flex items-center gap-4">
 
 <button
-onClick={prevMonth}
-className="text-gray-400 text-xl"
+ onClick={prevMonth}
+ className="text-gray-400 text-xl"
 >
 ‹
 </button>
 
 <h2 className="font-semibold text-lg">
-{month} {year}
+ {month} {year}
 </h2>
 
 <button
