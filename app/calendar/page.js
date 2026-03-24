@@ -1,10 +1,18 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useParams, useRouter ,useSearchParams } from "next/navigation";
 export default function CalendarPage() {
 
 const [date,setDate] = useState(new Date());
 const [events, setEvents] = useState({});
+const params = useParams();
+const searchParams = useSearchParams();
+const router = useRouter();
+
+const paramYear = searchParams.get("year");
+const paramMonth = searchParams.get("month");
+const paramDay = searchParams.get("day");
 
 useEffect(() => {
   const saved = localStorage.getItem("events");
@@ -15,6 +23,14 @@ useEffect(() => {
 useEffect(() => {
   localStorage.setItem("events", JSON.stringify(events));
 }, [events]);
+
+useEffect(() => {
+  if (params.day && params.month && params.year) {
+    setSelectedDay(params.day);
+    setDate(new Date(params.year, params.month - 1, params.day));
+    setShowModal(true);
+  }
+}, [params]);
 
 const [showModal,setShowModal] = useState(false);
 const [selectedDay,setSelectedDay] = useState(null);
@@ -60,10 +76,17 @@ function nextMonth(){
   setDate(new Date(year,date.getMonth()+1,1));
 }
 
-function openModal(day){
-setSelectedDay(day);
-setShowModal(true);
+function openModal(day) {
+  setSelectedDay(day);
+  setShowModal(true);
+  const newParams = new URLSearchParams(window.location.search);
+  newParams.set("year", date.getFullYear());
+  newParams.set("month", date.getMonth() + 1);
+  newParams.set("day", day);
+
+  router.replace(`${window.location.pathname}?${newParams.toString()}`);
 }
+
 
 function addEvent(){
 

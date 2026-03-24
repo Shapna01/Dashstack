@@ -1,12 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useMemo } from "react";
+import { useEffect, useState, useMemo } from "react";
+import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
 export default function Products() {
   const [products, setProducts] = useState([]);
-  const [search, setSearch] = useState("");
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const initialSearch = searchParams.get("search") || "";
+  const [search, setSearch] = useState(initialSearch);  
   const [category, setCategory] = useState("all");
-
+  const [quantities, setQuantities] = useState({});
+  
   const [wishlist, setWishlist] = useState(() => {
     if (typeof window !== "undefined") {
       return JSON.parse(localStorage.getItem("wishlist") || "{}");
@@ -14,6 +19,27 @@ export default function Products() {
     return {};
   });
 
+
+  useEffect(() => {
+  const query = search ? `?search=${encodeURIComponent(search)}` : "";
+  router.replace(`/products${query}`);
+  console.log("Product title:", search);
+}, [search]);
+
+
+  const increaseQty = (id) => {
+  setQuantities((prev) => ({
+    ...prev,
+    [id]: (prev[id] || 0) + 1,
+  }));
+};
+
+const decreaseQty = (id) => {
+  setQuantities((prev) => ({
+    ...prev,
+    [id]: Math.max((prev[id] || 0) - 1, 0),
+  }));
+};
 const filteredProducts = useMemo(() => {
   return products.filter((p) => {
     const matchesSearch = p.title
@@ -28,7 +54,12 @@ const filteredProducts = useMemo(() => {
 }, [products, search, category]);  
 
 
-  const createOrder = async (product) => {
+  const createOrder = async (product , qty) => {
+
+    if (!qty || qty === 0) {
+  alert("Please add quantity");
+  return;
+}
     try {
       const res = await fetch("/api/orders", {
         method: "POST",
@@ -40,7 +71,7 @@ const filteredProducts = useMemo(() => {
         address: product.brand,
         type: product.category,
         price: product.price,
-        quantity: 1,
+        quantity: qty,
         status: "Processing",
         
         })
@@ -195,18 +226,45 @@ const filteredProducts = useMemo(() => {
   key={product.id}
   className="bg-white dark:bg-[#1e293b] rounded-lg shadow relative p-4 flex flex-col transition "
 >
-
+<Link
+  href={`/products/${product.id}`}
+  onClick={() =>
+    console.log(`Product ID: ${product.id} Name: ${product.title}`)
+  }
+>
   <img
     src={product.thumbnail}
     alt={product.title}
     className="w-full h-64 object-contain"
   />
-
+</Link>
   <div className="flex flex-col gap-2 mt-4">
+    <div className="flex items-center gap-3 mt-2">
+    </div>
     <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200">{product.title}</h2>
 
-    <p className="text-blue-600 dark:text-blue-400 font-bold ">${product.price}</p>
+    <div className="flex items-center justify-between mt-2">
 
+  <p className="text-blue-600 dark:text-blue-400 font-bold">
+    ${product.price}
+  </p>
+
+  {(quantities[product.id] || 0) === 0 ? (
+    <button
+      onClick={() => increaseQty(product.id)}
+      className="bg-blue-200 hover:bg-blue-300 text-black font-semibold px-4 py-2 rounded-full"
+    >
+      Add
+    </button>
+  ) : (
+    <div className="flex items-center gap-2 bg-gray-100 dark:bg-gray-700  text-gray-800 dark:text-gray-200 rounded-full px-5 py-2">
+      <button onClick={() => decreaseQty(product.id)}>−</button>
+      <span>{quantities[product.id]}</span>
+      <button onClick={() => increaseQty(product.id)}>+</button>
+    </div>
+  )}
+
+</div>
     <div className="flex items-center gap-2">
       <StarRating rating={product.rating} />
       <span className="text-gray-500 dark:text-gray-400 text-sm">
@@ -216,7 +274,9 @@ const filteredProducts = useMemo(() => {
     </div>
 
     <button
-      onClick={() => createOrder(product)}
+      onClick={() =>
+      createOrder(product, quantities[product.id] || 0)
+    }
       className="text-black font-bold rounded px-3 py-2 text-sm w-max bg-blue-200 hover:bg-blue-300 mt-2"
     >
       Create Order
