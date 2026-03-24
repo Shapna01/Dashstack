@@ -99,9 +99,7 @@ const [open, setOpen] = React.useState(false);
      
   {(chartType === "bar" || chartType === "all") && (
 
-  <div className="bg-white dark:bg-[#1e293b] 
-  rounded-xl shadow-sm p-4 sm:p-6 
-  border border-gray-200 dark:border-gray-700 ">
+  <div className="bg-white dark:bg-[#1e293b] rounded-xl shadow-sm p-4 sm:p-6 border border-gray-200 dark:border-gray-700 ">
 
     <h2 className="font-semibold text-[22px] mb-6 sm:mb-10 text-gray-800 dark:text-white">
       Bar Chart
@@ -139,9 +137,7 @@ const [open, setOpen] = React.useState(false);
     
       {(chartType === "pie" || chartType === "all") && (
 
-      <div className="bg-white rounded-xl dark:bg-[#1e293b] 
-rounded-xl shadow-sm p-4 sm:p-6 
-border border-gray-200 dark:border-gray-700">
+      <div className="bg-white rounded-xl dark:bg-[#1e293b] rounded-xl shadow-sm p-4 sm:p-6 border border-gray-200 dark:border-gray-700">
         <h2 className="font-semibold text-[22px] mb-6 sm:mb-10 text-gray-800 dark:text-white">Pie Chart</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 place-items-center ">
@@ -164,9 +160,7 @@ border border-gray-200 dark:border-gray-700">
 <br />
       {(chartType === "donut" || chartType === "all") && (
  
-      <div className="bg-white rounded-xl dark:bg-[#1e293b] 
-rounded-xl shadow-sm p-4 sm:p-6 
-border border-gray-200 dark:border-gray-700">
+      <div className="bg-white rounded-xl dark:bg-[#1e293b] rounded-xl shadow-sm p-4 sm:p-6 border border-gray-200 dark:border-gray-700">
 
         <h2 className="font-semibold text-[22px] mb-6 sm:mb-10 text-gray-800 dark:text-white">Donut Chart</h2>
 

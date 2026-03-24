@@ -117,12 +117,7 @@ export default function Team() {
 
             <div
               key={member.id}
-            className="bg-white dark:bg-[#1e293b] 
-rounded-xl shadow 
-flex flex-col items-center text-center p-6 
-border border-gray-200 dark:border-gray-700
-hover:shadow-md hover:-translate-y-1
-transition-all duration-300"
+            className="bg-white dark:bg-[#1e293b] rounded-xl shadow flex flex-col items-center text-center p-6 border border-gray-200 dark:border-gray-700 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
             >
 
               <img

@@ -73,10 +73,7 @@ export default function ProductStock() {
 
   return (
     <div >
-      <div className="bg-white dark:bg-[#1e293b] 
-shadow rounded-lg w-full mt-2 
-border border-gray-200 dark:border-gray-700 
-p-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div className="bg-white dark:bg-[#1e293b] shadow rounded-lg w-full mt-2 border border-gray-200 dark:border-gray-700 p-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Product Stock</h2>
 
         <div className="relative">
@@ -89,28 +86,17 @@ p-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               setSearch(e.target.value);
               setCurrentPage(1);
             }}
-            className="pl-9 pr-3 py-2 border rounded-lg text-sm outline-none 
-  bg-white dark:bg-[#334155]
-  text-gray-800 dark:text-white
-  placeholder-gray-400 dark:placeholder-gray-300
-  border-gray-200 dark:border-gray-600
-  focus:ring-2 focus:ring-blue-500
-  w-full md:w-[250px]"
+            className="pl-9 pr-3 py-2 border rounded-lg text-sm outline-none bg-white dark:bg-[#334155] text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-300 border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 w-full md:w-[250px]"
           />
         </div>
       </div>
 
     
-        <div className="bg-white dark:bg-[#1e293b] 
-shadow rounded-lg overflow-x-auto w-full mt-2 
-border border-gray-200 dark:border-gray-700">
+        <div className="bg-white dark:bg-[#1e293b] shadow rounded-lg overflow-x-auto w-full mt-2 border border-gray-200 dark:border-gray-700">
       
         <table className="w-full min-w-[900px] text-sm">
-          <thead className="bg-gray-100 dark:bg-[#334155] text-gray-600 dark:text-gray-300">
-            <tr className="border-b border-gray-200 dark:border-gray-700 
-bg-white dark:bg-[#1e293b] 
-hover:bg-gray-100 dark:hover:bg-[#2a3a4f] 
-transition-all duration-200 ease-in-out cursor-pointer">
+          <thead className="bg-gray-800 dark:bg-[#0f172a] text-gray-600 dark:text-gray-300">
+            <tr className="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-[#1e293b] hover:bg-gray-100 dark:hover:bg-[#2a3a4f] transition-all duration-200 ease-in-out cursor-pointer">
               <th className="px-3 md:px-4 py-3 text-left">Image</th>
               <th className="px-3 md:px-4 py-3 text-left">Product Name</th>
               <th className="px-3 md:px-4 py-3 text-left">Category</th>
@@ -178,8 +164,7 @@ transition-all duration-200 ease-in-out cursor-pointer">
           </tbody>
         </table>
 
-        <div className="flex justify-between items-center p-4 text-sm 
-text-gray-600 dark:text-gray-300">
+        <div className="flex justify-between items-center p-4 text-sm text-gray-600 dark:text-gray-300">
           <div>
             Showing {indexOfFirstItem + 1}–
             {Math.min(indexOfLastItem, totalItems)} of {totalItems}
@@ -190,10 +175,7 @@ text-gray-600 dark:text-gray-300">
               onClick={() =>
                 setCurrentPage((prev) => Math.max(prev - 1, 1))
               }
-              className="px-3 py-1 border rounded 
-hover:bg-gray-100 dark:hover:bg-[#2a3a4f]
-border-gray-300 dark:border-gray-600 
-text-gray-700 dark:text-gray-200"
+              className="px-3 py-1 border rounded hover:bg-gray-100 dark:hover:bg-[#2a3a4f] border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200"
             >
               {"<"}
             </button>
@@ -204,10 +186,7 @@ text-gray-700 dark:text-gray-200"
                   Math.min(prev + 1, totalPages)
                 )
               }
-              className="px-3 py-1 border rounded 
-hover:bg-gray-100 dark:hover:bg-[#2a3a4f]
-border-gray-300 dark:border-gray-600 
-text-gray-700 dark:text-gray-200"
+              className="px-3 py-1 border rounded hover:bg-gray-100 dark:hover:bg-[#2a3a4f] border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200"
             >
               {">"}
             </button>

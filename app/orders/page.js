@@ -94,10 +94,7 @@ export default function OrdersPage() {
            selected={selectedDate}
            onChange={(date) => setSelectedDate(date)}
            placeholderText="Date"
-           className="outline-none w-24 
-           bg-transparent 
-           text-gray-700 dark:text-gray-200 
-           placeholder-gray-400 dark:placeholder-gray-400"
+           className="outline-none w-24 bg-transparent text-gray-700 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-400"
           />
           <FiChevronDown size={16} />
         </div>
@@ -147,7 +144,7 @@ export default function OrdersPage() {
 
         <table className="w-full min-w-[700px] text-sm table-fixed">
 
-          <thead className="bg-[#F5F6FA] dark:bg-[#1e293b] text-gray-500 dark:text-gray-400 text-xs uppercase">
+          <thead className="bg-gray-100 dark:bg-[#334155] text-gray-600 dark:text-gray-300">
           <tr>
             <th className="py-4 px-6 text-left">ID</th>
             <th className="py-4 px-6 text-left">Name</th>
@@ -163,11 +160,7 @@ export default function OrdersPage() {
             {filteredOrders.map((order) => (
               <tr
                 key={order.id}
-                className="border-b border-gray-100 dark:border-gray-700 
-  bg-white dark:bg-[#1e293b] 
-  hover:bg-gray-50 dark:hover:bg-[#2a3a4f] 
-  text-gray-800 dark:text-gray-200 
-  transition-all duration-200 cursor-pointer"
+                className="border-b border-gray-100 dark:border-gray-700 bg-white dark:bg-[#1e293b] hover:bg-gray-50 dark:hover:bg-[#2a3a4f] text-gray-800 dark:text-gray-200 transition-all duration-200 cursor-pointer"
 >
                 <td className="py-5 px-4 text-left font-medium text-gray-800 dark:text-gray-200">000{order.id}</td>
                 <td className="py-5 px-4 text-gray-500 dark:text-gray-400">

@@ -83,9 +83,7 @@ export default function InvoicePage() {
         </div>
 
 
-        <div className="bg-white dark:bg-[#1e293b] 
-shadow rounded-lg overflow-x-auto
-border border-gray-200 dark:border-gray-700">
+        <div className="bg-white dark:bg-[#1e293b] shadow rounded-lg overflow-x-autoborder border-gray-200 dark:border-gray-700">
 
           <table className="w-full min-w-[650px] text-sm">
 
@@ -119,10 +117,7 @@ border border-gray-200 dark:border-gray-700">
 
       <tr
         key={order.id}
-        className="border-b border-gray-200 dark:border-gray-700 
-bg-white dark:bg-[#1e293b]
-hover:bg-gray-50 dark:hover:bg-[#2a3a4f]
-transition"
+        className="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-[#1e293b] hover:bg-gray-50 dark:hover:bg-[#2a3a4f] transition"
       >
 
         <td className="py-5 px-4 font-medium text-gray-800 dark:text-white">000{index+1}</td>
@@ -178,19 +173,14 @@ transition"
 
           <button
             onClick={() => window.print()}
-            className="px-4 py-2 rounded-lg text-sm font-medium
-bg-gray-100 dark:bg-[#334155]
-text-gray-700 dark:text-gray-200
-hover:bg-gray-200 dark:hover:bg-[#2a3a4f]
-transition"
+            className="px-4 py-2 rounded-lg text-sm font-medium bg-gray-100 dark:bg-[#334155] text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-[#2a3a4f] transition"
           >
             🖨 
           </button>
 
           <button
             onClick={sendInvoice}
-            className="px-4 py-2 bg-blue-500 hover:bg-blue-600 rounded-lg text-sm font-medium
-transition"
+            className="px-4 py-2 bg-blue-500 hover:bg-blue-600 rounded-lg text-sm font-medium transition"
           >
             📤 Send 
           </button>

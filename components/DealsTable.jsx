@@ -50,7 +50,7 @@ return (
 
 <div className="overflow-x-auto" >
   <table className="w-full text-sm text-gray-700 dark:text-gray-200">
-    <thead className="bg-gray-50 dark:bg-transparent">
+    <thead className="bg-gray-100 dark:bg-[#0f172a] text-gray-600 dark:text-gray-300">
   <tr className="text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-gray-700">
         <th className="text-left py-3 px-2 ">Product Name</th>
         <th className="text-left py-3 px-2">Location</th>

@@ -56,11 +56,7 @@ const itemsPerPage = 12;
 
       <div className="w-full lg:w-[286px] bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-gray-700 rounded-[14px] p-4 flex flex-col">
 
-        <button className="w-full py-2 rounded-lg mb-6 font-medium 
-bg-blue-500 text-white 
-hover:bg-blue-600 
-dark:bg-blue-600 dark:hover:bg-blue-700 
-transition">
+        <button className="w-full py-2 rounded-lg mb-6 font-medium bg-blue-500 text-white hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 transition">
           + Compose
         </button>
 
@@ -68,11 +64,7 @@ transition">
           <p className="text-gray-800 dark:text-gray-200 font-semibold text-sm mb-3">My Email</p>
 
           <ul className="space-y-2 text-sm">
-            <li className="flex justify-between items-center 
-px-3 py-2 rounded-lg 
-text-gray-700 dark:text-gray-200
-hover:bg-gray-50 dark:hover:bg-gray-700 
-cursor-pointer transition">
+            <li className="flex justify-between items-center px-3 py-2 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer transition">
               <div className="flex items-center gap-2">
                 <Inbox size={16} />
                 Inbox
@@ -80,11 +72,7 @@ cursor-pointer transition">
               <span>1253</span>
             </li>
 
-            <li className="flex justify-between items-center 
-px-3 py-2 rounded-lg 
-text-gray-700 dark:text-gray-200
-hover:bg-gray-50 dark:hover:bg-gray-700 
-cursor-pointer transition">
+            <li className="flex justify-between items-center px-3 py-2 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer transition">
               <div className="flex items-center gap-2">
                 <Star size={16} />
                 Starred
@@ -92,11 +80,7 @@ cursor-pointer transition">
               <span>245</span>
             </li>
 
-            <li className="flex justify-between items-center 
-px-3 py-2 rounded-lg 
-text-gray-700 dark:text-gray-200
-hover:bg-gray-50 dark:hover:bg-gray-700 
-cursor-pointer transition">
+            <li className="flex justify-between items-center px-3 py-2 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer transition">
               <div className="flex items-center gap-2">
                 <Send size={16} />
                 Sent
@@ -104,11 +88,7 @@ cursor-pointer transition">
               <span>24,532</span>
             </li>
 
-            <li className="flex justify-between items-center 
-px-3 py-2 rounded-lg 
-text-gray-700 dark:text-gray-200
-hover:bg-gray-50 dark:hover:bg-gray-700 
-cursor-pointer transition">
+            <li className="flex justify-between items-center px-3 py-2 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer transition">
               <div className="flex items-center gap-2">
                 <FileText size={16} />
                 Draft
@@ -116,11 +96,7 @@ cursor-pointer transition">
               <span>09</span>
             </li>
 
-            <li className="flex justify-between items-center 
-px-3 py-2 rounded-lg 
-text-gray-700 dark:text-gray-200
-hover:bg-gray-50 dark:hover:bg-gray-700 
-cursor-pointer transition">
+            <li className="flex justify-between items-center px-3 py-2 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer transition">
               <div className="flex items-center gap-2">
                 <AlertCircle size={16} />
                 Spam
@@ -128,11 +104,7 @@ cursor-pointer transition">
               <span>14</span>
             </li>
 
-            <li className="flex justify-between items-center 
-px-3 py-2 rounded-lg 
-text-gray-700 dark:text-gray-200
-hover:bg-gray-50 dark:hover:bg-gray-700 
-cursor-pointer transition">
+            <li className="flex justify-between items-center px-3 py-2 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer transition">
               <div className="flex items-center gap-2">
                 <Trash2 size={16} />
                 Bin
@@ -202,12 +174,7 @@ cursor-pointer transition">
   setPage(1);
 }}
     
-    className="w-full border border-gray-200 dark:border-gray-600 
-  rounded-lg pl-10 pr-4 py-2 
-  bg-white dark:bg-[#334155] 
-  text-gray-800 dark:text-white 
-  placeholder-gray-400 dark:placeholder-gray-300
-  focus:outline-none focus:ring-2 focus:ring-blue-500"
+    className="w-full border border-gray-200 dark:border-gray-600 rounded-lg pl-10 pr-4 py-2   bg-white dark:bg-[#334155] text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
   />
 </div>
 
@@ -330,9 +297,7 @@ cursor-pointer transition">
           </span>
         </div>
 
-        <div className="w-full border border-gray-200 dark:border-gray-600 rounded-lg pl-10 pr-4 py-2 
-bg-white dark:bg-[#334155] text-gray-800 dark:text-white 
-focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <div className="w-full border border-gray-200 dark:border-gray-600 rounded-lg pl-10 pr-4 py-2 bg-white dark:bg-[#334155] text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
           <button className="p-3 border-r hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200">⬇️</button>
           <button className="p-3 border-r hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200">ℹ️</button>
           <button className="p-3 hover:bg-gray-100 dark:hover:bg-gray-700">🗑️</button>

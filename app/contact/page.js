@@ -69,8 +69,7 @@ return (
 
        <div
          key={contact.id}
-          className="bg-white dark:bg-[#1e293b] rounded-xl shadow-sm overflow-hidden text-center border border-gray-200 dark:border-gray-700
-hover:shadow-md transition"
+          className="bg-white dark:bg-[#1e293b] rounded-xl shadow-sm overflow-hidden text-center border border-gray-200 dark:border-gray-700 hover:shadow-md transition"
        >
 
         <img

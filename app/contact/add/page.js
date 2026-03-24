@@ -30,12 +30,7 @@ export default function AddContact() {
             <div>
               <label className="text-sm text-gray-500">First Name</label>
               <input
-                className="w-full border rounded-lg p-3 mt-1 
-bg-gray-50 dark:bg-[#334155]
-text-gray-800 dark:text-white
-placeholder-gray-400 dark:placeholder-gray-300
-border-gray-200 dark:border-gray-600
-focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border rounded-lg p-3 mt-1 bg-gray-50 dark:bg-[#334155] text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-300 border-gray-200 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Kevin"
               />
             </div>
@@ -43,12 +38,7 @@ focus:outline-none focus:ring-2 focus:ring-blue-500"
             <div>
               <label className="text-sm text-gray-500">Last Name</label>
               <input
-                className="w-full border rounded-lg p-3 mt-1 
-bg-gray-50 dark:bg-[#334155]
-text-gray-800 dark:text-white
-placeholder-gray-400 dark:placeholder-gray-300
-border-gray-200 dark:border-gray-600
-focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border rounded-lg p-3 mt-1 bg-gray-50 dark:bg-[#334155] text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-300 border-gray-200 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Fleming"
               />
             </div>
@@ -56,12 +46,7 @@ focus:outline-none focus:ring-2 focus:ring-blue-500"
             <div>
               <label className="text-sm text-gray-500">Your Email</label>
               <input
-                className="w-full border rounded-lg p-3 mt-1 
-bg-gray-50 dark:bg-[#334155]
-text-gray-800 dark:text-white
-placeholder-gray-400 dark:placeholder-gray-300
-border-gray-200 dark:border-gray-600
-focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border rounded-lg p-3 mt-1 bg-gray-50 dark:bg-[#334155] text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-300 border-gray-200 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="example@email.com"
               />
             </div>
@@ -69,12 +54,7 @@ focus:outline-none focus:ring-2 focus:ring-blue-500"
             <div>
               <label className="text-sm text-gray-500">Phone Number</label>
               <input
-                className="w-full border rounded-lg p-3 mt-1 
-bg-gray-50 dark:bg-[#334155]
-text-gray-800 dark:text-white
-placeholder-gray-400 dark:placeholder-gray-300
-border-gray-200 dark:border-gray-600
-focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border rounded-lg p-3 mt-1 bg-gray-50 dark:bg-[#334155] text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-300 border-gray-200 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="546-933-2772"
               />
             </div>
@@ -83,12 +63,7 @@ focus:outline-none focus:ring-2 focus:ring-blue-500"
               <label className="text-sm text-gray-500">Date of Birth</label>
               <input
                 type="date"
-                className="w-full border rounded-lg p-3 mt-1 
-bg-gray-50 dark:bg-[#334155]
-text-gray-800 dark:text-white
-border-gray-200 dark:border-gray-600
-focus:outline-none focus:ring-2 focus:ring-blue-500
-dark:[color-scheme:dark]"
+                className="w-full border rounded-lg p-3 mt-1 bg-gray-50 dark:bg-[#334155] text-gray-800 dark:text-white border-gray-200 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:[color-scheme:dark]"
               />
             </div>
 
@@ -107,9 +82,7 @@ dark:[color-scheme:dark]"
 
           <div className="flex justify-center mt-10">
 
-            <button className="bg-blue-600 hover:bg-blue-700 
-text-white px-8 py-3 rounded-lg 
-w-full md:w-auto transition">
+            <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg w-full md:w-auto transition">
               Add Now
             </button>
 

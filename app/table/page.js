@@ -56,10 +56,7 @@ export default function TablesPage() {
     <div className="bg-gray-50 dark:bg-[#0f172a] min-h-screen py-6">
   <div className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
       <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-6 text-gray-800 dark:text-white">Table</h1>
-      <div className="bg-white dark:bg-[#1e293b] 
-shadow rounded-lg p-6 
-border border-gray-200 dark:border-gray-700
-transition-colors duration-200">
+      <div className="bg-white dark:bg-[#1e293b] shadow rounded-lg p-6 border border-gray-200 dark:border-gray-700 transition-colors duration-200">
 
         <div className="flex justify-between mb-4">
 
@@ -85,9 +82,7 @@ transition-colors duration-200">
             {filteredOrders.map((order) => (
               <tr
                 key={order.id}
-                className="border-b border-gray-200 dark:border-gray-700 
-hover:bg-gray-50 dark:hover:bg-[#2a3a4f] 
-transition-colors text-gray-500 dark:text-gray-400"
+                className="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-[#2a3a4f] transition-colors text-gray-500 dark:text-gray-400"
               >
 
                 <td className="py-4 px-4">00{order.id}</td>
@@ -152,10 +147,7 @@ transition-colors text-gray-500 dark:text-gray-400"
       
       
       
-      <div className="bg-white dark:bg-[#1e293b] 
-shadow rounded-lg p-6 
-border border-gray-200 dark:border-gray-700
-transition-colors duration-200">
+      <div className="bg-white dark:bg-[#1e293b] shadow rounded-lg p-6 border border-gray-200 dark:border-gray-700 transition-colors duration-200">
 
         <div className="flex justify-between mb-4">
           <h2 className="text-xl font-bold text-gray-800 dark:text-white">Product Stock</h2>
@@ -166,8 +158,7 @@ transition-colors duration-200">
         <div className="overflow-x-auto">
   <table className="min-w-[700px] w-full text-sm">
 
-          <thead className="bg-gray-100 dark:bg-[#0f172a] 
-text-gray-600 dark:text-gray-300">
+          <thead className="bg-gray-100 dark:bg-[#0f172a] text-gray-600 dark:text-gray-300">
             <tr>
               <th className="py-4 px-4 text-left">Image</th>
               <th className="py-4 px-4 text-left">Product</th>
@@ -183,9 +174,7 @@ text-gray-600 dark:text-gray-300">
             {currentProducts.map((product) => (
               <tr
                 key={product.id}
-                className="border-b border-gray-200 dark:border-gray-700 
-hover:bg-gray-50 dark:hover:bg-[#2a3a4f] 
-transition-colors"
+                className="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-[#2a3a4f] transition-colors"
               >
 
                 <td className="py-5 px-4">
@@ -242,10 +231,7 @@ transition-colors"
             onClick={() =>
               setCurrentPage((p) => Math.max(p - 1, 1))
             }
-            className="px-3 py-1 border rounded border-gray-300 dark:border-gray-600 
-text-gray-700 dark:text-gray-200 
-hover:bg-gray-100 dark:hover:bg-[#2a3a4f]
-transition"
+            className="px-3 py-1 border rounded border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-[#2a3a4f] transition"
 >
             {"<"}
           </button>
@@ -256,10 +242,7 @@ transition"
                 Math.min(p + 1, totalPages)
               )
             }
-            className="px-3 py-1 border rounded border-gray-300 dark:border-gray-600 
-text-gray-700 dark:text-gray-200 
-hover:bg-gray-100 dark:hover:bg-[#2a3a4f]
-transition"
+            className="px-3 py-1 border rounded border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-[#2a3a4f] transition"
           >
             {">"}
           </button>

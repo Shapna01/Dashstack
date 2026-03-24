@@ -170,23 +170,13 @@ const filteredProducts = useMemo(() => {
       placeholder="Search product..."
       value={search}
       onChange={(e) => setSearch(e.target.value)}
-      className="border rounded-lg px-4 py-2 
-      bg-white dark:bg-[#0f172a] 
-      border-gray-300 dark:border-gray-600 
-      text-gray-800 dark:text-gray-200 
-      placeholder-gray-400 dark:placeholder-gray-500
-      focus:outline-none focus:ring-2 focus:ring-blue-500
-      w-full sm:w-[200px]"
+      className="border rounded-lg px-4 py-2 bg-white dark:bg-[#0f172a] border-gray-300 dark:border-gray-600 text-gray-800 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full sm:w-[200px]"
     />
 
     <select
       value={category}
       onChange={(e) => setCategory(e.target.value)}
-      className="border rounded-lg px-3 py-2 
-      bg-white dark:bg-[#0f172a] 
-      border-gray-300 dark:border-gray-600 
-      text-gray-800 dark:text-gray-200 
-      focus:outline-none focus:ring-2 focus:ring-blue-500"
+      className="border rounded-lg px-3 py-2 bg-white dark:bg-[#0f172a] border-gray-300 dark:border-gray-600  text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
     >
       <option value="all">All</option>
       <option value="beauty">Beauty</option>

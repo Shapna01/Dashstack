@@ -144,9 +144,7 @@ export default function TodoPage() {
       {showModal && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center">
 
-          <div className="bg-white dark:bg-[#1e293b] 
-p-6 rounded-lg w-[90%] max-w-[400px] 
-text-gray-800 dark:text-white">
+          <div className="bg-white dark:bg-[#1e293b] p-6 rounded-lg w-[90%] max-w-[400px] text-gray-800 dark:text-white">
 
             <h2 className="text-lg font-semibold mb-4">
               Add New Task
@@ -157,19 +155,14 @@ text-gray-800 dark:text-white">
               placeholder="Enter task..."
               value={newTask}
               onChange={(e) => setNewTask(e.target.value)}
-              className="w-full border px-4 py-2 rounded mb-4
-bg-white dark:bg-[#334155]
-text-gray-800 dark:text-white
-border-gray-200 dark:border-gray-600"
+              className="w-full border px-4 py-2 rounded mb-4 bg-white dark:bg-[#334155] text-gray-800 dark:text-white border-gray-200 dark:border-gray-600"
             />
 
             <div className="flex justify-end gap-3">
 
               <button
                 onClick={() => setShowModal(false)}
-                className="px-4 py-2 border rounded border-gray-300 dark:border-gray-600
-text-gray-700 dark:text-gray-200
-hover:bg-gray-100 dark:hover:bg-[#2a3a4f]"
+                className="px-4 py-2 border rounded border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-[#2a3a4f]"
               >
                 Cancel
               </button>

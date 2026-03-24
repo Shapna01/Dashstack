@@ -51,13 +51,7 @@ export default function PricingPage() {
         {plans.map((plan) => (
           <div
             key={plan.name}
-            className={`w-full rounded-2xl border flex flex-col transition-all duration-300
-bg-white dark:bg-[#1e293b]
-border-gray-100 dark:border-gray-700
-hover:shadow-lg hover:-translate-y-1
-hover:ring-2 hover:ring-blue-500
-`}
-          >
+            className={`w-full rounded-2xl border flex flex-col transition-all duration-300 bg-white dark:bg-[#1e293b] border-gray-100 dark:border-gray-700 hover:shadow-lg hover:-translate-y-1 hover:ring-2 hover:ring-blue-500`} >
             <div className="px-10 pt-10 pb-6 text-center">
               <h2 className="text-lg font-semibold text-gray-800 dark:text-white">{plan.name}</h2>
               <p className="text-gray-400 dark:text-gray-400 text-sm">Monthly Charge</p>
