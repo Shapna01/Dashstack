@@ -1,115 +1,95 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useParams, useRouter ,useSearchParams } from "next/navigation";
-export default function CalendarPage() {
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 
-const [date,setDate] = useState(new Date());
-const [events, setEvents] = useState({});
-const params = useParams();
-const searchParams = useSearchParams();
-const router = useRouter();
+export default function CalendarClient() {
+  const [date, setDate] = useState(new Date());
+  const [events, setEvents] = useState({});
+  const [showModal, setShowModal] = useState(false);
+  const [selectedDay, setSelectedDay] = useState(null);
+  const [eventTitle, setEventTitle] = useState("");
+  const [eventMessage, setEventMessage] = useState("");
 
-const paramYear = searchParams.get("year");
-const paramMonth = searchParams.get("month");
-const paramDay = searchParams.get("day");
+  const params = useParams();
+  const searchParams = useSearchParams();
+  const router = useRouter();
 
-useEffect(() => {
-  const saved = localStorage.getItem("events");
-  if (saved) {
-    setEvents(JSON.parse(saved));
+  const paramYear = searchParams.get("year");
+  const paramMonth = searchParams.get("month");
+  const paramDay = searchParams.get("day");
+
+  useEffect(() => {
+    const saved = localStorage.getItem("events");
+    if (saved) setEvents(JSON.parse(saved));
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("events", JSON.stringify(events));
+  }, [events]);
+
+  useEffect(() => {
+    if (params.day && params.month && params.year) {
+      setSelectedDay(params.day);
+      setDate(new Date(params.year, params.month - 1, params.day));
+      setShowModal(true);
+    }
+  }, [paramYear, paramMonth, paramDay]);
+
+  const month = date.toLocaleString("default", { month: "long" });
+  const year = date.getFullYear();
+
+  const firstDay = new Date(year, date.getMonth(), 1).getDay();
+  const daysInMonth = new Date(year, date.getMonth() + 1, 0).getDate();
+  const startOffset = firstDay === 0 ? 6 : firstDay - 1;
+
+  const days = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
+  const calendarDays = [];
+
+  const prevMonthDays = new Date(year, date.getMonth(), 0).getDate();
+  for (let i = startOffset; i > 0; i--) {
+    calendarDays.push({ day: prevMonthDays - i + 1, prev: true });
   }
-}, []);
-useEffect(() => {
-  localStorage.setItem("events", JSON.stringify(events));
-}, [events]);
+  for (let i = 1; i <= daysInMonth; i++) {
+    calendarDays.push({ day: i, current: true });
+  }
+  let nextDay = 1;
+  while (calendarDays.length % 7 !== 0) {
+    calendarDays.push({ day: nextDay++, next: true });
+  }
 
-useEffect(() => {
-  if (params.day && params.month && params.year) {
-    setSelectedDay(params.day);
-    setDate(new Date(params.year, params.month - 1, params.day));
+  function prevMonth() {
+    setDate(new Date(year, date.getMonth() - 1, 1));
+  }
+  function nextMonth() {
+    setDate(new Date(year, date.getMonth() + 1, 1));
+  }
+
+  function openModal(day) {
+    setSelectedDay(day);
     setShowModal(true);
+    const newParams = new URLSearchParams(window.location.search);
+    newParams.set("year", date.getFullYear());
+    newParams.set("month", date.getMonth() + 1);
+    newParams.set("day", day);
+    router.replace(`${window.location.pathname}?${newParams.toString()}`);
   }
-}, [params]);
 
-const [showModal,setShowModal] = useState(false);
-const [selectedDay,setSelectedDay] = useState(null);
-const [eventTitle,setEventTitle] = useState("");
-const [eventMessage,setEventMessage] = useState("");
+  function addEvent() {
+    if (!eventTitle) return;
+    const key = `${year}-${date.getMonth()}-${selectedDay}`;
+    setEvents({
+      ...events,
+      [key]: { title: eventTitle, message: eventMessage },
+    });
+    setEventTitle("");
+    setEventMessage("");
+    setShowModal(false);
+    router.replace("/calendar");
+  }
 
-const month = date.toLocaleString("default",{month:"long"});
-const year = date.getFullYear();
-
-const firstDay = new Date(year,date.getMonth(),1).getDay();
-const daysInMonth = new Date(year,date.getMonth()+1,0).getDate();
-
-const startOffset = firstDay === 0 ? 6 : firstDay - 1;
-
-const days = ["MON","TUE","WED","THU","FRI","SAT","SUN"];
-
-const calendarDays = [];
-
-const prevMonthDays = new Date(year, date.getMonth(), 0).getDate();
-
-for (let i = startOffset; i > 0; i--) {
-  calendarDays.push({
-    day: prevMonthDays - i + 1,
-    prev: true
-  });
-}
-
-for(let i=1;i<=daysInMonth;i++){
-  calendarDays.push({day:i,current:true});
-}
-
-let nextDay = 1;
-
-while(calendarDays.length % 7 !== 0){
-  calendarDays.push({day:nextDay++,next:true});
-}
-
-function prevMonth(){
-  setDate(new Date(year,date.getMonth()-1,1));
-}
-
-function nextMonth(){
-  setDate(new Date(year,date.getMonth()+1,1));
-}
-
-function openModal(day) {
-  setSelectedDay(day);
-  setShowModal(true);
-  const newParams = new URLSearchParams(window.location.search);
-  newParams.set("year", date.getFullYear());
-  newParams.set("month", date.getMonth() + 1);
-  newParams.set("day", day);
-
-  router.replace(`${window.location.pathname}?${newParams.toString()}`);
-}
-
-
-function addEvent(){
-
-if(!eventTitle) return;
-
-const key = `${year}-${date.getMonth()}-${selectedDay}`;
-
-setEvents({
-...events,
-[key]:{
-title:eventTitle,
-message:eventMessage
-}
-});
-
-setEventTitle("");
-setEventMessage("");
-setShowModal(false);
-}
-
-return(
-    
-<div><br />
+  return (
+   <div><br />
 <div className="text-3xl font-bold text-gray-800  ">Calendar</div>
 <br />
 <div className="flex flex-col xl:flex-row gap-6">
@@ -321,7 +301,10 @@ rows={3}
 <div className="flex justify-end gap-2">
 
 <button
-onClick={()=>setShowModal(false)}
+onClick={() => {
+  setShowModal(false);
+  router.replace("/calendar");
+}}
 className="px-3 py-1 border rounded"
 >
 Cancel

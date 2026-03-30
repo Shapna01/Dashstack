@@ -57,13 +57,10 @@ export default function TablesPage() {
   <div className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
       <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-6 text-gray-800 dark:text-white">Table</h1>
       <div className="bg-white dark:bg-[#1e293b] shadow rounded-lg p-6 border border-gray-200 dark:border-gray-700 transition-colors duration-200">
-
-        <div className="flex justify-between mb-4">
-
-          
+        <div className="flex justify-between mb-4">    
         </div>
-
-        <div className="overflow-x-auto">
+        
+              <div className="overflow-x-auto">
   <table className="min-w-[700px] w-full text-sm">
 
           <thead className="bg-gray-100 dark:bg-[#0f172a] text-gray-600 dark:text-gray-300">

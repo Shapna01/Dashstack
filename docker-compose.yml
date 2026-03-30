@@ -1,0 +1,26 @@
+services:
+  dashstack_db:
+    image: postgres:15
+    container_name: dashstack_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres123
+      POSTGRES_DB: dashstack
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - db_data:/var/lib/postgresql/data
+
+  dashstack_app:
+    build: .
+    container_name: dashstack_app
+    environment:
+      DATABASE_URL: postgres://postgres:postgres123@dashstack_db:5432/dashstack
+    ports:
+      - "3000:3000"
+    depends_on:
+      - dashstack_db
+
+volumes:
+  db_data:

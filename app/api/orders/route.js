@@ -2,12 +2,15 @@ import pool from "@/lib/db";
 
 export async function GET() {
   try {
-    const result = await pool.query("SELECT * FROM orders ORDER BY id ASC");
+    const result = await pool.query(
+      "SELECT * FROM orders ORDER BY id ASC"
+    );
 
-    return Response.json(result.rows);
+    return Response.json(result.rows); 
   } catch (error) {
-    console.error(error);
-    return Response.json({ error: "Database error" }, { status: 500 });
+    console.error("ORDERS ERROR:", error);
+
+    return Response.json([]); 
   }
 }
 export async function POST(req) {
