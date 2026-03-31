@@ -1,5 +1,3 @@
-"use client";
-
 import { FiMail } from "react-icons/fi";
 import Link from "next/link";
 export default function ContactPage() {

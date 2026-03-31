@@ -1,31 +1,13 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import StatCard from "../../components/StatCard";
 import SalesChart from "../../components/SalesChart";
 import DealsTable from "../../components/DealsTable";
 
-export default function Dashboard() {
-  const [stats, setStats] = useState({
-    totalUsers: 0,
-    totalOrders: 0,
-    totalSales: 0,
-    totalPending: 0
+export default async function Dashboard() {
+  const res = await fetch("http://localhost:3000/api/dashboard", {
+    cache: "no-store"
   });
 
-  useEffect(() => {
-    async function fetchStats() {
-      try {
-        const res = await fetch("/api/dashboard"); 
-        const data = await res.json();
-        setStats(data);
-      } catch (err) {
-        console.error("Failed to fetch dashboard stats:", err);
-      }
-    }
-
-    fetchStats();
-  }, []);
+  const stats = await res.json();
 
   return (
     <div className="w-full text-gray-800 dark:text-gray-200">
